@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TheCIU_Shop.GUI.Forms;
 
 namespace TheCIU_Shop
 {
@@ -16,7 +17,7 @@ namespace TheCIU_Shop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new frmDangNhap());
         }
     }
 }

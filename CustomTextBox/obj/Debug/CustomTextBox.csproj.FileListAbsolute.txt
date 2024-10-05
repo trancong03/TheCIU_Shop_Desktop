@@ -1,0 +1,8 @@
+D:\TEAMWORKING\TheCIU_Shop_Desktop\CustomTextBox\bin\Debug\CustomTextBox.dll
+D:\TEAMWORKING\TheCIU_Shop_Desktop\CustomTextBox\bin\Debug\CustomTextBox.pdb
+D:\TEAMWORKING\TheCIU_Shop_Desktop\CustomTextBox\obj\Debug\CustomTextBox.csproj.AssemblyReference.cache
+D:\TEAMWORKING\TheCIU_Shop_Desktop\CustomTextBox\obj\Debug\CustomTextBox.Properties.Resources.resources
+D:\TEAMWORKING\TheCIU_Shop_Desktop\CustomTextBox\obj\Debug\CustomTextBox.csproj.GenerateResource.cache
+D:\TEAMWORKING\TheCIU_Shop_Desktop\CustomTextBox\obj\Debug\CustomTextBox.csproj.CoreCompileInputs.cache
+D:\TEAMWORKING\TheCIU_Shop_Desktop\CustomTextBox\obj\Debug\CustomTextBox.dll
+D:\TEAMWORKING\TheCIU_Shop_Desktop\CustomTextBox\obj\Debug\CustomTextBox.pdb

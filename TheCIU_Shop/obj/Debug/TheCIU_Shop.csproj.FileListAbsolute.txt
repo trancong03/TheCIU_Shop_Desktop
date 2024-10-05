@@ -1,0 +1,16 @@
+D:\TEAMWORKING\TheCIU_Shop_Desktop\TheCIU_Shop\bin\Debug\TheCIU_Shop.exe.config
+D:\TEAMWORKING\TheCIU_Shop_Desktop\TheCIU_Shop\bin\Debug\TheCIU_Shop.exe
+D:\TEAMWORKING\TheCIU_Shop_Desktop\TheCIU_Shop\bin\Debug\TheCIU_Shop.pdb
+D:\TEAMWORKING\TheCIU_Shop_Desktop\TheCIU_Shop\obj\Debug\TheCIU_Shop.csproj.AssemblyReference.cache
+D:\TEAMWORKING\TheCIU_Shop_Desktop\TheCIU_Shop\obj\Debug\TheCIU_Shop.GUI.Forms.frmDangNhap.resources
+D:\TEAMWORKING\TheCIU_Shop_Desktop\TheCIU_Shop\obj\Debug\TheCIU_Shop.Properties.Resources.resources
+D:\TEAMWORKING\TheCIU_Shop_Desktop\TheCIU_Shop\obj\Debug\TheCIU_Shop.csproj.GenerateResource.cache
+D:\TEAMWORKING\TheCIU_Shop_Desktop\TheCIU_Shop\obj\Debug\TheCIU_Shop.csproj.CoreCompileInputs.cache
+D:\TEAMWORKING\TheCIU_Shop_Desktop\TheCIU_Shop\obj\Debug\TheCIU_S.4FBFC81E.Up2Date
+D:\TEAMWORKING\TheCIU_Shop_Desktop\TheCIU_Shop\obj\Debug\TheCIU_Shop.exe
+D:\TEAMWORKING\TheCIU_Shop_Desktop\TheCIU_Shop\obj\Debug\TheCIU_Shop.pdb
+D:\TEAMWORKING\TheCIU_Shop_Desktop\TheCIU_Shop\bin\Debug\LoginControl.dll
+D:\TEAMWORKING\TheCIU_Shop_Desktop\TheCIU_Shop\bin\Debug\CustomTextBox.dll
+D:\TEAMWORKING\TheCIU_Shop_Desktop\TheCIU_Shop\bin\Debug\LoginControl.pdb
+D:\TEAMWORKING\TheCIU_Shop_Desktop\TheCIU_Shop\bin\Debug\CustomTextBox.pdb
+D:\TEAMWORKING\TheCIU_Shop_Desktop\TheCIU_Shop\obj\Debug\TheCIU_Shop.GUI.Controls.LoginControl.resources

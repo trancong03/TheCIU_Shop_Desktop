@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QuanLyShop" Class="QuanLyShopDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-EKR82M7;Initial Catalog=QuanLyShop;User ID=sa;Trust Server Certificate=True" SettingsObjectName="TheCIU_Shop.Properties.Settings" SettingsPropertyName="QuanLyShopConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Account" Member="Accounts">
+    <Type Name="Account">
+      <Column Name="username" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="phone" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="address" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="gender" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="avatar" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="background" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="Account_Feedback" Member="Feedbacks" ThisKey="username" OtherKey="username" Type="Feedback" />
+      <Association Name="Account_Order" Member="Orders" ThisKey="username" OtherKey="username" Type="Order" />
+      <Association Name="Account_product_voucher" Member="product_vouchers" ThisKey="username" OtherKey="username" Type="product_voucher" />
+      <Association Name="Account_User_GroupUser" Member="User_GroupUsers" ThisKey="username" OtherKey="username" Type="User_GroupUser" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Voucher" Member="Vouchers">
+    <Type Name="Voucher">
+      <Column Name="voucher_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="dateStart" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="dateEnd" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="discount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="tiltle" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="discription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Voucher_Order" Member="Orders" ThisKey="voucher_id" OtherKey="voucher_id" Type="Order" />
+      <Association Name="Voucher_product_voucher" Member="product_vouchers" ThisKey="voucher_id" OtherKey="voucher_id" Type="product_voucher" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Categories" Member="Categories">
+    <Type Name="Category">
+      <Column Name="category_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="category_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Category_Product" Member="Products" ThisKey="category_id" OtherKey="category_id" Type="Product" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Colors" Member="Colors">
+    <Type Name="Color">
+      <Column Name="color_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="color_name" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Association Name="Color_ProductVariant" Member="ProductVariants" ThisKey="color_id" OtherKey="color_id" Type="ProductVariant" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Feedback" Member="Feedbacks">
+    <Type Name="Feedback">
+      <Column Name="product_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="rating" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="discription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="dateFB" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Account_Feedback" Member="Account" ThisKey="username" OtherKey="username" Type="Account" IsForeignKey="true" />
+      <Association Name="Product_Feedback" Member="Product" ThisKey="product_id" OtherKey="product_id" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GroupUsers" Member="GroupUsers">
+    <Type Name="GroupUser">
+      <Column Name="idGroup" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Association Name="GroupUser_QLPhanQuyen" Member="QLPhanQuyens" ThisKey="idGroup" OtherKey="idGroup" Type="QLPhanQuyen" />
+      <Association Name="GroupUser_User_GroupUser" Member="User_GroupUsers" ThisKey="idGroup" OtherKey="idGroup" Type="User_GroupUser" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Image" Member="Images">
+    <Type Name="Image">
+      <Column Name="Url" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Product_Image" Member="Product" ThisKey="product_id" OtherKey="product_id" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OrderDetails" Member="OrderDetails">
+    <Type Name="OrderDetail">
+      <Column Name="order_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="variant_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="subtotal" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="Order_OrderDetail" Member="Order" ThisKey="order_id" OtherKey="order_id" Type="Order" IsForeignKey="true" />
+      <Association Name="ProductVariant_OrderDetail" Member="ProductVariant" ThisKey="variant_id" OtherKey="variant_id" Type="ProductVariant" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orders" Member="Orders">
+    <Type Name="Order">
+      <Column Name="order_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="order_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="payment_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="voucher_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="amount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="Order_OrderDetail" Member="OrderDetails" ThisKey="order_id" OtherKey="order_id" Type="OrderDetail" />
+      <Association Name="Account_Order" Member="Account" ThisKey="username" OtherKey="username" Type="Account" IsForeignKey="true" />
+      <Association Name="Voucher_Order" Member="Voucher" ThisKey="voucher_id" OtherKey="voucher_id" Type="Voucher" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.product_voucher" Member="product_vouchers">
+    <Type Name="product_voucher">
+      <Column Name="username" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="voucher_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="count" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Account_product_voucher" Member="Account" ThisKey="username" OtherKey="username" Type="Account" IsForeignKey="true" />
+      <Association Name="Voucher_product_voucher" Member="Voucher" ThisKey="voucher_id" OtherKey="voucher_id" Type="Voucher" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Products" Member="Products">
+    <Type Name="Product">
+      <Column Name="product_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="product_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="price" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="category_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ImageSP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="rating" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Dateadd" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Product_Feedback" Member="Feedbacks" ThisKey="product_id" OtherKey="product_id" Type="Feedback" />
+      <Association Name="Product_Image" Member="Images" ThisKey="product_id" OtherKey="product_id" Type="Image" />
+      <Association Name="Product_ProductVariant" Member="ProductVariants" ThisKey="product_id" OtherKey="product_id" Type="ProductVariant" />
+      <Association Name="Category_Product" Member="Category" ThisKey="category_id" OtherKey="category_id" Type="Category" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductVariants" Member="ProductVariants">
+    <Type Name="ProductVariant">
+      <Column Name="variant_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="product_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="color_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="size_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="ProductVariant_OrderDetail" Member="OrderDetails" ThisKey="variant_id" OtherKey="variant_id" Type="OrderDetail" />
+      <Association Name="Color_ProductVariant" Member="Color" ThisKey="color_id" OtherKey="color_id" Type="Color" IsForeignKey="true" />
+      <Association Name="Product_ProductVariant" Member="Product" ThisKey="product_id" OtherKey="product_id" Type="Product" IsForeignKey="true" />
+      <Association Name="Size_ProductVariant" Member="Size" ThisKey="size_id" OtherKey="size_id" Type="Size" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QLPhanQuyen" Member="QLPhanQuyens">
+    <Type Name="QLPhanQuyen">
+      <Column Name="idGroup" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idScreen" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="GroupUser_QLPhanQuyen" Member="GroupUser" ThisKey="idGroup" OtherKey="idGroup" Type="GroupUser" IsForeignKey="true" />
+      <Association Name="Screen_QLPhanQuyen" Member="Screen" ThisKey="idScreen" OtherKey="idScreen" Type="Screen" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Screen" Member="Screens">
+    <Type Name="Screen">
+      <Column Name="idScreen" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Screen_QLPhanQuyen" Member="QLPhanQuyens" ThisKey="idScreen" OtherKey="idScreen" Type="QLPhanQuyen" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sizes" Member="Sizes">
+    <Type Name="Size">
+      <Column Name="size_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="size_name" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Association Name="Size_ProductVariant" Member="ProductVariants" ThisKey="size_id" OtherKey="size_id" Type="ProductVariant" />
+    </Type>
+  </Table>
+  <Table Name="dbo.User_GroupUser" Member="User_GroupUsers">
+    <Type Name="User_GroupUser">
+      <Column Name="username" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idGroup" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Association Name="Account_User_GroupUser" Member="Account" ThisKey="username" OtherKey="username" Type="Account" IsForeignKey="true" />
+      <Association Name="GroupUser_User_GroupUser" Member="GroupUser" ThisKey="idGroup" OtherKey="idGroup" Type="GroupUser" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NguoiDung" Member="NguoiDungs">
+    <Type Name="NguoiDung">
+      <Column Name="TenDangNhap" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MatKhau" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="HoatDong" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

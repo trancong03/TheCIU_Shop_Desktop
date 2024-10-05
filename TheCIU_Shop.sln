@@ -5,6 +5,10 @@ VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheCIU_Shop", "TheCIU_Shop\TheCIU_Shop.csproj", "{3401D7AC-70D1-4D4C-A16C-76798641C588}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomTextBox", "CustomTextBox\CustomTextBox.csproj", "{FCF4A818-2DC7-4A7C-A184-7BF690307B6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginControl", "LoginControl\LoginControl.csproj", "{764D094E-0797-49D1-8E28-692A6352CB1E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{3401D7AC-70D1-4D4C-A16C-76798641C588}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3401D7AC-70D1-4D4C-A16C-76798641C588}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3401D7AC-70D1-4D4C-A16C-76798641C588}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCF4A818-2DC7-4A7C-A184-7BF690307B6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCF4A818-2DC7-4A7C-A184-7BF690307B6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCF4A818-2DC7-4A7C-A184-7BF690307B6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCF4A818-2DC7-4A7C-A184-7BF690307B6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{764D094E-0797-49D1-8E28-692A6352CB1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{764D094E-0797-49D1-8E28-692A6352CB1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{764D094E-0797-49D1-8E28-692A6352CB1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{764D094E-0797-49D1-8E28-692A6352CB1E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

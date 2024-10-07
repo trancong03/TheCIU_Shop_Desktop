@@ -1,37 +1,44 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LoginControl
 {
     public partial class LoginControl : UserControl
     {
-
         public LoginControl()
         {
             InitializeComponent();
+            this.btnLogin.Click += BtnLogin_Click;
         }
 
-        // Phương thức nhận UserRepository từ form chính
-       
-
-        // Sự kiện xử lý khi nhấn nút đăng nhập
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            string username = txtUsername1.Text;
-            string password = txtPassword1.Text;
+            OnLoginClicked();
+        }
 
-            // Kiểm tra đăng nhập qua UserRepository
-            //bool isValidUser = _userRepository.ValidateUser(username, password);
+        public string UserName
+        {
+            get { return txtUsername.Text; }
+            set { txtUsername.Text = value; }
+        }
 
-            //if (isValidUser)
-            //{
-            //    MessageBox.Show("Đăng nhập thành công!");
-            //    // Thực hiện các hành động sau khi đăng nhập thành công (chuyển form, đóng form hiện tại, v.v.)
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng.");
-            //}
+        public string Password
+        {
+            get { return txtPassword.Text; }
+            set { txtPassword.Text = value; }
+        }
+        public event EventHandler LoginClicked;
+
+        protected virtual void OnLoginClicked()
+        {
+            LoginClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

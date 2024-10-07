@@ -9,18 +9,15 @@ namespace TheCIU_Shop.Data.Repository
 {
     internal class UserRepository
     {
-        private QuanLyShopDataContext _dbContext;
+        private QuanLyShopDataContext _dbContext = new QuanLyShopDataContext();
 
-        public UserRepository(QuanLyShopDataContext dbContext)
+        public UserRepository()
         {
-            _dbContext = dbContext;
         }
 
         public bool ValidateUser(string username, string password)
         {
             var user = _dbContext.NguoiDungs.FirstOrDefault(u => u.TenDangNhap == username && u.MatKhau == password);
-
-
             return user != null;
         }
     }

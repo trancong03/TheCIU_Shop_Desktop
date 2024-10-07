@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CustomTextBox
 {
-    public class txtPassword : CustomTextBox
+    public class txtPassword : TextBox
     {
         public txtPassword()
         {
-         
-            this.Icon = Properties.Resources.password_icon;
             this.PasswordChar = '*'; 
-            this.Placeholder = "Nhập mật khẩu"; 
+            this.UseSystemPasswordChar = true;
         }
+
     }
 
 }

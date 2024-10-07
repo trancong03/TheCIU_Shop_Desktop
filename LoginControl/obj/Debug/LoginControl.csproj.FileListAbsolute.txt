@@ -1,11 +1,8 @@
 D:\TEAMWORKING\TheCIU_Shop_Desktop\LoginControl\bin\Debug\LoginControl.dll
 D:\TEAMWORKING\TheCIU_Shop_Desktop\LoginControl\bin\Debug\LoginControl.pdb
-D:\TEAMWORKING\TheCIU_Shop_Desktop\LoginControl\bin\Debug\CustomTextBox.dll
-D:\TEAMWORKING\TheCIU_Shop_Desktop\LoginControl\bin\Debug\CustomTextBox.pdb
 D:\TEAMWORKING\TheCIU_Shop_Desktop\LoginControl\obj\Debug\LoginControl.csproj.AssemblyReference.cache
 D:\TEAMWORKING\TheCIU_Shop_Desktop\LoginControl\obj\Debug\LoginControl.LoginControl.resources
 D:\TEAMWORKING\TheCIU_Shop_Desktop\LoginControl\obj\Debug\LoginControl.csproj.GenerateResource.cache
 D:\TEAMWORKING\TheCIU_Shop_Desktop\LoginControl\obj\Debug\LoginControl.csproj.CoreCompileInputs.cache
-D:\TEAMWORKING\TheCIU_Shop_Desktop\LoginControl\obj\Debug\LoginCon.F56EBBEE.Up2Date
 D:\TEAMWORKING\TheCIU_Shop_Desktop\LoginControl\obj\Debug\LoginControl.dll
 D:\TEAMWORKING\TheCIU_Shop_Desktop\LoginControl\obj\Debug\LoginControl.pdb

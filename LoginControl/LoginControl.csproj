@@ -56,11 +56,5 @@
       <DependentUpon>LoginControl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CustomTextBox\CustomTextBox.csproj">
-      <Project>{FCF4A818-2DC7-4A7C-A184-7BF690307B6D}</Project>
-      <Name>CustomTextBox</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

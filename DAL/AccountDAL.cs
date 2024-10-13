@@ -11,12 +11,15 @@ namespace DAL
     {
         private QuanLyShopDataContext db = new QuanLyShopDataContext();
 
-        // Get all accounts
         public List<Account> GetAllAccounts()
         {
             return db.Accounts.ToList();
         }
 
+        public Account GetAccountByUsernameAndPassword(string username, string password)
+        {
+            return db.Accounts.SingleOrDefault(a => a.username == username && a.password == password);
+        }
         // Get account by username
         public Account GetAccountByUsername(string username)
         {

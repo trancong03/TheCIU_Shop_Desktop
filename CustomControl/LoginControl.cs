@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
+
 
 namespace CustomControl
 {
@@ -15,9 +16,15 @@ namespace CustomControl
         public LoginControl()
         {
             InitializeComponent();
+            this.btnRegister.Click += btnRegister_Click;
+            
         }
 
-        // Sự kiện đăng nhập, để form chính bắt sự kiện này và xử lý logic đăng nhập
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         public event EventHandler LoginClicked;
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -27,26 +34,20 @@ namespace CustomControl
 
         private void btnShowPassword_Click(object sender, EventArgs e)
         {
-            
             if (txtPassword.UseSystemPasswordChar)
             {
                 txtPassword.UseSystemPasswordChar = false;
-                btnShowPassword.Text = "Hide Password"; 
+                btnShowPassword.Image = Properties.Resources.view; 
             }
             else
             {
                 txtPassword.UseSystemPasswordChar = true;
-                btnShowPassword.Text = "Show Password"; 
+                btnShowPassword.Image = Properties.Resources.hidden; 
             }
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            // Thoát ứng dụng
-            Application.Exit();
-        }
 
-        // Properties để lấy giá trị từ các textbox
+
         public string Username
         {
             get { return txtUsername.Text; }

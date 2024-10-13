@@ -66,6 +66,11 @@ namespace BLL
         {
             accountDAL.DeleteAccount(username);
         }
+        public bool CheckLogin(string username, string password)
+        {
+            Account account = accountDAL.GetAccountByUsernameAndPassword(username, password);
+            return account != null; 
+        }
     }
 
 }

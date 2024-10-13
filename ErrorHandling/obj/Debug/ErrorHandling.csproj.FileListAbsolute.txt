@@ -1,0 +1,6 @@
+D:\TEAMWORKING\TheCIU_Shop_Desktop\ErrorHandling\bin\Debug\ErrorHandling.dll
+D:\TEAMWORKING\TheCIU_Shop_Desktop\ErrorHandling\bin\Debug\ErrorHandling.pdb
+D:\TEAMWORKING\TheCIU_Shop_Desktop\ErrorHandling\obj\Debug\ErrorHandling.csproj.AssemblyReference.cache
+D:\TEAMWORKING\TheCIU_Shop_Desktop\ErrorHandling\obj\Debug\ErrorHandling.csproj.CoreCompileInputs.cache
+D:\TEAMWORKING\TheCIU_Shop_Desktop\ErrorHandling\obj\Debug\ErrorHandling.dll
+D:\TEAMWORKING\TheCIU_Shop_Desktop\ErrorHandling\obj\Debug\ErrorHandling.pdb

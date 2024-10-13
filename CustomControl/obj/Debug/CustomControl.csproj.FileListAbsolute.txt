@@ -7,3 +7,4 @@ D:\TEAMWORKING\TheCIU_Shop_Desktop\CustomControl\obj\Debug\CustomControl.csproj.
 D:\TEAMWORKING\TheCIU_Shop_Desktop\CustomControl\obj\Debug\CustomControl.csproj.CoreCompileInputs.cache
 D:\TEAMWORKING\TheCIU_Shop_Desktop\CustomControl\obj\Debug\CustomControl.dll
 D:\TEAMWORKING\TheCIU_Shop_Desktop\CustomControl\obj\Debug\CustomControl.pdb
+D:\TEAMWORKING\TheCIU_Shop_Desktop\CustomControl\obj\Debug\CustomControl.RegisterControl.resources

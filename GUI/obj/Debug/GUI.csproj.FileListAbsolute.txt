@@ -20,3 +20,4 @@ D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\bin\Debug\Validation.dll
 D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\bin\Debug\BLL.pdb
 D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\bin\Debug\DAL.pdb
 D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\bin\Debug\Validation.pdb
+D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\obj\Debug\GUI.frmDangKy.resources

@@ -71,6 +71,43 @@ namespace BLL
             Account account = accountDAL.GetAccountByUsernameAndPassword(username, password);
             return account != null; 
         }
+
+        public void RegisterNewAccount(string username,string name, string password, string email, string phone, string address, string gender, string avatarPath, string backgroundPath)
+        {
+            if (!accountValidation.ValidateUsername(username))
+                throw new Exception("Tên đăng nhập không hợp lệ.");
+
+            if (!accountValidation.ValidatePassword(password))
+                throw new Exception("Mật khẩu không hợp lệ.");
+
+            if (!accountValidation.ValidateEmail(email))
+                throw new Exception("Email không hợp lệ.");
+
+            if (!accountValidation.ValidatePhone(phone))
+                throw new Exception("Số điện thoại không hợp lệ.");
+
+            Account existingAccount = accountDAL.GetAccountByUsername(username);
+            if (existingAccount != null)
+            {
+                throw new Exception("Tài khoản đã tồn tại.");
+            }
+
+            // Tạo tài khoản mới
+            Account newAccount = new Account
+            {
+                username = username,
+                name = name,
+                password = password,
+                email = email,
+                phone = phone,
+                address = address,
+                gender = gender,
+                avatar = avatarPath,
+                background = backgroundPath
+            };
+
+            accountDAL.InsertAccount(newAccount);
+        }
     }
 
 }

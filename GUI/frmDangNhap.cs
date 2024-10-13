@@ -31,6 +31,7 @@ namespace GUI
             else
             {
                 MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
             }
         }
         private bool ValidateLogin(string username, string password)

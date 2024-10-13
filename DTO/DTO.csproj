@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CA9D68C1-1B0F-46AF-BF23-C0CF22E145E6}</ProjectGuid>
+    <ProjectGuid>{F085F246-356E-40AB-AB5D-4F4932876ACA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DTO</RootNamespace>
@@ -48,13 +48,10 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="QuanLyShop.cs">
-      <DependentUpon>QuanLyShop.dbml</DependentUpon>
-    </Compile>
     <Compile Include="QuanLyShop.designer.cs">
-      <DependentUpon>QuanLyShop.dbml</DependentUpon>
-      <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyShop.dbml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

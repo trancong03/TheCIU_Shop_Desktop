@@ -26,8 +26,8 @@ namespace DTO.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-EKR82M7;Initial Catalog=QuanLyShop;User ID=sa;TrustServerCert" +
-            "ificate=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-EKR82M7;Initial Catalog=QuanLyShop;Integrated Security=True;T" +
+            "rustServerCertificate=True")]
         public string QuanLyShopConnectionString {
             get {
                 return ((string)(this["QuanLyShopConnectionString"]));

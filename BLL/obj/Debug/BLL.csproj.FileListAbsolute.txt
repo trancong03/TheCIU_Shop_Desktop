@@ -9,3 +9,6 @@ D:\TEAMWORKING\TheCIU_Shop_Desktop\BLL\bin\Debug\DTO.dll
 D:\TEAMWORKING\TheCIU_Shop_Desktop\BLL\bin\Debug\DAL.pdb
 D:\TEAMWORKING\TheCIU_Shop_Desktop\BLL\bin\Debug\DTO.pdb
 D:\TEAMWORKING\TheCIU_Shop_Desktop\BLL\obj\Debug\BLL.csproj.Up2Date
+D:\TEAMWORKING\TheCIU_Shop_Desktop\BLL\bin\Debug\DTO.dll.config
+D:\TEAMWORKING\TheCIU_Shop_Desktop\BLL\bin\Debug\Validation.dll
+D:\TEAMWORKING\TheCIU_Shop_Desktop\BLL\bin\Debug\Validation.pdb

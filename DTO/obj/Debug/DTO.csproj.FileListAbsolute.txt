@@ -1,3 +1,4 @@
+D:\TEAMWORKING\TheCIU_Shop_Desktop\DTO\bin\Debug\DTO.dll.config
 D:\TEAMWORKING\TheCIU_Shop_Desktop\DTO\bin\Debug\DTO.dll
 D:\TEAMWORKING\TheCIU_Shop_Desktop\DTO\bin\Debug\DTO.pdb
 D:\TEAMWORKING\TheCIU_Shop_Desktop\DTO\obj\Debug\DTO.csproj.AssemblyReference.cache

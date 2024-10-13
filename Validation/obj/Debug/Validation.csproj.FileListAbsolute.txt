@@ -1,0 +1,6 @@
+D:\TEAMWORKING\TheCIU_Shop_Desktop\Validation\bin\Debug\Validation.dll
+D:\TEAMWORKING\TheCIU_Shop_Desktop\Validation\bin\Debug\Validation.pdb
+D:\TEAMWORKING\TheCIU_Shop_Desktop\Validation\obj\Debug\Validation.csproj.AssemblyReference.cache
+D:\TEAMWORKING\TheCIU_Shop_Desktop\Validation\obj\Debug\Validation.csproj.CoreCompileInputs.cache
+D:\TEAMWORKING\TheCIU_Shop_Desktop\Validation\obj\Debug\Validation.dll
+D:\TEAMWORKING\TheCIU_Shop_Desktop\Validation\obj\Debug\Validation.pdb

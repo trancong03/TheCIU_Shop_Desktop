@@ -7,3 +7,4 @@ D:\TEAMWORKING\TheCIU_Shop_Desktop\DAL\obj\Debug\DAL.pdb
 D:\TEAMWORKING\TheCIU_Shop_Desktop\DAL\bin\Debug\DTO.dll
 D:\TEAMWORKING\TheCIU_Shop_Desktop\DAL\bin\Debug\DTO.pdb
 D:\TEAMWORKING\TheCIU_Shop_Desktop\DAL\obj\Debug\DAL.csproj.Up2Date
+D:\TEAMWORKING\TheCIU_Shop_Desktop\DAL\bin\Debug\DTO.dll.config

@@ -11,11 +11,11 @@
       "RelativeMoniker": "D:0:0:{FA6D49F7-88B7-4637-AA69-B2E6CF151E99}|BLL\\BLL.csproj|solutionrelative:bll\\accountbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2208BB36-3FC5-45E0-B8E3-4B5AF856E66F}|DAL\\DAL.csproj|d:\\teamworking\\theciu_shop_desktop\\dal\\accountdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2208BB36-3FC5-45E0-B8E3-4B5AF856E66F}|DAL\\DAL.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\dal\\accountdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2208BB36-3FC5-45E0-B8E3-4B5AF856E66F}|DAL\\DAL.csproj|solutionrelative:dal\\accountdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A3B6A297-0606-444B-9CD4-4D8FE2ECD1AE}|ErrorHandling\\ErrorHandling.csproj|d:\\teamworking\\theciu_shop_desktop\\errorhandling\\databaseexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A3B6A297-0606-444B-9CD4-4D8FE2ECD1AE}|ErrorHandling\\ErrorHandling.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\errorhandling\\databaseexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A3B6A297-0606-444B-9CD4-4D8FE2ECD1AE}|ErrorHandling\\ErrorHandling.csproj|solutionrelative:errorhandling\\databaseexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -27,38 +27,38 @@
       "RelativeMoniker": "D:0:0:{241D47FC-EF27-48D1-A7D7-A1156546BD41}|CustomControl\\CustomControl.csproj|solutionrelative:customcontrol\\logincontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{241D47FC-EF27-48D1-A7D7-A1156546BD41}|CustomControl\\CustomControl.csproj|d:\\teamworking\\theciu_shop_desktop\\customcontrol\\logincontrol.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{241D47FC-EF27-48D1-A7D7-A1156546BD41}|CustomControl\\CustomControl.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\customcontrol\\logincontrol.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{241D47FC-EF27-48D1-A7D7-A1156546BD41}|CustomControl\\CustomControl.csproj|solutionrelative:customcontrol\\logincontrol.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|d:\\teamworking\\theciu_shop_desktop\\gui\\frmdangnhap.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\gui\\frmdangnhap.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|solutionrelative:gui\\frmdangnhap.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{241D47FC-EF27-48D1-A7D7-A1156546BD41}|CustomControl\\CustomControl.csproj|d:\\teamworking\\theciu_shop_desktop\\customcontrol\\logincontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{241D47FC-EF27-48D1-A7D7-A1156546BD41}|CustomControl\\CustomControl.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\customcontrol\\logincontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{241D47FC-EF27-48D1-A7D7-A1156546BD41}|CustomControl\\CustomControl.csproj|solutionrelative:customcontrol\\logincontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|CustomControl||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{241D47FC-EF27-48D1-A7D7-A1156546BD41}|CustomControl\\CustomControl.csproj|d:\\teamworking\\theciu_shop_desktop\\customcontrol\\resources\\view.png||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "AbsoluteMoniker": "D:0:0:{241D47FC-EF27-48D1-A7D7-A1156546BD41}|CustomControl\\CustomControl.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\customcontrol\\resources\\view.png||{177559E0-D141-11D0-92DF-00A0C9138C45}",
       "RelativeMoniker": "D:0:0:{241D47FC-EF27-48D1-A7D7-A1156546BD41}|CustomControl\\CustomControl.csproj|solutionrelative:customcontrol\\resources\\view.png||{177559E0-D141-11D0-92DF-00A0C9138C45}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|d:\\teamworking\\theciu_shop_desktop\\gui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\gui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|solutionrelative:gui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A3B6A297-0606-444B-9CD4-4D8FE2ECD1AE}|ErrorHandling\\ErrorHandling.csproj|d:\\teamworking\\theciu_shop_desktop\\errorhandling\\fileexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A3B6A297-0606-444B-9CD4-4D8FE2ECD1AE}|ErrorHandling\\ErrorHandling.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\errorhandling\\fileexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A3B6A297-0606-444B-9CD4-4D8FE2ECD1AE}|ErrorHandling\\ErrorHandling.csproj|solutionrelative:errorhandling\\fileexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A3B6A297-0606-444B-9CD4-4D8FE2ECD1AE}|ErrorHandling\\ErrorHandling.csproj|d:\\teamworking\\theciu_shop_desktop\\errorhandling\\errorhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A3B6A297-0606-444B-9CD4-4D8FE2ECD1AE}|ErrorHandling\\ErrorHandling.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\errorhandling\\errorhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A3B6A297-0606-444B-9CD4-4D8FE2ECD1AE}|ErrorHandling\\ErrorHandling.csproj|solutionrelative:errorhandling\\errorhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A3B6A297-0606-444B-9CD4-4D8FE2ECD1AE}|ErrorHandling\\ErrorHandling.csproj|d:\\teamworking\\theciu_shop_desktop\\errorhandling\\validationexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A3B6A297-0606-444B-9CD4-4D8FE2ECD1AE}|ErrorHandling\\ErrorHandling.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\errorhandling\\validationexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A3B6A297-0606-444B-9CD4-4D8FE2ECD1AE}|ErrorHandling\\ErrorHandling.csproj|solutionrelative:errorhandling\\validationexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -132,10 +132,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{2208BB36-3FC5-45E0-B8E3-4B5AF856E66F}|DAL\\DAL.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\dal\\feadbackdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2208BB36-3FC5-45E0-B8E3-4B5AF856E66F}|DAL\\DAL.csproj|solutionrelative:dal\\feadbackdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{241D47FC-EF27-48D1-A7D7-A1156546BD41}|CustomControl\\CustomControl.csproj|d:\\teamworking\\theciu_shop_desktop\\customcontrol\\properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
-      "RelativeMoniker": "D:0:0:{241D47FC-EF27-48D1-A7D7-A1156546BD41}|CustomControl\\CustomControl.csproj|solutionrelative:customcontrol\\properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
     }
   ],
   "DocumentGroupContainers": [
@@ -159,7 +155,7 @@
               "RelativeDocumentMoniker": "GUI\\frmDangNhap.cs",
               "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\frmDangNhap.cs",
               "RelativeToolTip": "GUI\\frmDangNhap.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAswBsAAAANAAAA",
+              "ViewState": "AQIAABIAAAAAAAAAAAAswBYAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-13T10:36:58.794Z",
               "EditorCaption": ""
@@ -224,8 +220,7 @@
               "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\CustomControl\\CustomControl.csproj",
               "RelativeToolTip": "CustomControl\\CustomControl.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-10-13T09:43:45.801Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-13T09:43:45.801Z"
             },
             {
               "$type": "Document",
@@ -262,8 +257,7 @@
               "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\frmDangNhap.cs [Design]",
               "RelativeToolTip": "GUI\\frmDangNhap.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T09:06:30.053Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-10-13T09:06:30.053Z"
             },
             {
               "$type": "Document",
@@ -352,7 +346,8 @@
               "RelativeToolTip": "BLL\\OrderBLL.cs",
               "ViewState": "AQIAABUAAAAAAAAAAAAUwCwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T09:08:45.958Z"
+              "WhenOpened": "2024-10-13T09:08:45.958Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -364,7 +359,8 @@
               "RelativeToolTip": "Validation\\VoucherValidation.cs",
               "ViewState": "AQIAABYAAAAAAAAAAAAswBoAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T09:14:30.623Z"
+              "WhenOpened": "2024-10-13T09:14:30.623Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -376,7 +372,8 @@
               "RelativeToolTip": "BLL\\ProductBLL.cs",
               "ViewState": "AQIAACMAAAAAAAAAAAAUwDMAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T09:04:34.593Z"
+              "WhenOpened": "2024-10-13T09:04:34.593Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -388,7 +385,8 @@
               "RelativeToolTip": "BLL\\VoucherBLL.cs",
               "ViewState": "AQIAAA0AAAAAAAAAAAAswBsAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T09:08:10.008Z"
+              "WhenOpened": "2024-10-13T09:08:10.008Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -400,7 +398,8 @@
               "RelativeToolTip": "Validation\\ProductValidation.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T09:11:46.672Z"
+              "WhenOpened": "2024-10-13T09:11:46.672Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -412,7 +411,8 @@
               "RelativeToolTip": "DAL\\ProductDAL.cs",
               "ViewState": "AQIAAB0AAAAAAAAAAAAIwAwAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T09:03:56.027Z"
+              "WhenOpened": "2024-10-13T09:03:56.027Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -424,7 +424,8 @@
               "RelativeToolTip": "DAL\\VoucherDAL.cs",
               "ViewState": "AQIAABMAAAAAAAAAAADwvzMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T09:07:02.942Z"
+              "WhenOpened": "2024-10-13T09:07:02.942Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -436,7 +437,8 @@
               "RelativeToolTip": "DAL\\CategoryDAL.cs",
               "ViewState": "AQIAABUAAAAAAAAAAAAowDIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T09:07:16.953Z"
+              "WhenOpened": "2024-10-13T09:07:16.953Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -448,7 +450,8 @@
               "RelativeToolTip": "BLL\\FeedbackBLL.cs",
               "ViewState": "AQIAABUAAAAAAAAAAAAUwC0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T09:08:33.581Z"
+              "WhenOpened": "2024-10-13T09:08:33.581Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -460,7 +463,8 @@
               "RelativeToolTip": "BLL\\CategoryBLL.cs",
               "ViewState": "AQIAABAAAAAAAAAAAADwvyEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T09:08:22.436Z"
+              "WhenOpened": "2024-10-13T09:08:22.436Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -472,7 +476,8 @@
               "RelativeToolTip": "Validation\\CategoryValidation.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T09:14:49.366Z"
+              "WhenOpened": "2024-10-13T09:14:49.366Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -484,7 +489,8 @@
               "RelativeToolTip": "Validation\\OrderValidation.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAABcAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T09:15:28.21Z"
+              "WhenOpened": "2024-10-13T09:15:28.21Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -496,7 +502,8 @@
               "RelativeToolTip": "Validation\\User_GroupUserValidation.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T09:16:26.579Z"
+              "WhenOpened": "2024-10-13T09:16:26.579Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -508,7 +515,8 @@
               "RelativeToolTip": "Validation\\OrderDetailValidation.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T09:15:44.737Z"
+              "WhenOpened": "2024-10-13T09:15:44.737Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -520,7 +528,8 @@
               "RelativeToolTip": "Validation\\FeedbackValidation.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T09:15:10.459Z"
+              "WhenOpened": "2024-10-13T09:15:10.459Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -532,7 +541,8 @@
               "RelativeToolTip": "Validation\\AccountValidation.cs",
               "ViewState": "AQIAAAoAAAAAAAAAAAA7wB8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T09:14:12.091Z"
+              "WhenOpened": "2024-10-13T09:14:12.091Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -544,7 +554,8 @@
               "RelativeToolTip": "DAL\\OrderDAL.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAYwDMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T09:07:52.272Z"
+              "WhenOpened": "2024-10-13T09:07:52.272Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -556,7 +567,8 @@
               "RelativeToolTip": "DAL\\FeadbackDAL.cs",
               "ViewState": "AQIAACAAAAAAAAAAAAAiwDMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T09:07:39.147Z"
+              "WhenOpened": "2024-10-13T09:07:39.147Z",
+              "EditorCaption": ""
             }
           ]
         }

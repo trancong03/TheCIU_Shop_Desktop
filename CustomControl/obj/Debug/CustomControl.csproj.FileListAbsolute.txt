@@ -1,0 +1,9 @@
+D:\TEAMWORKING\TheCIU_Shop_Desktop\CustomControl\bin\Debug\CustomControl.dll
+D:\TEAMWORKING\TheCIU_Shop_Desktop\CustomControl\bin\Debug\CustomControl.pdb
+D:\TEAMWORKING\TheCIU_Shop_Desktop\CustomControl\obj\Debug\CustomControl.csproj.AssemblyReference.cache
+D:\TEAMWORKING\TheCIU_Shop_Desktop\CustomControl\obj\Debug\CustomControl.LoginControl.resources
+D:\TEAMWORKING\TheCIU_Shop_Desktop\CustomControl\obj\Debug\CustomControl.Properties.Resources.resources
+D:\TEAMWORKING\TheCIU_Shop_Desktop\CustomControl\obj\Debug\CustomControl.csproj.GenerateResource.cache
+D:\TEAMWORKING\TheCIU_Shop_Desktop\CustomControl\obj\Debug\CustomControl.csproj.CoreCompileInputs.cache
+D:\TEAMWORKING\TheCIU_Shop_Desktop\CustomControl\obj\Debug\CustomControl.dll
+D:\TEAMWORKING\TheCIU_Shop_Desktop\CustomControl\obj\Debug\CustomControl.pdb

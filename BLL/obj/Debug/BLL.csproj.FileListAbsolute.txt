@@ -1,0 +1,11 @@
+D:\TEAMWORKING\TheCIU_Shop_Desktop\BLL\bin\Debug\BLL.dll
+D:\TEAMWORKING\TheCIU_Shop_Desktop\BLL\bin\Debug\BLL.pdb
+D:\TEAMWORKING\TheCIU_Shop_Desktop\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+D:\TEAMWORKING\TheCIU_Shop_Desktop\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\TEAMWORKING\TheCIU_Shop_Desktop\BLL\obj\Debug\BLL.dll
+D:\TEAMWORKING\TheCIU_Shop_Desktop\BLL\obj\Debug\BLL.pdb
+D:\TEAMWORKING\TheCIU_Shop_Desktop\BLL\bin\Debug\DAL.dll
+D:\TEAMWORKING\TheCIU_Shop_Desktop\BLL\bin\Debug\DTO.dll
+D:\TEAMWORKING\TheCIU_Shop_Desktop\BLL\bin\Debug\DAL.pdb
+D:\TEAMWORKING\TheCIU_Shop_Desktop\BLL\bin\Debug\DTO.pdb
+D:\TEAMWORKING\TheCIU_Shop_Desktop\BLL\obj\Debug\BLL.csproj.Up2Date

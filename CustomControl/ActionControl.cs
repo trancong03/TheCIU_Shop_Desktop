@@ -9,10 +9,10 @@ namespace CustomControl
         public event EventHandler AddClicked;
         public event EventHandler UpdateClicked;
         public event EventHandler DeleteClicked;
-<<<<<<< HEAD
-=======
+
+
         public event EventHandler SearchTextChanged;
->>>>>>> Huy
+
 
         public ActionControl()
         {
@@ -43,8 +43,7 @@ namespace CustomControl
         {
             DeleteClicked?.Invoke(this, EventArgs.Empty);
         }
-<<<<<<< HEAD
-=======
+
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             if (SearchTextChanged != null)
@@ -52,6 +51,6 @@ namespace CustomControl
                 SearchTextChanged(this, EventArgs.Empty);
             }
         }
->>>>>>> Huy
+
     }
 }

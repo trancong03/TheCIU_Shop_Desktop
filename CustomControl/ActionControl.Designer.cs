@@ -35,6 +35,10 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(200, 20);
             this.txtSearch.TabIndex = 0;
+<<<<<<< HEAD
+=======
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+>>>>>>> Huy
             // 
             // btnSearch
             // 

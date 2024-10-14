@@ -24,6 +24,10 @@ namespace BLL
         {
             return accountDAL.GetAccountByUsername(username);
         }
+        public List<Account> SearchAccounts(string username)
+        {
+            return accountDAL.SearchAccountsByUsername(username); 
+        }
 
         // Add a new account
         public void AddAccount(Account account)
@@ -43,7 +47,6 @@ namespace BLL
             accountDAL.InsertAccount(account);
         }
 
-        // Edit an existing account
         public void EditAccount(Account account)
         {
             if (!accountValidation.ValidateUsername(account.username))
@@ -61,7 +64,6 @@ namespace BLL
             accountDAL.UpdateAccount(account);
         }
 
-        // Remove an account
         public void RemoveAccount(string username)
         {
             accountDAL.DeleteAccount(username);

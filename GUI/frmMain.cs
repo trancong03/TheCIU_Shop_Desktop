@@ -1,4 +1,5 @@
 ﻿using System;
+<<<<<<< HEAD
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,6 +7,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+=======
+>>>>>>> Huy
 using System.Windows.Forms;
 
 namespace GUI
@@ -65,5 +68,9 @@ namespace GUI
             //voucherForm.Show();
         }
 
+<<<<<<< HEAD
+=======
+        // Thêm sự kiện khác tương tự cho các chức năng khác (User Group, Order Details, etc.)
+>>>>>>> Huy
     }
 }

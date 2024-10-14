@@ -17,7 +17,6 @@ namespace GUI
 
         private void RegisterControl_RegisterClicked(object sender, EventArgs e)
         {
-            // Lấy thông tin từ RegisterControl
             string username = registerControl1.Username;
             string name = registerControl1.Name;
             string password = registerControl1.Password;

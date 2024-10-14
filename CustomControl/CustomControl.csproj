@@ -42,6 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ActionControl.Designer.cs">
+      <DependentUpon>ActionControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="TextBoxCustom\EmailTextBox.cs">
       <SubType>Component</SubType>
     </Compile>

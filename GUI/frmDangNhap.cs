@@ -27,6 +27,12 @@ namespace GUI
             if (ValidateLogin(username, password))
             {
                 MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK);
+                frmMain frm = new frmMain();
+                frm.Show();
+
+                this.Hide(); 
+
+                frm.FormClosed += (s, args) => this.Close();
             }
             else
             {

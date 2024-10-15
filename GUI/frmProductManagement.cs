@@ -11,6 +11,7 @@ namespace GUI
     {
         private ProductBLL productBLL = new ProductBLL();
         private CategoryBLL categoryBLL = new CategoryBLL();
+        private FeedbackBLL feedbackBLL = new FeedbackBLL();
 
         public frmProductManagement()
         {
@@ -46,7 +47,6 @@ namespace GUI
             }
         }
 
-        // Đổ dữ liệu sản phẩm vào DataGridView
         private void LoadProducts()
         {
             var products = productBLL.GetAllProducts();
@@ -59,12 +59,13 @@ namespace GUI
                 p.price,
                 CategoryName = p.Category != null ? p.Category.category_name : "Không có",
                 p.ImageSP,
-                p.rating,
+                AverageRating = feedbackBLL.GetAverageRating(p.product_id), 
                 p.Dateadd
             }).ToList();
 
             dataGridViewProducts.DataSource = productDisplayList;
         }
+
 
         // Đổ dữ liệu danh mục vào ComboBox
         private void LoadCategories()

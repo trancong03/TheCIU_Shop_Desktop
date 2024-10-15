@@ -22,10 +22,11 @@ namespace CustomControl
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            RegisterClicked?.Invoke(this, EventArgs.Empty);
         }
 
         public event EventHandler LoginClicked;
+        public event EventHandler RegisterClicked;
 
         private void btnLogin_Click(object sender, EventArgs e)
         {

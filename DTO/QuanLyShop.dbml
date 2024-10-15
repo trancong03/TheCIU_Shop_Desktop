@@ -72,13 +72,6 @@
       <Association Name="Product_Image" Member="Product" ThisKey="product_id" OtherKey="product_id" Type="Product" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.NguoiDung" Member="NguoiDungs">
-    <Type Name="NguoiDung">
-      <Column Name="TenDangNhap" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="MatKhau" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="HoatDong" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.OrderDetails" Member="OrderDetails">
     <Type Name="OrderDetail">
       <Column Name="order_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />

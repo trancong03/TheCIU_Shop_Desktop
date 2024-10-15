@@ -51,6 +51,16 @@ namespace BLL
         {
             feedbackDAL.DeleteFeedback(productId, username);
         }
+        public double GetAverageRating(int productId)
+        {
+            var feedbacks = feedbackDAL.GetFeedbacksByProduct(productId);
+            if (feedbacks != null && feedbacks.Count > 0)
+            {
+                return feedbacks.Average(fb => fb.rating.HasValue ? fb.rating.Value : 0);
+            }
+            return 0;
+        }
+
     }
 
 }

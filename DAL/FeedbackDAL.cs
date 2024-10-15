@@ -34,7 +34,6 @@ namespace DAL
             {
                 existingFeedback.discription = feedback.discription;
                 existingFeedback.rating = feedback.rating;
-                // Update other fields as necessary
                 db.SubmitChanges();
             }
         }
@@ -48,6 +47,12 @@ namespace DAL
                 db.SubmitChanges();
             }
         }
+        public List<Feedback> GetFeedbacksByProduct(int productId)
+        {
+                return db.Feedbacks.Where(fb => fb.product_id == productId).ToList();
+
+        }
+
     }
 
 }

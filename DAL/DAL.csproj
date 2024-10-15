@@ -47,7 +47,7 @@
   <ItemGroup>
     <Compile Include="AccountDAL.cs" />
     <Compile Include="CategoryDAL.cs" />
-    <Compile Include="FeadbackDAL.cs" />
+    <Compile Include="FeedbackDAL.cs" />
     <Compile Include="OrderDAL.cs" />
     <Compile Include="ProductDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

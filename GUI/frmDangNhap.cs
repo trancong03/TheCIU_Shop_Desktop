@@ -1,12 +1,6 @@
 ﻿using BLL;
+using DTO;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI
@@ -16,20 +10,38 @@ namespace GUI
         public frmDangNhap()
         {
             InitializeComponent();
-            loginControl.LoginClicked += LoginControl_LoginClicked;
+            loginControl.LoginClicked += LoginControl_LoginClicked; // Đăng ký sự kiện khi nhấn vào nút Đăng nhập
+            loginControl.RegisterClicked += LoginControl_RegisterClicked;
+        }
+
+        private void LoginControl_RegisterClicked(object sender, EventArgs e)
+        {
+            frmDangKy frm = new frmDangKy();
+            frm.Show();
+            this.Hide();
         }
 
         private void LoginControl_LoginClicked(object sender, EventArgs e)
         {
-            string username = loginControl.Username;
-            string password = loginControl.Password;
+            string username = loginControl.Username; 
+            string password = loginControl.Password;  
 
-            if (ValidateLogin(username, password))
+
+            AccountBLL accountBLL = new AccountBLL();
+            var account = accountBLL.CheckLogin(username, password); 
+
+            if (account != null) 
             {
-                // Truyền username vào frmMain
-                frmMain frm = new frmMain(username);
-                frm.Show();
-                this.Hide(); // Ẩn form đăng nhập
+                if (account.status == 1) 
+                {
+                    frmMain frm = new frmMain(username); 
+                    frm.Show();
+                    this.Hide(); 
+                }
+                else
+                {
+                    MessageBox.Show("Tài khoản của bạn đã bị ngưng hoạt động. Vui lòng liên hệ quản trị viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else
             {
@@ -37,10 +49,13 @@ namespace GUI
             }
         }
 
+ 
         private bool ValidateLogin(string username, string password)
         {
             AccountBLL accountBLL = new AccountBLL();
-            return accountBLL.CheckLogin(username, password);
+            var account = accountBLL.CheckLogin(username, password);
+
+            return account != null && account.status == 1;
         }
     }
 }

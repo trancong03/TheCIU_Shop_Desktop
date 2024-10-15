@@ -264,7 +264,6 @@
             this.groupBoxProductInfo.ResumeLayout(false);
             this.groupBoxProductInfo.PerformLayout();
             this.ResumeLayout(false);
-
         }
     }
 }

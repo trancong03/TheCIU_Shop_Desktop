@@ -26,26 +26,17 @@ namespace GUI
 
             if (ValidateLogin(username, password))
             {
-<<<<<<< HEAD
-                MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK);
-                frmMain frm = new frmMain();
+                // Truyền username vào frmMain
+                frmMain frm = new frmMain(username);
                 frm.Show();
-
-                this.Hide(); 
-
-                frm.FormClosed += (s, args) => this.Close();
-=======
-                frmMain frm = new frmMain();
-                frm.Show();
-                this.Hide();
->>>>>>> Huy
+                this.Hide(); // Ẩn form đăng nhập
             }
             else
             {
                 MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
             }
         }
+
         private bool ValidateLogin(string username, string password)
         {
             AccountBLL accountBLL = new AccountBLL();

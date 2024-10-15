@@ -6,7 +6,12 @@ namespace GUI
     {
         private System.ComponentModel.IContainer components = null;
         private MenuStrip menuStrip1;
-        private ToolStripMenuItem accountManagementToolStripMenuItem;
+        private ToolStripMenuItem taskToolStripMenuItem;
+        private ToolStripMenuItem accountToolStripMenuItem;
+        private ToolStripMenuItem logoutToolStripMenuItem;
+        private ToolStripMenuItem accountManagementToolStripMenuItem;  // Quản lý tài khoản
+
+        // Các mục trong menu Tác vụ
         private ToolStripMenuItem productManagementToolStripMenuItem;
         private ToolStripMenuItem categoryManagementToolStripMenuItem;
         private ToolStripMenuItem orderManagementToolStripMenuItem;
@@ -25,69 +30,97 @@ namespace GUI
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.accountManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.taskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.accountManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem(); // Thêm Quản lý tài khoản
             this.productManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoryManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.orderManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.feedbackManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.voucherManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.accountManagementToolStripMenuItem,
-            this.productManagementToolStripMenuItem,
-            this.categoryManagementToolStripMenuItem,
-            this.orderManagementToolStripMenuItem,
-            this.feedbackManagementToolStripMenuItem,
-            this.voucherManagementToolStripMenuItem});
+            this.taskToolStripMenuItem,
+            this.accountToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1041, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // taskToolStripMenuItem
+            // 
+            this.taskToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.productManagementToolStripMenuItem,
+            this.categoryManagementToolStripMenuItem,
+            this.orderManagementToolStripMenuItem,
+            this.feedbackManagementToolStripMenuItem,
+            this.voucherManagementToolStripMenuItem});
+            this.taskToolStripMenuItem.Name = "taskToolStripMenuItem";
+            this.taskToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.taskToolStripMenuItem.Text = "Tác vụ";
+            // 
+            // accountToolStripMenuItem
+            // 
+            this.accountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.accountManagementToolStripMenuItem,  // Quản lý tài khoản
+            this.logoutToolStripMenuItem});
+            this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
+            this.accountToolStripMenuItem.Text = "Tài khoản";
+            // 
             // accountManagementToolStripMenuItem
             // 
             this.accountManagementToolStripMenuItem.Name = "accountManagementToolStripMenuItem";
-            this.accountManagementToolStripMenuItem.Size = new System.Drawing.Size(112, 20);
+            this.accountManagementToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.accountManagementToolStripMenuItem.Text = "Quản lý tài khoản";
             this.accountManagementToolStripMenuItem.Click += new System.EventHandler(this.accountManagementToolStripMenuItem_Click);
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.logoutToolStripMenuItem.Text = "Đăng xuất";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // productManagementToolStripMenuItem
             // 
             this.productManagementToolStripMenuItem.Name = "productManagementToolStripMenuItem";
-            this.productManagementToolStripMenuItem.Size = new System.Drawing.Size(115, 20);
+            this.productManagementToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.productManagementToolStripMenuItem.Text = "Quản lý sản phẩm";
             this.productManagementToolStripMenuItem.Click += new System.EventHandler(this.productManagementToolStripMenuItem_Click);
             // 
             // categoryManagementToolStripMenuItem
             // 
             this.categoryManagementToolStripMenuItem.Name = "categoryManagementToolStripMenuItem";
-            this.categoryManagementToolStripMenuItem.Size = new System.Drawing.Size(117, 20);
+            this.categoryManagementToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.categoryManagementToolStripMenuItem.Text = "Quản lý danh mục";
             this.categoryManagementToolStripMenuItem.Click += new System.EventHandler(this.categoryManagementToolStripMenuItem_Click);
             // 
             // orderManagementToolStripMenuItem
             // 
             this.orderManagementToolStripMenuItem.Name = "orderManagementToolStripMenuItem";
-            this.orderManagementToolStripMenuItem.Size = new System.Drawing.Size(114, 20);
+            this.orderManagementToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.orderManagementToolStripMenuItem.Text = "Quản lý đơn hàng";
             this.orderManagementToolStripMenuItem.Click += new System.EventHandler(this.orderManagementToolStripMenuItem_Click);
             // 
             // feedbackManagementToolStripMenuItem
             // 
             this.feedbackManagementToolStripMenuItem.Name = "feedbackManagementToolStripMenuItem";
-            this.feedbackManagementToolStripMenuItem.Size = new System.Drawing.Size(110, 20);
+            this.feedbackManagementToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.feedbackManagementToolStripMenuItem.Text = "Quản lý phản hồi";
             this.feedbackManagementToolStripMenuItem.Click += new System.EventHandler(this.feedbackManagementToolStripMenuItem_Click);
             // 
             // voucherManagementToolStripMenuItem
             // 
             this.voucherManagementToolStripMenuItem.Name = "voucherManagementToolStripMenuItem";
-            this.voucherManagementToolStripMenuItem.Size = new System.Drawing.Size(106, 20);
+            this.voucherManagementToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.voucherManagementToolStripMenuItem.Text = "Quản lý voucher";
             this.voucherManagementToolStripMenuItem.Click += new System.EventHandler(this.voucherManagementToolStripMenuItem_Click);
             // 
@@ -105,7 +138,6 @@ namespace GUI
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
     }
 }

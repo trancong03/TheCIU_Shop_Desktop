@@ -1,65 +1,41 @@
-﻿using DAL;
+﻿using System.Collections.Generic;
+using DAL;
 using DTO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Validation;
-
 
 namespace BLL
 {
     public class ProductBLL
     {
         private ProductDAL productDAL = new ProductDAL();
-        private ProductValidation productValidation = new ProductValidation();
 
+        // Lấy tất cả sản phẩm
         public List<Product> GetAllProducts()
         {
             return productDAL.GetAllProducts();
         }
 
-        // Get product by ID
-        public Product GetProductById(int id)
+        // Lấy sản phẩm theo tên
+        public Product GetProductByName(string productName)
         {
-            return productDAL.GetProductById(id);
+            return productDAL.GetProductByName(productName);
         }
 
-        // Add a new product
+        // Thêm sản phẩm
         public void AddProduct(Product product)
         {
-            if (!productValidation.ValidateProductName(product.product_name))
-                throw new Exception("Tên sản phẩm không hợp lệ.");
-
-            if (!productValidation.ValidateProductPrice(product.price))
-                throw new Exception("Giá sản phẩm không hợp lệ.");
-
-            if (!productValidation.ValidateProductCategory(product.category_id))
-                throw new Exception("Danh mục sản phẩm không hợp lệ.");
-
-            productDAL.InsertProduct(product);
+            productDAL.AddProduct(product);
         }
 
+        // Sửa sản phẩm
         public void EditProduct(Product product)
         {
-            if (!productValidation.ValidateProductName(product.product_name))
-                throw new Exception("Tên sản phẩm không hợp lệ.");
-
-            if (!productValidation.ValidateProductPrice(product.price))
-                throw new Exception("Giá sản phẩm không hợp lệ.");
-
-            if (!productValidation.ValidateProductCategory(product.category_id))
-                throw new Exception("Danh mục sản phẩm không hợp lệ.");
-
             productDAL.UpdateProduct(product);
         }
 
-        // Remove a product
-        public void RemoveProduct(int id)
+        // Xóa sản phẩm
+        public void RemoveProduct(int productId)
         {
-            productDAL.DeleteProduct(id);
+            productDAL.DeleteProduct(productId);
         }
     }
-
 }

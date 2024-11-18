@@ -10,6 +10,7 @@ namespace CustomControl
         public event EventHandler UpdateClicked;
         public event EventHandler DeleteClicked;
         public event EventHandler SearchTextChanged;
+        public event EventHandler FilterChanged;
 
         public ActionControl()
         {
@@ -18,7 +19,30 @@ namespace CustomControl
 
         public string SearchText
         {
-            get { return txtSearch.Text; }
+            get => txtSearch.Text;
+        }
+
+        public object FilterDataSource
+        {
+            get => cbFilter.DataSource;
+            set => cbFilter.DataSource = value;
+        }
+
+        public string FilterDisplayMember
+        {
+            get => cbFilter.DisplayMember;
+            set => cbFilter.DisplayMember = value;
+        }
+
+        public string FilterValueMember
+        {
+            get => cbFilter.ValueMember;
+            set => cbFilter.ValueMember = value;
+        }
+
+        public object SelectedFilterValue
+        {
+            get => cbFilter.SelectedValue;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -40,12 +64,15 @@ namespace CustomControl
         {
             DeleteClicked?.Invoke(this, EventArgs.Empty);
         }
+
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            if (SearchTextChanged != null)
-            {
-                SearchTextChanged(this, EventArgs.Empty);
-            }
+            SearchTextChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FilterChanged?.Invoke(this, EventArgs.Empty);
         }
     }
 }

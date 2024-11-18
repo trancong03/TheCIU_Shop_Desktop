@@ -30,6 +30,7 @@ namespace DAL
             }
         }
 
+
         // Cập nhật sản phẩm
         public bool UpdateProduct(Product product)
         {
@@ -39,37 +40,85 @@ namespace DAL
                 if (existingProduct != null)
                 {
                     existingProduct.product_name = product.product_name;
+                    existingProduct.Title = product.Title;
                     existingProduct.price = product.price;
                     existingProduct.category_id = product.category_id;
-                    context.SubmitChanges();
+                    existingProduct.Dateadd = product.Dateadd;
+
+                    // Chỉ cập nhật nếu có thay đổi
+                    if (context.GetChangeSet().Updates.Count > 0)
+                    {
+                        context.SubmitChanges();
+                    }
+
                     return true;
                 }
                 return false;
             }
-            catch
+            catch (Exception ex)
             {
+                Console.WriteLine($"Lỗi khi cập nhật sản phẩm: {ex.Message}");
                 return false;
             }
         }
 
-        // Xóa sản phẩm
+
         public bool DeleteProduct(int productId)
         {
             try
             {
+                // Lấy danh sách ProductVariant liên quan đến Product
+                var productVariants = context.ProductVariants.Where(pv => pv.product_id == productId).ToList();
+
+                // Xóa tất cả ProductVariant liên quan
+                if (productVariants.Any())
+                {
+                    context.ProductVariants.DeleteAllOnSubmit(productVariants);
+                }
+
+                // Xóa Product
                 var product = context.Products.SingleOrDefault(p => p.product_id == productId);
                 if (product != null)
                 {
                     context.Products.DeleteOnSubmit(product);
-                    context.SubmitChanges();
-                    return true;
                 }
-                return false;
+
+                // SubmitChanges để lưu thay đổi
+                context.SubmitChanges();
+                return true;
             }
-            catch
+            catch (Exception ex)
             {
+                Console.WriteLine($"Error deleting product: {ex.Message}");
                 return false;
             }
         }
+
+
+
+        public bool HasDependencies(int productId)
+        {
+            try
+            {
+                // Kiểm tra nếu Product tồn tại trong Feedback
+                bool hasFeedback = context.Feedbacks.Any(fb => fb.product_id == productId);
+
+                // Kiểm tra nếu Product tồn tại trong OrderDetails (thông qua ProductVariants)
+                bool hasOrderDetails = context.ProductVariants
+                    .Where(pv => pv.product_id == productId)
+                    .Any(pv => context.OrderDetails.Any(od => od.variant_id == pv.variant_id));
+
+                // Trả về true nếu tồn tại phụ thuộc
+                return hasFeedback || hasOrderDetails;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error checking dependencies for product {productId}: {ex.Message}");
+                return true; // Giả định có phụ thuộc nếu xảy ra lỗi
+            }
+        }
+
+
+
     }
 }

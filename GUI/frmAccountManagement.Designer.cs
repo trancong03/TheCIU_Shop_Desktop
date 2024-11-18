@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class frmAccountManagement
+    partial class FrmAccountManagement
     {
         private System.Windows.Forms.DataGridView dataGridViewAccounts;
         private System.Windows.Forms.TextBox txtUsername;
@@ -52,6 +52,7 @@
             this.dataGridViewAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewAccounts.Location = new System.Drawing.Point(12, 242);
             this.dataGridViewAccounts.Name = "dataGridViewAccounts";
+            this.dataGridViewAccounts.RowHeadersWidth = 51;
             this.dataGridViewAccounts.Size = new System.Drawing.Size(927, 206);
             this.dataGridViewAccounts.TabIndex = 0;
             this.dataGridViewAccounts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAccounts_CellClick);
@@ -60,42 +61,42 @@
             // 
             this.txtUsername.Location = new System.Drawing.Point(182, 27);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(167, 20);
+            this.txtUsername.Size = new System.Drawing.Size(167, 22);
             this.txtUsername.TabIndex = 15;
             // 
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(182, 57);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(167, 20);
+            this.txtName.Size = new System.Drawing.Size(167, 22);
             this.txtName.TabIndex = 16;
             // 
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(182, 93);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(167, 20);
+            this.txtPassword.Size = new System.Drawing.Size(167, 22);
             this.txtPassword.TabIndex = 17;
             // 
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(182, 120);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(167, 20);
+            this.txtEmail.Size = new System.Drawing.Size(167, 22);
             this.txtEmail.TabIndex = 18;
             // 
             // txtPhone
             // 
             this.txtPhone.Location = new System.Drawing.Point(579, 26);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(167, 20);
+            this.txtPhone.Size = new System.Drawing.Size(167, 22);
             this.txtPhone.TabIndex = 19;
             // 
             // txtAddress
             // 
             this.txtAddress.Location = new System.Drawing.Point(579, 53);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(167, 20);
+            this.txtAddress.Size = new System.Drawing.Size(167, 22);
             this.txtAddress.TabIndex = 20;
             // 
             // cmbGender
@@ -106,7 +107,7 @@
             "Nữ"});
             this.cmbGender.Location = new System.Drawing.Point(579, 83);
             this.cmbGender.Name = "cmbGender";
-            this.cmbGender.Size = new System.Drawing.Size(167, 21);
+            this.cmbGender.Size = new System.Drawing.Size(167, 24);
             this.cmbGender.TabIndex = 21;
             // 
             // chkStatus
@@ -123,7 +124,7 @@
             this.lblUsername.AutoSize = true;
             this.lblUsername.Location = new System.Drawing.Point(90, 30);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(84, 13);
+            this.lblUsername.Size = new System.Drawing.Size(101, 16);
             this.lblUsername.TabIndex = 14;
             this.lblUsername.Text = "Tên đăng nhập:";
             // 
@@ -132,7 +133,7 @@
             this.lblName.AutoSize = true;
             this.lblName.Location = new System.Drawing.Point(90, 60);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(57, 13);
+            this.lblName.Size = new System.Drawing.Size(67, 16);
             this.lblName.TabIndex = 15;
             this.lblName.Text = "Họ và tên:";
             // 
@@ -141,7 +142,7 @@
             this.lblPassword.AutoSize = true;
             this.lblPassword.Location = new System.Drawing.Point(90, 90);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(55, 13);
+            this.lblPassword.Size = new System.Drawing.Size(64, 16);
             this.lblPassword.TabIndex = 16;
             this.lblPassword.Text = "Mật khẩu:";
             // 
@@ -150,7 +151,7 @@
             this.lblEmail.AutoSize = true;
             this.lblEmail.Location = new System.Drawing.Point(90, 120);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(35, 13);
+            this.lblEmail.Size = new System.Drawing.Size(44, 16);
             this.lblEmail.TabIndex = 17;
             this.lblEmail.Text = "Email:";
             // 
@@ -159,7 +160,7 @@
             this.lblPhone.AutoSize = true;
             this.lblPhone.Location = new System.Drawing.Point(487, 26);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(73, 13);
+            this.lblPhone.Size = new System.Drawing.Size(88, 16);
             this.lblPhone.TabIndex = 18;
             this.lblPhone.Text = "Số điện thoại:";
             // 
@@ -168,7 +169,7 @@
             this.lblAddress.AutoSize = true;
             this.lblAddress.Location = new System.Drawing.Point(487, 56);
             this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(43, 13);
+            this.lblAddress.Size = new System.Drawing.Size(50, 16);
             this.lblAddress.TabIndex = 19;
             this.lblAddress.Text = "Địa chỉ:";
             // 
@@ -177,7 +178,7 @@
             this.lblGender.AutoSize = true;
             this.lblGender.Location = new System.Drawing.Point(487, 86);
             this.lblGender.Name = "lblGender";
-            this.lblGender.Size = new System.Drawing.Size(50, 13);
+            this.lblGender.Size = new System.Drawing.Size(57, 16);
             this.lblGender.TabIndex = 20;
             this.lblGender.Text = "Giới tính:";
             // 
@@ -186,7 +187,7 @@
             this.lblStatus.AutoSize = true;
             this.lblStatus.Location = new System.Drawing.Point(487, 120);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(58, 13);
+            this.lblStatus.Size = new System.Drawing.Size(70, 16);
             this.lblStatus.TabIndex = 23;
             this.lblStatus.Text = "Trạng thái:";
             // 
@@ -217,18 +218,21 @@
             // 
             // actionControl
             // 
-            this.actionControl.Location = new System.Drawing.Point(105, 188);
+            this.actionControl.FilterDataSource = null;
+            this.actionControl.FilterDisplayMember = "";
+            this.actionControl.FilterValueMember = "";
+            this.actionControl.Location = new System.Drawing.Point(31, 188);
             this.actionControl.Name = "actionControl";
-            this.actionControl.Size = new System.Drawing.Size(653, 48);
+            this.actionControl.Size = new System.Drawing.Size(1096, 48);
             this.actionControl.TabIndex = 22;
             // 
-            // frmAccountManagement
+            // FrmAccountManagement
             // 
-            this.ClientSize = new System.Drawing.Size(968, 464);
+            this.ClientSize = new System.Drawing.Size(1139, 464);
             this.Controls.Add(this.dataGridViewAccounts);
             this.Controls.Add(this.groupBoxAccountInfo);
             this.Controls.Add(this.actionControl);
-            this.Name = "frmAccountManagement";
+            this.Name = "FrmAccountManagement";
             this.Text = "Quản lý tài khoản";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccounts)).EndInit();
             this.groupBoxAccountInfo.ResumeLayout(false);

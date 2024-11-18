@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class frmProductManagement
+    partial class FrmProductManagement
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -271,6 +271,7 @@
             this.actionControl.Name = "actionControl";
             this.actionControl.Size = new System.Drawing.Size(1201, 65);
             this.actionControl.TabIndex = 1;
+
             // 
             // frmProductManagement
             // 
@@ -286,5 +287,6 @@
             this.ResumeLayout(false);
 
         }
+
     }
 }

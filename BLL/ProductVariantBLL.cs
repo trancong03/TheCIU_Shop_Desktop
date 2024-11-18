@@ -36,7 +36,10 @@ namespace BLL
             ValidateField(productVariant.quantity >= 0, "Số lượng không hợp lệ.");
             return productVariantDAL.UpdateProductVariant(productVariant);
         }
-
+        public bool HasDependencies(int variantId)
+        {
+            return productVariantDAL.HasDependencies(variantId);
+        }
         public bool RemoveProductVariant(int id)
         {
             return productVariantDAL.DeleteProductVariant(id);

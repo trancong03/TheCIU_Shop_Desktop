@@ -56,11 +56,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmAccountManagement.cs">
+    <Compile Include="FrmAccountManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAccountManagement.Designer.cs">
-      <DependentUpon>frmAccountManagement.cs</DependentUpon>
+    <Compile Include="FrmAccountManagement.Designer.cs">
+      <DependentUpon>FrmAccountManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmCategoryManagement.cs">
       <SubType>Form</SubType>
@@ -104,11 +104,11 @@
     <Compile Include="FrmOrderStatusUpdate.Designer.cs">
       <DependentUpon>FrmOrderStatusUpdate.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmProductManagement.cs">
+    <Compile Include="FrmProductManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmProductManagement.Designer.cs">
-      <DependentUpon>frmProductManagement.cs</DependentUpon>
+    <Compile Include="FrmProductManagement.Designer.cs">
+      <DependentUpon>FrmProductManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmPurchaseHistory.cs">
       <SubType>Form</SubType>
@@ -136,8 +136,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmAccountManagement.resx">
-      <DependentUpon>frmAccountManagement.cs</DependentUpon>
+    <EmbeddedResource Include="FrmAccountManagement.resx">
+      <DependentUpon>FrmAccountManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDangKy.resx">
       <DependentUpon>frmDangKy.cs</DependentUpon>
@@ -148,8 +148,8 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmProductManagement.resx">
-      <DependentUpon>frmProductManagement.cs</DependentUpon>
+    <EmbeddedResource Include="FrmProductManagement.resx">
+      <DependentUpon>FrmProductManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

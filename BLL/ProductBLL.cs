@@ -39,6 +39,17 @@ namespace BLL
         }
 
 
+        public List<dynamic> SortProductsByPriceAscending()
+        {
+            var products = GetProductDetails();
+            return products.OrderBy(p => p.price).ToList();
+        }
+
+        public List<dynamic> SortProductsByPriceDescending()
+        {
+            var products = GetProductDetails();
+            return products.OrderByDescending(p => p.price).ToList();
+        }
 
         public List<dynamic> FilterProductsByCategory(int categoryId)
         {
@@ -88,8 +99,18 @@ namespace BLL
 
         public bool RemoveProduct(int productId)
         {
+            // Kiểm tra phụ thuộc
+            if (productDAL.HasDependencies(productId))
+            {
+                Console.WriteLine("Không thể xóa sản phẩm vì nó đang được sử dụng trong các bảng liên quan.");
+                return false;
+            }
+
+            // Xóa Product và các ProductVariant liên quan
             return productDAL.DeleteProduct(productId);
         }
+
+
 
         public List<ProductVariant> GetProductVariants()
         {
@@ -109,6 +130,11 @@ namespace BLL
         public List<Color> GetAllColors()
         {
             return colorDAL.GetAllColors();
+        }
+        // Phương thức kiểm tra phụ thuộc cho sản phẩm
+        public bool HasDependencies(int productId)
+        {
+            return productDAL.HasDependencies(productId);
         }
 
         private void ValidateProduct(Product product)

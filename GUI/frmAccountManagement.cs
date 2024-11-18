@@ -6,11 +6,11 @@ using DTO;
 
 namespace GUI
 {
-    public partial class frmAccountManagement : Form
+    public partial class FrmAccountManagement : Form
     {
         private AccountBLL accountBLL = new AccountBLL();
 
-        public frmAccountManagement()
+        public FrmAccountManagement()
         {
             InitializeComponent();
             LoadAccounts(); // Load dữ liệu tài khoản khi mở form

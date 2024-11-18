@@ -139,7 +139,7 @@ namespace GUI
         }
 
         private void BtnProductInfo_Click(object sender, EventArgs e) 
-            => OpenFormInMainPanel(new frmProductManagement());
+            => OpenFormInMainPanel(new FrmProductManagement());
         private void BtnStockManagement_Click(object sender, EventArgs e) 
             => OpenFormInMainPanel(new FrmStockManagement());
         private void BtnCustomerInfo_Click(object sender, EventArgs e) 
@@ -153,7 +153,7 @@ namespace GUI
         private void BtnLogout_Click(object sender, EventArgs e) 
             => MessageBox.Show("Đã đăng xuất!", "Thông báo", MessageBoxButtons.OK);
         private void BtnGeneralSettings_Click(object sender, EventArgs e) 
-            => OpenFormInMainPanel(new frmAccountManagement());
+            => OpenFormInMainPanel(new FrmAccountManagement());
 
         private void btnToggle_Click(object sender, EventArgs e) 
             => timer.Start();

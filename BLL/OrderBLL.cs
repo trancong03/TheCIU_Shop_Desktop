@@ -2,9 +2,6 @@
 using DTO;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Validation;
 
 namespace BLL
@@ -26,23 +23,33 @@ namespace BLL
 
         public void AddOrder(Order order)
         {
-            if (!orderValidation.ValidateOrderAmount(order.amount))
-                throw new Exception("Số lượng đơn hàng không hợp lệ.");
+            // Validate order amount
+            var amountValidation = orderValidation.ValidateOrderAmount(order.amount);
+            if (!amountValidation.IsValid)
+                throw new Exception(amountValidation.ErrorMessage);
 
-            if (!orderValidation.ValidateOrderDate(order.order_date))
-                throw new Exception("Ngày đơn hàng không hợp lệ.");
+            // Validate order date
+            var dateValidation = orderValidation.ValidateOrderDate(order.order_date);
+            if (!dateValidation.IsValid)
+                throw new Exception(dateValidation.ErrorMessage);
 
+            // Add order to database
             orderDAL.InsertOrder(order);
         }
 
         public void EditOrder(Order order)
         {
-            if (!orderValidation.ValidateOrderAmount(order.amount))
-                throw new Exception("Số lượng đơn hàng không hợp lệ.");
+            // Validate order amount
+            var amountValidation = orderValidation.ValidateOrderAmount(order.amount);
+            if (!amountValidation.IsValid)
+                throw new Exception(amountValidation.ErrorMessage);
 
-            if (!orderValidation.ValidateOrderDate(order.order_date))
-                throw new Exception("Ngày đơn hàng không hợp lệ.");
+            // Validate order date
+            var dateValidation = orderValidation.ValidateOrderDate(order.order_date);
+            if (!dateValidation.IsValid)
+                throw new Exception(dateValidation.ErrorMessage);
 
+            // Update order in database
             orderDAL.UpdateOrder(order);
         }
 
@@ -51,5 +58,4 @@ namespace BLL
             orderDAL.DeleteOrder(id);
         }
     }
-
 }

@@ -8,16 +8,13 @@ namespace Validation
 {
     public class CategoryValidation
     {
-        public bool ValidateCategoryName(string categoryName)
+        public ValidationResult ValidateCategoryName(string categoryName)
         {
-            if (string.IsNullOrWhiteSpace(categoryName))
-                return false;
-
-            if (categoryName.Length < 3 || categoryName.Length > 50)
-                return false;
-
-            return true;
+            if (!ValidationHelper.IsWithinLength(categoryName, 3, 50))
+                return new ValidationResult { IsValid = false, ErrorMessage = "Tên danh mục phải từ 3 đến 50 ký tự." };
+            return new ValidationResult { IsValid = true };
         }
     }
+
 
 }

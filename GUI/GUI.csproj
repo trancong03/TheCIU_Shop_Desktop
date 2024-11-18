@@ -41,6 +41,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,17 +62,35 @@
     <Compile Include="frmAccountManagement.Designer.cs">
       <DependentUpon>frmAccountManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCategoryManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCategoryManagement.Designer.cs">
+      <DependentUpon>FrmCategoryManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCustomerInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCustomerInfo.Designer.cs">
+      <DependentUpon>FrmCustomerInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDangKy.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmDangKy.Designer.cs">
       <DependentUpon>frmDangKy.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDangNhap.cs">
+    <Compile Include="FrmFeedbackManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDangNhap.Designer.cs">
-      <DependentUpon>frmDangNhap.cs</DependentUpon>
+    <Compile Include="FrmFeedbackManagement.Designer.cs">
+      <DependentUpon>FrmFeedbackManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -79,11 +98,41 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmOrderStatusUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOrderStatusUpdate.Designer.cs">
+      <DependentUpon>FrmOrderStatusUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmProductManagement.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmProductManagement.Designer.cs">
       <DependentUpon>frmProductManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPurchaseHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPurchaseHistory.Designer.cs">
+      <DependentUpon>FrmPurchaseHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReports.Designer.cs">
+      <DependentUpon>FrmReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStockManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStockManagement.Designer.cs">
+      <DependentUpon>FrmStockManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVoucherManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVoucherManagement.Designer.cs">
+      <DependentUpon>FrmVoucherManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -93,8 +142,8 @@
     <EmbeddedResource Include="frmDangKy.resx">
       <DependentUpon>frmDangKy.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDangNhap.resx">
-      <DependentUpon>frmDangNhap.cs</DependentUpon>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -110,6 +159,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -129,6 +179,39 @@
       <Project>{241D47FC-EF27-48D1-A7D7-A1156546BD41}</Project>
       <Name>CustomControl</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\manage_account_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\feedback_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\voucher_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\order_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\product_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\category_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\customer_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

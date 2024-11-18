@@ -1,193 +1,241 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using BLL;
 using DTO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ScrollBar;
 
 namespace GUI
 {
     public partial class frmProductManagement : Form
     {
-        private ProductBLL productBLL = new ProductBLL();
-        private CategoryBLL categoryBLL = new CategoryBLL();
-        private FeedbackBLL feedbackBLL = new FeedbackBLL();
+        private readonly ProductBLL productBLL = new ProductBLL();
+        private readonly CategoryBLL categoryBLL = new CategoryBLL();
+        private readonly SizeBLL sizeBLL = new SizeBLL();
+        private readonly ColorBLL colorBLL = new ColorBLL();
+        private readonly ProductVariantBLL productVariantBLL = new ProductVariantBLL();
 
         public frmProductManagement()
         {
             InitializeComponent();
-            LoadProducts();
-            LoadCategories();
-
-            actionControl.AddClicked += ActionControl_AddClicked;
-            actionControl.UpdateClicked += ActionControl_UpdateClicked;
-            actionControl.DeleteClicked += ActionControl_DeleteClicked;
-            actionControl.SearchClicked += ActionControl_SearchClicked;
-            btnUploadImage.Click += btnUploadImage_Click;
+            InitializeForm();
         }
 
-        private void btnUploadImage_Click(object sender, EventArgs e)
+        private void InitializeForm()
         {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            LoadCategories();
+            LoadSizes();
+            LoadColors();
+            LoadProducts();
+
+            btnAdd.Click += BtnAdd_Click;
+            btnEdit.Click += BtnEdit_Click;
+            btnDelete.Click += BtnDelete_Click;
+            dataGridViewProducts.SelectionChanged += DataGridViewProducts_SelectionChanged;
+        }
+
+        private void LoadComboBoxData(ComboBox comboBox, object dataSource, string displayMember, string valueMember)
+        {
+            comboBox.DataSource = dataSource;
+            comboBox.DisplayMember = displayMember;
+            comboBox.ValueMember = valueMember;
+            comboBox.SelectedIndex = -1; // Clear selection
+        }
+
+        private void LoadCategories() => LoadComboBoxData(cmbCategory, categoryBLL.GetAllCategories(), "category_name", "category_id");
+        private void LoadSizes() => LoadComboBoxData(cmbSize, sizeBLL.GetAllSizes(), "size_name", "size_id");
+        private void LoadColors() => LoadComboBoxData(cmbColor, colorBLL.GetAllColors(), "color_name", "color_id");
+
+        private void LoadProducts()
+        {
+            var products = productBLL.GetAllProducts().Select(p => new
             {
-                openFileDialog.Filter = "Image Files (*.jpg; *.jpeg; *.png)|*.jpg;*.jpeg;*.png";
-                openFileDialog.Title = "Chọn ảnh sản phẩm";
+                p.product_id,
+                p.product_name,
+                Title = p.Title,
+                Price = p.price,
+                CategoryName = p.Category?.category_name ?? "Không có",
+                SizeName = p.ProductVariants.FirstOrDefault()?.Size.size_name ?? "Không có",
+                ColorName = p.ProductVariants.FirstOrDefault()?.Color.color_name ?? "Không có",
+                Quantity = p.ProductVariants.FirstOrDefault()?.quantity ?? 0,
+                DateAdded = p.Dateadd,
+            }).ToList();
 
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
+            dataGridViewProducts.DataSource = products;
+
+            // Thiết lập tiêu đề cho các cột
+            dataGridViewProducts.Columns["product_id"].Visible = false;
+            dataGridViewProducts.Columns["product_name"].HeaderText = "Tên Sản Phẩm";
+            dataGridViewProducts.Columns["Title"].HeaderText = "Tiêu Đề";
+            dataGridViewProducts.Columns["Price"].HeaderText = "Giá";
+            dataGridViewProducts.Columns["CategoryName"].HeaderText = "Danh Mục";
+            dataGridViewProducts.Columns["SizeName"].HeaderText = "Kích Cỡ";
+            dataGridViewProducts.Columns["ColorName"].HeaderText = "Màu Sắc";
+            dataGridViewProducts.Columns["Quantity"].HeaderText = "Số Lượng";
+            dataGridViewProducts.Columns["DateAdded"].HeaderText = "Ngày Thêm";
+        }
+
+        private bool isAdding = false;
+
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            if (isAdding) return;
+
+            try
+            {
+                isAdding = true;
+
+                if (string.IsNullOrWhiteSpace(txtProductName.Text) || string.IsNullOrWhiteSpace(txtTitle.Text))
                 {
-                    string selectedImagePath = openFileDialog.FileName;
-                    txtImagePath.Text = selectedImagePath;
+                    MessageBox.Show("Tên sản phẩm và Tiêu đề không được để trống.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
-                    string destinationPath = @"C:\YourImageFolder\" + System.IO.Path.GetFileName(selectedImagePath);
-                    if (!System.IO.File.Exists(destinationPath))
+                var product = new Product
+                {
+                    product_name = txtProductName.Text,
+                    Title = txtTitle.Text,
+                    price = float.TryParse(txtPrice.Text, out var price) ? price : 0,
+                    category_id = cmbCategory.SelectedValue != null ? (int)cmbCategory.SelectedValue : 0,
+                    Dateadd = dtpDateAdd.Value
+                };
+
+                if (productBLL.AddProduct(product))
+                {
+                    var productVariant = new ProductVariant
                     {
-                        System.IO.File.Copy(selectedImagePath, destinationPath);
+                        product_id = product.product_id,
+                        size_id = cmbSize.SelectedValue != null ? (int)cmbSize.SelectedValue : 0,
+                        color_id = cmbColor.SelectedValue != null ? (int)cmbColor.SelectedValue : 0,
+                        quantity = int.TryParse(txtQuantity.Text, out var qty) ? qty : 0
+                    };
+
+                    productVariantBLL.AddProductVariant(productVariant);
+
+                    MessageBox.Show("Sản phẩm đã được thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    RefreshProductGrid();
+                    ResetInputFields();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm sản phẩm thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                isAdding = false;
+            }
+        }
+
+        private void RefreshProductGrid()
+        {
+            LoadProducts();
+            dataGridViewProducts.Refresh();
+        }
+
+        private void ResetInputFields()
+        {
+            txtProductName.Clear();
+            txtTitle.Clear();
+            txtPrice.Clear();
+            txtQuantity.Clear();
+            cmbCategory.SelectedIndex = -1;
+            cmbSize.SelectedIndex = -1;
+            cmbColor.SelectedIndex = -1;
+            dtpDateAdd.Value = DateTime.Now;
+        }
+
+        private void BtnEdit_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewProducts.CurrentRow == null) return;
+
+            try
+            {
+                var selectedProduct = dataGridViewProducts.CurrentRow.DataBoundItem as Product;
+                selectedProduct.product_name = txtProductName.Text;
+                selectedProduct.category_id = cmbCategory.SelectedValue != null ? (int)cmbCategory.SelectedValue : 0;
+
+                if (productBLL.EditProduct(selectedProduct))
+                {
+                    var productVariant = productVariantBLL.GetProductVariantById(selectedProduct.product_id);
+                    if (productVariant != null)
+                    {
+                        productVariant.size_id = cmbSize.SelectedValue != null ? (int)cmbSize.SelectedValue : 0;
+                        productVariant.color_id = cmbColor.SelectedValue != null ? (int)cmbColor.SelectedValue : 0;
+                        productVariant.quantity = int.TryParse(txtQuantity.Text, out var qty) ? qty : productVariant.quantity;
+
+                        if (productVariantBLL.EditProductVariant(productVariant))
+                        {
+                            MessageBox.Show("Sản phẩm và biến thể đã được cập nhật!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadProducts();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Cập nhật biến thể thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Cập nhật sản phẩm thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewProducts.CurrentRow == null) return;
+
+            var confirmResult = MessageBox.Show("Bạn có chắc muốn xóa sản phẩm này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (confirmResult == DialogResult.Yes)
+            {
+                try
+                {
+                    var selectedProduct = dataGridViewProducts.CurrentRow.DataBoundItem as Product;
+
+                    if (productBLL.RemoveProduct(selectedProduct.product_id) && productVariantBLL.RemoveProductVariant(selectedProduct.product_id))
+                    {
+                        MessageBox.Show("Sản phẩm và biến thể đã được xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadProducts();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa sản phẩm hoặc biến thể thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
-        private void LoadProducts()
+        private void DataGridViewProducts_SelectionChanged(object sender, EventArgs e)
         {
-            var products = productBLL.GetAllProducts();
+            if (dataGridViewProducts.CurrentRow == null) return;
 
-            var productDisplayList = products.Select(p => new
-            {
-                p.product_id,
-                p.product_name,
-                p.Title,
-                p.price,
-                CategoryName = p.Category != null ? p.Category.category_name : "Không có",
-                p.ImageSP,
-                AverageRating = feedbackBLL.GetAverageRating(p.product_id), 
-                p.Dateadd
-            }).ToList();
+            var selectedProduct = dataGridViewProducts.CurrentRow.DataBoundItem as Product;
 
-            dataGridViewProducts.DataSource = productDisplayList;
+            txtProductName.Text = selectedProduct?.product_name ?? string.Empty;
+            txtPrice.Text = selectedProduct?.price.ToString() ?? "0";
+            cmbCategory.SelectedValue = selectedProduct?.category_id ?? 0;
+            txtTitle.Text = selectedProduct?.Title ?? string.Empty;
+
+            var productVariant = selectedProduct?.ProductVariants.FirstOrDefault();
+            cmbSize.SelectedValue = productVariant?.size_id ?? 0;
+            cmbColor.SelectedValue = productVariant?.color_id ?? 0;
+            txtQuantity.Text = productVariant?.quantity.ToString() ?? "0";
+
+            dtpDateAdd.Value = selectedProduct?.Dateadd ?? DateTime.Now;
         }
-
-
-        // Đổ dữ liệu danh mục vào ComboBox
-        private void LoadCategories()
-        {
-            var categories = categoryBLL.GetAllCategories();
-            cmbCategoryId.DataSource = categories;
-            cmbCategoryId.DisplayMember = "category_name";
-            cmbCategoryId.ValueMember = "category_id";
-        }
-
-        // Thêm sản phẩm
-        private void ActionControl_AddClicked(object sender, EventArgs e)
-        {
-            try
-            {
-                Product product = new Product
-                {
-                    product_name = txtProductName.Text,
-                    price = double.Parse(txtPrice.Text),
-                    category_id = (int)cmbCategoryId.SelectedValue,
-                    Title = txtDescription.Text,
-                    rating = double.Parse(txtRating.Text) / 5, // Tính rating dựa trên thang điểm 5
-                    ImageSP = txtImagePath.Text,
-                    Dateadd = dtpDateAdd.Value
-                };
-
-                productBLL.AddProduct(product);
-                MessageBox.Show("Sản phẩm đã được thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadProducts();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        // Sửa sản phẩm
-        private void ActionControl_UpdateClicked(object sender, EventArgs e)
-        {
-            try
-            {
-                Product product = new Product
-                {
-                    product_id = int.Parse(txtProductId.Text),
-                    product_name = txtProductName.Text,
-                    price = double.Parse(txtPrice.Text),
-                    category_id = (int)cmbCategoryId.SelectedValue,
-                    Title = txtDescription.Text,
-                    rating = double.Parse(txtRating.Text) / 5,
-                    ImageSP = txtImagePath.Text,
-                    Dateadd = dtpDateAdd.Value
-                };
-
-                productBLL.EditProduct(product);
-                MessageBox.Show("Sản phẩm đã được cập nhật!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadProducts();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        // Xóa sản phẩm
-        private void ActionControl_DeleteClicked(object sender, EventArgs e)
-        {
-            try
-            {
-                int productId = int.Parse(txtProductId.Text);
-                productBLL.RemoveProduct(productId);
-                MessageBox.Show("Sản phẩm đã được xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadProducts();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        // Tìm kiếm sản phẩm
-        private void ActionControl_SearchClicked(object sender, EventArgs e)
-        {
-            string searchProductName = actionControl.SearchText;
-            var searchResult = productBLL.GetProductByName(searchProductName);
-            if (searchResult != null)
-            {
-                dataGridViewProducts.DataSource = new List<Product> { searchResult };
-            }
-            else
-            {
-                MessageBox.Show("Không tìm thấy sản phẩm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadProducts();
-            }
-        }
-
-        // Xử lý khi chọn sản phẩm trong DataGridView
-        private void dataGridViewProducts_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dataGridViewProducts.Rows[e.RowIndex];
-
-                txtProductId.Text = row.Cells["product_id"].Value != null ? row.Cells["product_id"].Value.ToString() : "";
-                txtProductName.Text = row.Cells["product_name"].Value != null ? row.Cells["product_name"].Value.ToString() : "";
-                txtPrice.Text = row.Cells["price"].Value != null ? row.Cells["price"].Value.ToString() : "";
-
-                string categoryName = row.Cells["CategoryName"].Value != null ? row.Cells["CategoryName"].Value.ToString() : "";
-                cmbCategoryId.SelectedIndex = !string.IsNullOrEmpty(categoryName) ? cmbCategoryId.FindStringExact(categoryName) : -1;
-
-                txtDescription.Text = row.Cells["Title"].Value != null ? row.Cells["Title"].Value.ToString() : "";
-
-                txtRating.Text = row.Cells["rating"].Value != null
-                                 ? (double.Parse(row.Cells["rating"].Value.ToString()) * 5).ToString()
-                                 : "0";  // Tính lại rating nếu có giá trị
-
-                txtImagePath.Text = row.Cells["ImageSP"].Value != null ? row.Cells["ImageSP"].Value.ToString() : "";
-
-                dtpDateAdd.Value = row.Cells["Dateadd"].Value != null
-                                   ? (DateTime)row.Cells["Dateadd"].Value
-                                   : DateTime.Now; // Giá trị mặc định nếu không có ngày thêm
-            }
-        }
-
     }
 }

@@ -2,10 +2,8 @@
 using DTO;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Validation;
+
 namespace BLL
 {
     public class AccountBLL
@@ -24,43 +22,31 @@ namespace BLL
         {
             return accountDAL.GetAccountByUsername(username);
         }
+
+        // Search accounts by username
         public List<Account> SearchAccounts(string username)
         {
-            return accountDAL.SearchAccountsByUsername(username); 
+            return accountDAL.SearchAccountsByUsername(username);
         }
 
         // Add a new account
         public void AddAccount(Account account)
         {
-            if (!accountValidation.ValidateUsername(account.username))
-                throw new Exception("Tên đăng nhập không hợp lệ.");
+            ValidateAccount(account);
 
-            if (!accountValidation.ValidatePassword(account.password))
-                throw new Exception("Mật khẩu không hợp lệ.");
-
-            if (!accountValidation.ValidateEmail(account.email))
-                throw new Exception("Email không hợp lệ.");
-
-            if (!accountValidation.ValidatePhone(account.phone))
-                throw new Exception("Số điện thoại không hợp lệ.");
+            // Check if the username already exists
+            var existingAccount = accountDAL.GetAccountByUsername(account.username);
+            if (existingAccount != null)
+                throw new Exception("Tài khoản đã tồn tại.");
 
             accountDAL.InsertAccount(account);
         }
 
         public void EditAccount(Account account)
         {
-            if (!accountValidation.ValidateUsername(account.username))
-                throw new Exception("Tên đăng nhập không hợp lệ.");
+            ValidateAccount(account);
 
-            if (!accountValidation.ValidatePassword(account.password))
-                throw new Exception("Mật khẩu không hợp lệ.");
-
-            if (!accountValidation.ValidateEmail(account.email))
-                throw new Exception("Email không hợp lệ.");
-
-            if (!accountValidation.ValidatePhone(account.phone))
-                throw new Exception("Số điện thoại không hợp lệ.");
-
+            // Update the account
             accountDAL.UpdateAccount(account);
         }
 
@@ -68,38 +54,31 @@ namespace BLL
         {
             accountDAL.DeleteAccount(username);
         }
+
         public Account CheckLogin(string username, string password)
         {
             var account = accountDAL.GetAccountByUsernameAndPassword(username, password);
             if (account != null && account.password == password)
-            {
                 return account;
-            }
+
             return null;
         }
 
-        public void RegisterNewAccount(string username,string name, string password, string email, string phone, string address, string gender, string avatarPath, string backgroundPath)
+        public void RegisterNewAccount(string username, string name, string password, string email, string phone, string address, string gender, string avatarPath, string backgroundPath)
         {
-            if (!accountValidation.ValidateUsername(username))
-                throw new Exception("Tên đăng nhập không hợp lệ.");
+            // Validate individual fields
+            ValidateField(accountValidation.ValidateUsername(username), "Tên đăng nhập không hợp lệ.");
+            ValidateField(accountValidation.ValidatePassword(password), "Mật khẩu không hợp lệ.");
+            ValidateField(accountValidation.ValidateEmail(email), "Email không hợp lệ.");
+            ValidateField(accountValidation.ValidatePhone(phone), "Số điện thoại không hợp lệ.");
 
-            if (!accountValidation.ValidatePassword(password))
-                throw new Exception("Mật khẩu không hợp lệ.");
-
-            if (!accountValidation.ValidateEmail(email))
-                throw new Exception("Email không hợp lệ.");
-
-            if (!accountValidation.ValidatePhone(phone))
-                throw new Exception("Số điện thoại không hợp lệ.");
-
-            Account existingAccount = accountDAL.GetAccountByUsername(username);
+            // Check if the account already exists
+            var existingAccount = accountDAL.GetAccountByUsername(username);
             if (existingAccount != null)
-            {
                 throw new Exception("Tài khoản đã tồn tại.");
-            }
 
-            // Tạo tài khoản mới
-            Account newAccount = new Account
+            // Create a new account
+            var newAccount = new Account
             {
                 username = username,
                 name = name,
@@ -114,6 +93,22 @@ namespace BLL
 
             accountDAL.InsertAccount(newAccount);
         }
-    }
 
+        // Helper method to validate an account
+        private void ValidateAccount(Account account)
+        {
+            ValidateField(accountValidation.ValidateUsername(account.username), "Tên đăng nhập không hợp lệ.");
+            ValidateField(accountValidation.ValidatePassword(account.password), "Mật khẩu không hợp lệ.");
+            ValidateField(accountValidation.ValidateEmail(account.email), "Email không hợp lệ.");
+            ValidateField(accountValidation.ValidatePhone(account.phone), "Số điện thoại không hợp lệ.");
+            ValidateField(accountValidation.ValidateAddress(account.address), "Địa chỉ không hợp lệ.");
+        }
+
+        // Helper method to throw an exception with a custom message
+        private void ValidateField(ValidationResult validationResult, string errorMessage)
+        {
+            if (!validationResult.IsValid)
+                throw new Exception(errorMessage);
+        }
+    }
 }

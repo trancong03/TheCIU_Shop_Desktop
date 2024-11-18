@@ -1,41 +1,49 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using DAL;
 using DTO;
+using Validation;
 
 namespace BLL
 {
     public class ProductBLL
     {
         private ProductDAL productDAL = new ProductDAL();
+        private ProductValidation productValidation = new ProductValidation();
 
-        // Lấy tất cả sản phẩm
         public List<Product> GetAllProducts()
         {
             return productDAL.GetAllProducts();
         }
 
-        // Lấy sản phẩm theo tên
-        public Product GetProductByName(string productName)
+        public bool AddProduct(Product product)
         {
-            return productDAL.GetProductByName(productName);
+            ValidateProduct(product);
+            return productDAL.AddProduct(product);
         }
 
-        // Thêm sản phẩm
-        public void AddProduct(Product product)
+        public bool EditProduct(Product product)
         {
-            productDAL.AddProduct(product);
+            ValidateProduct(product);
+            return productDAL.UpdateProduct(product);
         }
 
-        // Sửa sản phẩm
-        public void EditProduct(Product product)
+        public bool RemoveProduct(int productId)
         {
-            productDAL.UpdateProduct(product);
+            return productDAL.DeleteProduct(productId);
         }
 
-        // Xóa sản phẩm
-        public void RemoveProduct(int productId)
+        private void ValidateProduct(Product product)
         {
-            productDAL.DeleteProduct(productId);
+            ValidateField(productValidation.ValidateProductName(product.product_name), "Tên sản phẩm không hợp lệ.");
+            ValidateField(productValidation.ValidateProductPrice(product.price), "Giá sản phẩm không hợp lệ.");
+            ValidateField(productValidation.ValidateProductCategory(product.category_id), "Danh mục sản phẩm không hợp lệ.");
+        }
+
+        private void ValidateField(ValidationResult validationResult, string errorMessage)
+        {
+            if (!validationResult.IsValid)
+                throw new Exception(errorMessage);
         }
     }
 }

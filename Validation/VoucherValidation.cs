@@ -8,35 +8,25 @@ namespace Validation
 {
     public class VoucherValidation
     {
-        public bool ValidateTitle(string title)
+        public ValidationResult ValidateTitle(string title)
         {
-            if (string.IsNullOrWhiteSpace(title))
-                return false;
-
-            if (title.Length < 3 || title.Length > 50)
-                return false;
-
-            return true;
+            if (!ValidationHelper.IsWithinLength(title, 3, 50))
+                return new ValidationResult { IsValid = false, ErrorMessage = "Tiêu đề phải từ 3 đến 50 ký tự." };
+            return new ValidationResult { IsValid = true };
         }
 
-        public bool ValidateDiscount(int? discount)
+        public ValidationResult ValidateDiscount(int? discount)
         {
             if (discount == null || discount <= 0 || discount > 100)
-                return false;
-
-            return true;
+                return new ValidationResult { IsValid = false, ErrorMessage = "Giảm giá phải từ 1 đến 100%." };
+            return new ValidationResult { IsValid = true };
         }
 
-        public bool ValidateDateRange(DateTime? startDate, DateTime? endDate)
+        public ValidationResult ValidateDateRange(DateTime? startDate, DateTime? endDate)
         {
-            if (startDate == null || endDate == null)
-                return false;
-
-            if (startDate > endDate)
-                return false;
-
-            return true;
+            if (!ValidationHelper.IsValidDateRange(startDate, endDate))
+                return new ValidationResult { IsValid = false, ErrorMessage = "Khoảng ngày không hợp lệ." };
+            return new ValidationResult { IsValid = true };
         }
     }
-
 }

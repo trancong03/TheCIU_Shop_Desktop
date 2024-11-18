@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class frmDangNhap
+    partial class frmLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -28,34 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.loginControl = new CustomControl.LoginControl();
+            this.loginControl1 = new CustomControl.LoginControl();
             this.SuspendLayout();
             // 
-            // loginControl
+            // loginControl1
             // 
-            this.loginControl.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.loginControl.Location = new System.Drawing.Point(0, -3);
-            this.loginControl.Name = "loginControl";
-            this.loginControl.Password = "";
-            this.loginControl.Size = new System.Drawing.Size(372, 276);
-            this.loginControl.TabIndex = 0;
-            this.loginControl.Username = "demo";
+            this.loginControl1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.loginControl1.Location = new System.Drawing.Point(12, 12);
+            this.loginControl1.Name = "loginControl1";
+            this.loginControl1.Password = "";
+            this.loginControl1.Size = new System.Drawing.Size(400, 276);
+            this.loginControl1.TabIndex = 0;
+            this.loginControl1.Username = "";
             // 
-            // frmDangNhap
+            // frmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(373, 268);
-            this.Controls.Add(this.loginControl);
-            this.Name = "frmDangNhap";
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(427, 299);
+            this.Controls.Add(this.loginControl1);
+            this.Name = "frmLogin";
+            this.Text = "frmLogin";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private CustomControl.LoginControl loginControl;
+        private CustomControl.LoginControl loginControl1;
     }
 }
-

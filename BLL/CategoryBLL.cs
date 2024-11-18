@@ -2,9 +2,6 @@
 using DTO;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Validation;
 
 namespace BLL
@@ -14,36 +11,43 @@ namespace BLL
         private CategoryDAL categoryDAL = new CategoryDAL();
         private CategoryValidation categoryValidation = new CategoryValidation();
 
+        // Lấy tất cả danh mục
         public List<Category> GetAllCategories()
         {
             return categoryDAL.GetAllCategories();
         }
 
+        // Lấy danh mục theo ID
         public Category GetCategoryById(int id)
         {
             return categoryDAL.GetCategoryById(id);
         }
 
-        public void AddCategory(Category category)
+        // Thêm danh mục mới
+        public bool AddCategory(Category category)
         {
-            if (!categoryValidation.ValidateCategoryName(category.category_name))
-                throw new Exception("Tên danh mục không hợp lệ.");
-
-            categoryDAL.InsertCategory(category);
+            ValidateField(categoryValidation.ValidateCategoryName(category.category_name), "Tên danh mục không hợp lệ.");
+            return categoryDAL.InsertCategory(category);
         }
 
-        public void EditCategory(Category category)
+        // Sửa danh mục
+        public bool EditCategory(Category category)
         {
-            if (!categoryValidation.ValidateCategoryName(category.category_name))
-                throw new Exception("Tên danh mục không hợp lệ.");
-
-            categoryDAL.UpdateCategory(category);
+            ValidateField(categoryValidation.ValidateCategoryName(category.category_name), "Tên danh mục không hợp lệ.");
+            return categoryDAL.UpdateCategory(category);
         }
 
-        public void RemoveCategory(int id)
+        // Xóa danh mục
+        public bool RemoveCategory(int id)
         {
-            categoryDAL.DeleteCategory(id);
+            return categoryDAL.DeleteCategory(id);
+        }
+
+        // Phương thức kiểm tra dữ liệu và ném ngoại lệ nếu không hợp lệ
+        private void ValidateField(ValidationResult validationResult, string errorMessage)
+        {
+            if (!validationResult.IsValid)
+                throw new Exception(errorMessage);
         }
     }
-
 }

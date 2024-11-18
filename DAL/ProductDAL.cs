@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using DTO;
 
@@ -6,70 +7,69 @@ namespace DAL
 {
     public class ProductDAL
     {
-        private QuanLyShopDataContext db;
-
-        public ProductDAL()
-        {
-            db = new QuanLyShopDataContext();
-        }
+        private QuanLyShopDataContext context = new QuanLyShopDataContext();
 
         // Lấy tất cả sản phẩm
         public List<Product> GetAllProducts()
         {
-            return db.Products.ToList();
-        }
-
-        // Lấy sản phẩm theo tên
-        public Product GetProductByName(string productName)
-        {
-            return db.Products.FirstOrDefault(p => p.product_name == productName);
+            return context.Products.ToList();
         }
 
         // Thêm sản phẩm
-        public void AddProduct(Product product)
+        public bool AddProduct(Product product)
         {
-            db.Products.InsertOnSubmit(product);
-            db.SubmitChanges();
-        }
-
-        // Sửa sản phẩm
-        public void UpdateProduct(Product product)
-        {
-            Product existingProduct = db.Products.FirstOrDefault(p => p.product_id == product.product_id);
-            if (existingProduct != null)
+            try
             {
-                existingProduct.product_name = product.product_name;
-                existingProduct.price = product.price;
-                existingProduct.category_id = product.category_id;
-                existingProduct.Title = product.Title;
-
-                db.SubmitChanges();
+                context.Products.InsertOnSubmit(product);
+                context.SubmitChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
 
-        // Xóa sản phẩm và reset lại product_id
-        public void DeleteProduct(int productId)
+        // Cập nhật sản phẩm
+        public bool UpdateProduct(Product product)
         {
-            Product product = db.Products.FirstOrDefault(p => p.product_id == productId);
-            if (product != null)
+            try
             {
-                db.Products.DeleteOnSubmit(product);
-                db.SubmitChanges();
-                ResetProductIds();
+                var existingProduct = context.Products.SingleOrDefault(p => p.product_id == product.product_id);
+                if (existingProduct != null)
+                {
+                    existingProduct.product_name = product.product_name;
+                    existingProduct.price = product.price;
+                    existingProduct.category_id = product.category_id;
+                    context.SubmitChanges();
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
             }
         }
 
-        // Reset lại các product_id để không có khoảng trống
-        private void ResetProductIds()
+        // Xóa sản phẩm
+        public bool DeleteProduct(int productId)
         {
-            var products = db.Products.OrderBy(p => p.product_id).ToList();
-            int newId = 1;
-            foreach (var product in products)
+            try
             {
-                product.product_id = newId;
-                newId++;
+                var product = context.Products.SingleOrDefault(p => p.product_id == productId);
+                if (product != null)
+                {
+                    context.Products.DeleteOnSubmit(product);
+                    context.SubmitChanges();
+                    return true;
+                }
+                return false;
             }
-            db.SubmitChanges();
+            catch
+            {
+                return false;
+            }
         }
     }
 }

@@ -47,10 +47,13 @@
   <ItemGroup>
     <Compile Include="AccountDAL.cs" />
     <Compile Include="CategoryDAL.cs" />
+    <Compile Include="ColorDAL.cs" />
     <Compile Include="FeedbackDAL.cs" />
     <Compile Include="OrderDAL.cs" />
     <Compile Include="ProductDAL.cs" />
+    <Compile Include="ProductVariantDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SizeDAL.cs" />
     <Compile Include="VoucherDAL.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

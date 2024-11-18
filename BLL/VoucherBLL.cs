@@ -2,9 +2,6 @@
 using DTO;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Validation;
 
 namespace BLL
@@ -26,25 +23,13 @@ namespace BLL
 
         public void AddVoucher(Voucher voucher)
         {
-
-            if (!voucherValidation.ValidateTitle(voucher.tiltle))
-                throw new Exception("Tiêu đề không hợp lệ.");
-
-            if (!voucherValidation.ValidateDiscount(voucher.discount))
-                throw new Exception("Giá trị giảm giá không hợp lệ.");
-
+            ValidateVoucher(voucher);
             voucherDAL.InsertVoucher(voucher);
         }
 
         public void EditVoucher(Voucher voucher)
         {
-            if (!voucherValidation.ValidateTitle(voucher.tiltle))
-                throw new Exception("Tiêu đề không hợp lệ.");
-
-            if (!voucherValidation.ValidateDiscount(voucher.discount))
-                throw new Exception("Giá trị giảm giá không hợp lệ.");
-
-
+            ValidateVoucher(voucher);
             voucherDAL.UpdateVoucher(voucher);
         }
 
@@ -52,6 +37,18 @@ namespace BLL
         {
             voucherDAL.DeleteVoucher(id);
         }
-    }
 
+        private void ValidateVoucher(Voucher voucher)
+        {
+            ValidateField(voucherValidation.ValidateTitle(voucher.tiltle), "Tiêu đề không hợp lệ.");
+            ValidateField(voucherValidation.ValidateDiscount(voucher.discount), "Giảm giá không hợp lệ.");
+            //ValidateField(voucherValidation.ValidateDateRange(voucher.dateStart, voucher.dateEnd), "Khoảng ngày không hợp lệ.");
+        }
+
+        private void ValidateField(ValidationResult validationResult, string errorMessage)
+        {
+            if (!validationResult.IsValid)
+                throw new Exception(errorMessage);
+        }
+    }
 }

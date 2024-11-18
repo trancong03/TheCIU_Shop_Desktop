@@ -8,33 +8,25 @@ namespace Validation
 {
     public class ProductValidation
     {
-        public bool ValidateProductCategory(int? category_id)
+        public ValidationResult ValidateProductCategory(int? category_id)
         {
-            if (category_id == null || category_id <= 0)
-                return false;
-
-            return true;
+            if (!ValidationHelper.IsPositiveNumber(category_id))
+                return new ValidationResult { IsValid = false, ErrorMessage = "Danh mục sản phẩm không hợp lệ." };
+            return new ValidationResult { IsValid = true };
         }
 
-        // Kiểm tra tên sản phẩm có hợp lệ không
-        public bool ValidateProductName(string productName)
+        public ValidationResult ValidateProductName(string productName)
         {
-            if (string.IsNullOrWhiteSpace(productName))
-                return false;
-
-            if (productName.Length < 3 || productName.Length > 50)
-                return false;
-
-            return true;
+            if (!ValidationHelper.IsWithinLength(productName, 3, 50))
+                return new ValidationResult { IsValid = false, ErrorMessage = "Tên sản phẩm phải từ 3 đến 50 ký tự." };
+            return new ValidationResult { IsValid = true };
         }
 
-        // Kiểm tra giá sản phẩm có hợp lệ không
-        public bool ValidateProductPrice(double? price)
+        public ValidationResult ValidateProductPrice(double? price)
         {
-            if (price == null || price <= 0)
-                return false;
-
-            return true;
+            if (!ValidationHelper.IsPositiveNumber(price))
+                return new ValidationResult { IsValid = false, ErrorMessage = "Giá sản phẩm phải lớn hơn 0." };
+            return new ValidationResult { IsValid = true };
         }
     }
 

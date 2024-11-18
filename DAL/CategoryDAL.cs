@@ -1,9 +1,6 @@
 ﻿using DTO;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL
 {
@@ -21,32 +18,57 @@ namespace DAL
             return db.Categories.SingleOrDefault(c => c.category_id == id);
         }
 
-        public void InsertCategory(Category category)
+        public bool InsertCategory(Category category)
         {
-            db.Categories.InsertOnSubmit(category);
-            db.SubmitChanges();
-        }
-
-        public void UpdateCategory(Category category)
-        {
-            var existingCategory = db.Categories.SingleOrDefault(c => c.category_id == category.category_id);
-            if (existingCategory != null)
+            try
             {
-                existingCategory.category_name = category.category_name;
-                // Update other fields as necessary
+                db.Categories.InsertOnSubmit(category);
                 db.SubmitChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
 
-        public void DeleteCategory(int id)
+        public bool UpdateCategory(Category category)
         {
-            var category = db.Categories.SingleOrDefault(c => c.category_id == id);
-            if (category != null)
+            try
             {
-                db.Categories.DeleteOnSubmit(category);
-                db.SubmitChanges();
+                var existingCategory = db.Categories.SingleOrDefault(c => c.category_id == category.category_id);
+                if (existingCategory != null)
+                {
+                    existingCategory.category_name = category.category_name;
+                    // Update other fields as necessary
+                    db.SubmitChanges();
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool DeleteCategory(int id)
+        {
+            try
+            {
+                var category = db.Categories.SingleOrDefault(c => c.category_id == id);
+                if (category != null)
+                {
+                    db.Categories.DeleteOnSubmit(category);
+                    db.SubmitChanges();
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
             }
         }
     }
-
 }

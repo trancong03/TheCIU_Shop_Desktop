@@ -39,6 +39,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,10 +53,13 @@
   <ItemGroup>
     <Compile Include="AccountBLL.cs" />
     <Compile Include="CategoryBLL.cs" />
+    <Compile Include="ColorBLL.cs" />
     <Compile Include="FeedbackBLL.cs" />
     <Compile Include="OrderBLL.cs" />
     <Compile Include="ProductBLL.cs" />
+    <Compile Include="ProductVariantBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SizeBLL.cs" />
     <Compile Include="VoucherBLL.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -23,7 +23,6 @@
 
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ActionControl));
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.cbFilter = new System.Windows.Forms.ComboBox();
@@ -39,7 +38,7 @@
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
             this.txtSearch.Location = new System.Drawing.Point(106, 14);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(200, 27);
+            this.txtSearch.Size = new System.Drawing.Size(220, 27);
             this.txtSearch.TabIndex = 0;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -58,9 +57,9 @@
             this.cbFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
             this.cbFilter.FormattingEnabled = true;
-            this.cbFilter.Location = new System.Drawing.Point(877, 13);
+            this.cbFilter.Location = new System.Drawing.Point(604, 16);
             this.cbFilter.Name = "cbFilter";
-            this.cbFilter.Size = new System.Drawing.Size(200, 28);
+            this.cbFilter.Size = new System.Drawing.Size(150, 28);
             this.cbFilter.TabIndex = 6;
             this.cbFilter.SelectedIndexChanged += new System.EventHandler(this.cbFilter_SelectedIndexChanged);
             // 
@@ -70,7 +69,7 @@
             this.lblFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
             this.lblFilter.Image = global::CustomControl.Properties.Resources.filter;
             this.lblFilter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblFilter.Location = new System.Drawing.Point(809, 17);
+            this.lblFilter.Location = new System.Drawing.Point(536, 19);
             this.lblFilter.Name = "lblFilter";
             this.lblFilter.Size = new System.Drawing.Size(62, 20);
             this.lblFilter.TabIndex = 7;
@@ -78,57 +77,54 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
-            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(324, 13);
+            this.btnSearch.BackColor = System.Drawing.Color.Transparent;
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Image = global::CustomControl.Properties.Resources.search;
+            this.btnSearch.Location = new System.Drawing.Point(340, 10);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(31, 29);
+            this.btnSearch.Size = new System.Drawing.Size(40, 40);
             this.btnSearch.TabIndex = 1;
-            this.btnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnAdd
             // 
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.btnAdd.BackColor = System.Drawing.Color.Transparent;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Image = global::CustomControl.Properties.Resources.add;
-            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.Location = new System.Drawing.Point(426, 14);
+            this.btnAdd.Location = new System.Drawing.Point(390, 10);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(100, 28);
+            this.btnAdd.Size = new System.Drawing.Size(40, 40);
             this.btnAdd.TabIndex = 2;
-            this.btnAdd.Text = "Thêm";
-            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.btnUpdate.BackColor = System.Drawing.Color.Transparent;
+            this.btnUpdate.FlatAppearance.BorderSize = 0;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Image = global::CustomControl.Properties.Resources.edit;
-            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdate.Location = new System.Drawing.Point(547, 14);
+            this.btnUpdate.Location = new System.Drawing.Point(440, 10);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(100, 28);
+            this.btnUpdate.Size = new System.Drawing.Size(40, 40);
             this.btnUpdate.TabIndex = 3;
-            this.btnUpdate.Text = "Sửa";
-            this.btnUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDelete
             // 
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.btnDelete.BackColor = System.Drawing.Color.Transparent;
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Image = global::CustomControl.Properties.Resources.delete;
-            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete.Location = new System.Drawing.Point(671, 13);
+            this.btnDelete.Location = new System.Drawing.Point(490, 10);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(100, 28);
+            this.btnDelete.Size = new System.Drawing.Size(40, 40);
             this.btnDelete.TabIndex = 4;
-            this.btnDelete.Text = "Xóa";
-            this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // ActionControl
@@ -142,12 +138,10 @@
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnDelete);
             this.Name = "ActionControl";
-            this.Size = new System.Drawing.Size(1147, 55);
+            this.Size = new System.Drawing.Size(770, 63);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
-
-
     }
 }

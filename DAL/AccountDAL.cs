@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 
 namespace DAL
 {
@@ -20,6 +21,13 @@ namespace DAL
         {
             return db.Accounts.FirstOrDefault(acc => acc.username == username);
         }
+
+        public Account AuthenticateAccount(string username, string password)
+        {
+            return db.Accounts.SingleOrDefault(account =>
+                account.username == username && account.password == password && account.status ==1);
+        }
+
 
         // Lấy tài khoản theo username và password (đăng nhập)
         public Account GetAccountByUsernameAndPassword(string username, string password)

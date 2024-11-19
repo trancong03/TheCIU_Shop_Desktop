@@ -74,5 +74,19 @@ namespace CustomControl
         {
             FilterChanged?.Invoke(this, EventArgs.Empty);
         }
+        private bool filterVisible = true; // Mặc định là hiển thị bộ lọc
+
+        public bool FilterVisible
+        {
+            get => filterVisible;
+            set
+            {
+                filterVisible = value;
+                // Ẩn hoặc hiển thị giao diện bộ lọc
+                cbFilter.Visible = filterVisible; // comboBoxFilter là control dùng để lọc
+                lblFilter.Visible = filterVisible;      // lblFilter là label dùng cho chức năng lọc
+            }
+        }
+
     }
 }

@@ -2,14 +2,15 @@
 using DTO;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Validation;
 
 namespace BLL
 {
     public class CategoryBLL
     {
-        private CategoryDAL categoryDAL = new CategoryDAL();
-        private CategoryValidation categoryValidation = new CategoryValidation();
+        private readonly CategoryDAL categoryDAL = new CategoryDAL();
+        private readonly CategoryValidation categoryValidation = new CategoryValidation();
 
         // Lấy tất cả danh mục
         public List<Category> GetAllCategories()
@@ -42,7 +43,17 @@ namespace BLL
         {
             return categoryDAL.DeleteCategory(id);
         }
+        public List<Category> SearchCategories(string searchText)
+        {
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                return GetAllCategories(); // Nếu không nhập gì, trả về toàn bộ danh sách
+            }
 
+            return categoryDAL.GetAllCategories()
+                              .Where(c => c.category_name.ToLower().Contains(searchText.ToLower()))
+                              .ToList();
+        }
         // Phương thức kiểm tra dữ liệu và ném ngoại lệ nếu không hợp lệ
         private void ValidateField(ValidationResult validationResult, string errorMessage)
         {

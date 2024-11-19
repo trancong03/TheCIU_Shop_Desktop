@@ -8,8 +8,8 @@ namespace BLL
 {
     public class AccountBLL
     {
-        private AccountDAL accountDAL = new AccountDAL();
-        private AccountValidation accountValidation = new AccountValidation();
+        private readonly AccountDAL accountDAL = new AccountDAL();
+        private readonly AccountValidation accountValidation = new AccountValidation();
 
         // Get all accounts
         public List<Account> GetAllAccounts()
@@ -109,6 +109,10 @@ namespace BLL
         {
             if (!validationResult.IsValid)
                 throw new Exception(errorMessage);
+        }
+        public Account Authenticate (string name, string password)
+        {
+            return accountDAL.AuthenticateAccount(name, password);
         }
     }
 }

@@ -257,29 +257,31 @@
             // 
             this.dataGridViewProducts.ColumnHeadersHeight = 29;
             this.dataGridViewProducts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewProducts.Location = new System.Drawing.Point(0, 205);
+            this.dataGridViewProducts.Location = new System.Drawing.Point(0, 198);
             this.dataGridViewProducts.Name = "dataGridViewProducts";
             this.dataGridViewProducts.RowHeadersWidth = 51;
-            this.dataGridViewProducts.Size = new System.Drawing.Size(1201, 448);
+            this.dataGridViewProducts.Size = new System.Drawing.Size(1201, 455);
             this.dataGridViewProducts.TabIndex = 0;
             // 
             // actionControl
             // 
             this.actionControl.Dock = System.Windows.Forms.DockStyle.Top;
+            this.actionControl.FilterDataSource = null;
+            this.actionControl.FilterDisplayMember = "";
+            this.actionControl.FilterValueMember = "";
             this.actionControl.Location = new System.Drawing.Point(0, 140);
             this.actionControl.Margin = new System.Windows.Forms.Padding(20, 10, 0, 20);
             this.actionControl.Name = "actionControl";
-            this.actionControl.Size = new System.Drawing.Size(1201, 65);
+            this.actionControl.Size = new System.Drawing.Size(1201, 58);
             this.actionControl.TabIndex = 1;
-
             // 
-            // frmProductManagement
+            // FrmProductManagement
             // 
             this.ClientSize = new System.Drawing.Size(1201, 653);
             this.Controls.Add(this.dataGridViewProducts);
             this.Controls.Add(this.actionControl);
             this.Controls.Add(this.tableLayoutPanel);
-            this.Name = "frmProductManagement";
+            this.Name = "FrmProductManagement";
             this.Text = "Quản lý sản phẩm và biến thể";
             this.tableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel.PerformLayout();

@@ -6,13 +6,18 @@ namespace DAL
 {
     public class CategoryDAL
     {
-        private QuanLyShopDataContext db = new QuanLyShopDataContext();
+        private readonly QuanLyShopDataContext db = new QuanLyShopDataContext();
 
         public List<Category> GetAllCategories()
         {
             return db.Categories.ToList();
         }
-
+        public List<Category> SearchCategories(string searchText)
+        {
+            return db.Categories
+                     .Where(c => c.category_name.Contains(searchText))
+                     .ToList();
+        }
         public Category GetCategoryById(int id)
         {
             return db.Categories.SingleOrDefault(c => c.category_id == id);

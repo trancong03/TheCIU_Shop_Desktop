@@ -70,11 +70,24 @@ namespace GUI
 
         private void LoadProducts()
         {
-            // Clear the existing data source
             dataGridViewProducts.DataSource = null;
 
-            // Load the latest data
             var products = productBLL.GetProductDetails().ToList();
+
+            if (products.Count == 0)
+            {
+                var emptyTable = new System.Data.DataTable();
+                emptyTable.Columns.Add("Thông báo", typeof(string));
+                emptyTable.Rows.Add("Chưa có dữ liệu");
+                dataGridViewProducts.DataSource = emptyTable;
+
+                dataGridViewProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dataGridViewProducts.ColumnHeadersVisible = false; // Ẩn tiêu đề cột
+                dataGridViewProducts.ReadOnly = true;
+                return;
+            }
+
+            // Gán dữ liệu nếu có
             dataGridViewProducts.DataSource = products;
 
             // Adjust column properties
@@ -82,7 +95,7 @@ namespace GUI
             dataGridViewProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 
             // Hide unnecessary columns and set column headers
-            dataGridViewProducts.Columns["product_id"].Visible = false;
+            dataGridViewProducts.Columns["product_id"].Visible = false; // Ẩn cột ID nếu không cần thiết
             dataGridViewProducts.Columns["product_name"].HeaderText = "Tên Sản Phẩm";
             dataGridViewProducts.Columns["Title"].HeaderText = "Tiêu Đề";
             dataGridViewProducts.Columns["Dateadd"].HeaderText = "Ngày Thêm";
@@ -110,10 +123,10 @@ namespace GUI
 
             // Disable horizontal scrolling
             dataGridViewProducts.ScrollBars = ScrollBars.Vertical;
+
+            // Hiển thị tiêu đề cột
+            dataGridViewProducts.ColumnHeadersVisible = true;
         }
-
-
-
 
         private void LoadFilterOptions()
         {
@@ -302,15 +315,30 @@ namespace GUI
         {
             if (dataGridViewProducts.CurrentRow == null) return;
 
-            txtProductName.Text = dataGridViewProducts.CurrentRow.Cells["product_name"].Value?.ToString() ?? string.Empty;
-            txtTitle.Text = dataGridViewProducts.CurrentRow.Cells["Title"].Value?.ToString() ?? string.Empty;
-            txtPrice.Text = dataGridViewProducts.CurrentRow.Cells["Price"].Value?.ToString() ?? string.Empty;
-            cmbCategory.Text = dataGridViewProducts.CurrentRow.Cells["CategoryName"].Value?.ToString() ?? string.Empty;
-            cmbSize.Text = dataGridViewProducts.CurrentRow.Cells["SizeName"].Value?.ToString() ?? string.Empty;
-            cmbColor.Text = dataGridViewProducts.CurrentRow.Cells["ColorName"].Value?.ToString() ?? string.Empty;
-            txtQuantity.Text = dataGridViewProducts.CurrentRow.Cells["Quantity"].Value?.ToString() ?? string.Empty;
+            // Kiểm tra và gán giá trị cho từng cột
+            txtProductName.Text = dataGridViewProducts.Columns.Contains("product_name") ?
+                dataGridViewProducts.CurrentRow.Cells["product_name"].Value?.ToString() ?? string.Empty : string.Empty;
 
-            if (DateTime.TryParse(dataGridViewProducts.CurrentRow.Cells["Dateadd"].Value?.ToString(), out var date))
+            txtTitle.Text = dataGridViewProducts.Columns.Contains("Title") ?
+                dataGridViewProducts.CurrentRow.Cells["Title"].Value?.ToString() ?? string.Empty : string.Empty;
+
+            txtPrice.Text = dataGridViewProducts.Columns.Contains("Price") ?
+                dataGridViewProducts.CurrentRow.Cells["Price"].Value?.ToString() ?? string.Empty : string.Empty;
+
+            cmbCategory.Text = dataGridViewProducts.Columns.Contains("CategoryName") ?
+                dataGridViewProducts.CurrentRow.Cells["CategoryName"].Value?.ToString() ?? string.Empty : string.Empty;
+
+            cmbSize.Text = dataGridViewProducts.Columns.Contains("SizeName") ?
+                dataGridViewProducts.CurrentRow.Cells["SizeName"].Value?.ToString() ?? string.Empty : string.Empty;
+
+            cmbColor.Text = dataGridViewProducts.Columns.Contains("ColorName") ?
+                dataGridViewProducts.CurrentRow.Cells["ColorName"].Value?.ToString() ?? string.Empty : string.Empty;
+
+            txtQuantity.Text = dataGridViewProducts.Columns.Contains("Quantity") ?
+                dataGridViewProducts.CurrentRow.Cells["Quantity"].Value?.ToString() ?? string.Empty : string.Empty;
+
+            if (dataGridViewProducts.Columns.Contains("Dateadd") &&
+                DateTime.TryParse(dataGridViewProducts.CurrentRow.Cells["Dateadd"].Value?.ToString(), out DateTime date))
             {
                 dtpDateAdd.Value = date;
             }
@@ -319,6 +347,7 @@ namespace GUI
                 dtpDateAdd.Value = DateTime.Now;
             }
         }
+
 
 
         private bool ValidateProductInput()

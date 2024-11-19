@@ -62,6 +62,12 @@
     <Compile Include="FrmAccountManagement.Designer.cs">
       <DependentUpon>FrmAccountManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCategoryDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCategoryDialog.Designer.cs">
+      <DependentUpon>FrmCategoryDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCategoryManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +144,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmAccountManagement.resx">
       <DependentUpon>FrmAccountManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCategoryDialog.resx">
+      <DependentUpon>FrmCategoryDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCategoryManagement.resx">
+      <DependentUpon>FrmCategoryManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDangKy.resx">
       <DependentUpon>frmDangKy.cs</DependentUpon>

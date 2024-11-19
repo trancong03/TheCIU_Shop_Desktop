@@ -6,9 +6,14 @@ namespace GUI
 {
     public partial class frmMain : Form
     {
-        public frmMain()
+        private string userRole;
+
+        public string UserRole { get => userRole; set => userRole = value; }
+
+        public frmMain(string role)
         {
             InitializeComponent();
+            userRole = role;
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -16,10 +21,11 @@ namespace GUI
             leftContainerPanel.Width = 60;
             isCollapsed = true;
 
+            MessageBox.Show($"Chào mừng, vai trò của bạn: {userRole}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             // Thiết lập các nút điều hướng
             ConfigureNavigationButtons();
 
-            // Ẩn text trên các nút điều hướng khi thu gọn
             foreach (Control control in navigationPanel.Controls)
             {
                 if (control is Button btn)
@@ -31,17 +37,30 @@ namespace GUI
             }
         }
 
+
         private void ConfigureNavigationButtons()
         {
-            ConfigureButton(btnManageProducts, "Quản lý Sản phẩm", Properties.Resources.product_icon);
-            ConfigureButton(btnManageCategories, "Quản lý Danh mục", Properties.Resources.category_icon);
-            ConfigureButton(btnManageCustomers, "Quản lý Khách hàng", Properties.Resources.customer_icon);
-            ConfigureButton(btnManageOrders, "Quản lý Đơn hàng", Properties.Resources.order_icon);
-            ConfigureButton(btnManageVouchers, "Quản lý Voucher", Properties.Resources.voucher_icon);
+            if (userRole == "Admin" || userRole == "Nhân viên")
+            {
+                ConfigureButton(btnManageProducts, "Quản lý Sản phẩm", Properties.Resources.product_icon);
+            }
+
+            if (userRole == "Admin")
+            {
+                ConfigureButton(btnManageOrders, "Quản lý Đơn hàng", Properties.Resources.order_icon);
+                ConfigureButton(btnManageVouchers, "Quản lý Voucher", Properties.Resources.voucher_icon);
+                ConfigureButton(btnReports, "Thống kê và Báo cáo", Properties.Resources.report_icon);
+            }
+
+            if (userRole == "Nhân viên")
+            {
+                ConfigureButton(btnManageCustomers, "Quản lý Khách hàng", Properties.Resources.customer_icon);
+            }
+
             ConfigureButton(btnManageFeedback, "Quản lý Phản hồi", Properties.Resources.feedback_icon);
-            ConfigureButton(btnReports, "Thống kê và Báo cáo", Properties.Resources.report_icon);
             ConfigureButton(btnSettings, "Cài đặt", Properties.Resources.settings_icon);
         }
+
 
         private void ConfigureButton(Button button, string text, Image icon)
         {
@@ -62,14 +81,20 @@ namespace GUI
         {
             TogglePanelChildren(new[]
             {
+                new Tuple<string, EventHandler>("Quản lý danh mục", BtnManageCategories_Click),
+                new Tuple<string, EventHandler>("Quản lý tồn kho", BtnStockManagement_Click),
                 new Tuple<string, EventHandler>("Thông tin sản phẩm", BtnProductInfo_Click),
-                new Tuple<string, EventHandler>("Quản lý tồn kho", BtnStockManagement_Click)
             });
         }
 
+
         private void BtnManageCategories_Click(object sender, EventArgs e)
         {
-            OpenFormInMainPanel(new FrmCategoryManagement());
+            // OpenFormInMainPanel(new FrmCategoryManagement());
+            using (var categoryDialog = new FrmCategoryDialog())
+            {
+               categoryDialog.ShowDialog();
+            }
         }
 
         private void BtnManageCustomers_Click(object sender, EventArgs e)

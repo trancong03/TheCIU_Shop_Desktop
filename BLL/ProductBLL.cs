@@ -28,7 +28,6 @@ namespace BLL
             {
                 string lowerSearchText = searchText.ToLower();
 
-                // LINQ to SQL hỗ trợ ToLower và Contains
                 products = products.Where(p =>
                     p.product_name.ToLower().Contains(lowerSearchText) ||
                     p.Title.ToLower().Contains(lowerSearchText) ||

@@ -15,7 +15,7 @@ namespace GUI
 
         // Các nút chức năng cha
         private Button btnManageProducts;
-        private Button btnManageCategories;
+        //private Button btnManageCategories;
         private Button btnManageCustomers;
         private Button btnManageOrders;
         private Button btnManageVouchers;
@@ -129,23 +129,19 @@ namespace GUI
         }
 
         private void InitializeNavigationButtons()
-        {
-            // Khởi tạo các nút điều hướng và thêm vào navigationPanel
-            btnManageProducts = new Button { Text = "Quản lý Sản phẩm", Dock = DockStyle.Top };
-            btnManageProducts.Click += BtnManageProducts_Click;
-            navigationPanel.Controls.Add(btnManageProducts);
+        { 
+            btnSettings = new Button { Text = "Cài đặt", Dock = DockStyle.Top };
+            btnSettings.Click += BtnSettings_Click;
+            navigationPanel.Controls.Add(btnSettings);
 
-            btnManageCategories = new Button { Text = "Quản lý Danh mục", Dock = DockStyle.Top };
-            btnManageCategories.Click += BtnManageCategories_Click;
-            navigationPanel.Controls.Add(btnManageCategories);
+            btnReports = new Button { Text = "Thống kê và Báo cáo", Dock = DockStyle.Top };
+            btnReports.Click += BtnReports_Click;
+            navigationPanel.Controls.Add(btnReports);
 
             btnManageCustomers = new Button { Text = "Quản lý Khách hàng", Dock = DockStyle.Top };
             btnManageCustomers.Click += BtnManageCustomers_Click;
             navigationPanel.Controls.Add(btnManageCustomers);
 
-            btnManageOrders = new Button { Text = "Quản lý Đơn hàng", Dock = DockStyle.Top };
-            btnManageOrders.Click += BtnManageOrders_Click;
-            navigationPanel.Controls.Add(btnManageOrders);
 
             btnManageVouchers = new Button { Text = "Quản lý Voucher", Dock = DockStyle.Top };
             btnManageVouchers.Click += BtnManageVouchers_Click;
@@ -154,15 +150,15 @@ namespace GUI
             btnManageFeedback = new Button { Text = "Quản lý Phản hồi", Dock = DockStyle.Top };
             btnManageFeedback.Click += BtnManageFeedback_Click;
             navigationPanel.Controls.Add(btnManageFeedback);
+            btnManageOrders = new Button { Text = "Quản lý Đơn hàng", Dock = DockStyle.Top };
+            btnManageOrders.Click += BtnManageOrders_Click;
+            navigationPanel.Controls.Add(btnManageOrders);
 
-            btnReports = new Button { Text = "Thống kê và Báo cáo", Dock = DockStyle.Top };
-            btnReports.Click += BtnReports_Click;
-            navigationPanel.Controls.Add(btnReports);
-
-            btnSettings = new Button { Text = "Cài đặt", Dock = DockStyle.Top };
-            btnSettings.Click += BtnSettings_Click;
-            navigationPanel.Controls.Add(btnSettings);
+            btnManageProducts = new Button { Text = "Quản lý Sản phẩm", Dock = DockStyle.Top };
+            btnManageProducts.Click += BtnManageProducts_Click;
+            navigationPanel.Controls.Add(btnManageProducts);
         }
+
 
         #endregion
     }

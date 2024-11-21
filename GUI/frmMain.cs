@@ -4,13 +4,13 @@ using System.Drawing;
 
 namespace GUI
 {
-    public partial class frmMain : Form
+    public partial class FrmMain : Form
     {
         private string userRole;
 
         public string UserRole { get => userRole; set => userRole = value; }
 
-        public frmMain(string role)
+        public FrmMain(string role)
         {
             InitializeComponent();
             userRole = role;
@@ -23,7 +23,6 @@ namespace GUI
 
             MessageBox.Show($"Chào mừng, vai trò của bạn: {userRole}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // Thiết lập các nút điều hướng
             ConfigureNavigationButtons();
 
             foreach (Control control in navigationPanel.Controls)
@@ -40,26 +39,70 @@ namespace GUI
 
         private void ConfigureNavigationButtons()
         {
-            if (userRole == "Admin" || userRole == "Nhân viên")
+            // Quản lý sản phẩm
+            if (userRole == "admin" || userRole == "employee")
             {
+                btnManageProducts.Visible = true;
                 ConfigureButton(btnManageProducts, "Quản lý Sản phẩm", Properties.Resources.product_icon);
             }
-
-            if (userRole == "Admin")
+            else
             {
+                btnManageProducts.Visible = false;
+            }
+
+            // Quản lý đơn hàng
+            if (userRole == "admin")
+            {
+                btnManageOrders.Visible = true;
                 ConfigureButton(btnManageOrders, "Quản lý Đơn hàng", Properties.Resources.order_icon);
+            }
+            else
+            {
+                btnManageOrders.Visible = false;
+            }
+
+            // Quản lý voucher
+            if (userRole == "admin")
+            {
+                btnManageVouchers.Visible = true;
                 ConfigureButton(btnManageVouchers, "Quản lý Voucher", Properties.Resources.voucher_icon);
+            }
+            else
+            {
+                btnManageVouchers.Visible = false;
+            }
+
+            // Thống kê và báo cáo
+            if (userRole == "admin")
+            {
+                btnReports.Visible = true;
                 ConfigureButton(btnReports, "Thống kê và Báo cáo", Properties.Resources.report_icon);
             }
-
-            if (userRole == "Nhân viên")
+            else
             {
-                ConfigureButton(btnManageCustomers, "Quản lý Khách hàng", Properties.Resources.customer_icon);
+                btnReports.Visible = false;
             }
 
+            // Quản lý khách hàng
+            if (userRole == "employee")
+            {
+                btnManageCustomers.Visible = true;
+                ConfigureButton(btnManageCustomers, "Quản lý Khách hàng", Properties.Resources.customer_icon);
+            }
+            else
+            {
+                btnManageCustomers.Visible = false;
+            }
+
+            // Quản lý phản hồi (hiển thị cho tất cả vai trò)
+            btnManageFeedback.Visible = true;
             ConfigureButton(btnManageFeedback, "Quản lý Phản hồi", Properties.Resources.feedback_icon);
+
+            // Cài đặt (hiển thị cho tất cả vai trò)
+            btnSettings.Visible = true;
             ConfigureButton(btnSettings, "Cài đặt", Properties.Resources.settings_icon);
         }
+
 
 
         private void ConfigureButton(Button button, string text, Image icon)
@@ -174,52 +217,98 @@ namespace GUI
         private void BtnUpdateOrderStatus_Click(object sender, EventArgs e) 
             => OpenFormInMainPanel(new FrmOrderStatusUpdate());
         private void BtnHandleReturn_Click(object sender, EventArgs e) 
-            => OpenFormInMainPanel(new frmLogin());
-        private void BtnLogout_Click(object sender, EventArgs e) 
-            => MessageBox.Show("Đã đăng xuất!", "Thông báo", MessageBoxButtons.OK);
+            => OpenFormInMainPanel(new FrmLogin());
+        private void BtnLogout_Click(object sender, EventArgs e)
+        {
+            // Hiển thị thông báo xác nhận trước khi logout
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                // Đóng form hiện tại
+                this.Hide();
+
+                // Mở lại form Login
+                FrmLogin loginForm = new FrmLogin();
+                loginForm.Show();
+
+                // Đóng hoàn toàn ứng dụng khi Login Form bị tắt
+                loginForm.FormClosed += (s, args) => this.Close();
+            }
+        }
+
         private void BtnGeneralSettings_Click(object sender, EventArgs e) 
             => OpenFormInMainPanel(new FrmAccountManagement());
 
         private void btnToggle_Click(object sender, EventArgs e) 
             => timer.Start();
+
         private void timer_Tick(object sender, EventArgs e)
         {
+            int step = 30; // Tăng bước thay đổi để tăng tốc độ
             if (isCollapsed)
             {
-                leftContainerPanel.Width += 10;
+                leftContainerPanel.Width += step;
                 if (leftContainerPanel.Width >= 229)
                 {
                     timer.Stop();
                     isCollapsed = false;
-                    foreach (Control control in navigationPanel.Controls)
-                    {
-                        if (control is Button btn)
-                        {
-                            btn.Text = btn.Tag?.ToString();
-                            btn.TextAlign = ContentAlignment.MiddleLeft;
-                            btn.ImageAlign = ContentAlignment.MiddleLeft;
-                        }
-                    }
+                    UpdateNavigationButtonsText(isCollapsed);
                 }
             }
             else
             {
-                leftContainerPanel.Width -= 10;
+                leftContainerPanel.Width -= step;
                 if (leftContainerPanel.Width <= 60)
                 {
                     timer.Stop();
                     isCollapsed = true;
-                    foreach (Control control in navigationPanel.Controls)
+                    UpdateNavigationButtonsText(isCollapsed);
+                }
+            }
+        }
+
+        // Cập nhật text của các nút điều hướng
+        private void UpdateNavigationButtonsText(bool isCollapsed)
+        {
+            foreach (Control control in navigationPanel.Controls)
+            {
+                if (control is Button btn)
+                {
+                    if (isCollapsed)
                     {
-                        if (control is Button btn)
-                        {
-                            btn.Text = "";
-                            btn.TextAlign = ContentAlignment.MiddleCenter;
-                            btn.ImageAlign = ContentAlignment.MiddleCenter;
-                        }
+                        btn.Text = "";
+                        btn.TextAlign = ContentAlignment.MiddleCenter;
+                        btn.ImageAlign = ContentAlignment.MiddleCenter;
+                    }
+                    else
+                    {
+                        btn.Text = btn.Tag?.ToString();
+                        btn.TextAlign = ContentAlignment.MiddleLeft;
+                        btn.ImageAlign = ContentAlignment.MiddleLeft;
                     }
                 }
             }
         }
+
+        // Bật DoubleBuffered để giảm nhấp nháy
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            EnableDoubleBuffering(leftContainerPanel);
+        }
+
+        private void EnableDoubleBuffering(Control control)
+        {
+            typeof(Control).InvokeMember(
+                "DoubleBuffered",
+                System.Reflection.BindingFlags.SetProperty |
+                System.Reflection.BindingFlags.Instance |
+                System.Reflection.BindingFlags.NonPublic,
+                null,
+                control,
+                new object[] { true });
+        }
+
     }
 }

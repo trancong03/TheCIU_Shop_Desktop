@@ -68,12 +68,6 @@
     <Compile Include="FrmCategoryDialog.Designer.cs">
       <DependentUpon>FrmCategoryDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCategoryManagement.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmCategoryManagement.Designer.cs">
-      <DependentUpon>FrmCategoryManagement.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmCustomerInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,17 +86,17 @@
     <Compile Include="FrmFeedbackManagement.Designer.cs">
       <DependentUpon>FrmFeedbackManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLogin.cs">
+    <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLogin.Designer.cs">
-      <DependentUpon>frmLogin.cs</DependentUpon>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMain.cs">
+    <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMain.Designer.cs">
-      <DependentUpon>frmMain.cs</DependentUpon>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmOrderStatusUpdate.cs">
       <SubType>Form</SubType>
@@ -148,17 +142,14 @@
     <EmbeddedResource Include="FrmCategoryDialog.resx">
       <DependentUpon>FrmCategoryDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmCategoryManagement.resx">
-      <DependentUpon>FrmCategoryManagement.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmDangKy.resx">
       <DependentUpon>frmDangKy.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLogin.resx">
-      <DependentUpon>frmLogin.cs</DependentUpon>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.resx">
-      <DependentUpon>frmMain.cs</DependentUpon>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProductManagement.resx">
       <DependentUpon>FrmProductManagement.cs</DependentUpon>

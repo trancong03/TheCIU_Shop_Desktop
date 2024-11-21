@@ -5,10 +5,10 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class frmLogin : Form
+    public partial class FrmLogin : Form
     {
         readonly AccountBLL accountBLL = new AccountBLL();
-        public frmLogin()
+        public FrmLogin()
         {
             InitializeComponent();
             loginControl.LoginClicked += LoginControl_LoginClicked;
@@ -28,7 +28,7 @@ namespace GUI
                 if (user.status == 1) 
                 {
                     MessageBox.Show($"Đăng nhập thành công! Vai trò: {user.name}", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    var mainForm = new frmMain(user.name); 
+                    var mainForm = new FrmMain(user.name); 
                     mainForm.Show();
                     this.Hide();
                 }

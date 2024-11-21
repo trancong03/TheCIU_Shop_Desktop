@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace GUI
 {
-    partial class frmMain
+    partial class FrmMain
     {
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.Panel leftContainerPanel;

@@ -48,6 +48,12 @@
     <Compile Include="ActionControl.Designer.cs">
       <DependentUpon>ActionControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomDataGridViewControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomDataGridViewControl.Designer.cs">
+      <DependentUpon>CustomDataGridViewControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="TextBoxCustom\EmailTextBox.cs">
       <SubType>Component</SubType>
     </Compile>

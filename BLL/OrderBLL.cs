@@ -8,8 +8,8 @@ namespace BLL
 {
     public class OrderBLL
     {
-        private OrderDAL orderDAL = new OrderDAL();
-        private OrderValidation orderValidation = new OrderValidation();
+        private readonly OrderDAL orderDAL = new OrderDAL();
+        private readonly OrderValidation orderValidation = new OrderValidation();
 
         public List<Order> GetAllOrders()
         {

@@ -56,6 +56,7 @@
     <Compile Include="ColorBLL.cs" />
     <Compile Include="FeedbackBLL.cs" />
     <Compile Include="OrderBLL.cs" />
+    <Compile Include="OrderDetailsBLL.cs" />
     <Compile Include="ProductBLL.cs" />
     <Compile Include="ProductVariantBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

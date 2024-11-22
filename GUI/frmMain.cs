@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace GUI
 {
@@ -36,74 +38,37 @@ namespace GUI
             }
         }
 
-
         private void ConfigureNavigationButtons()
         {
-            // Quản lý sản phẩm
-            if (userRole == "admin" || userRole == "employee")
+            var buttonConfigurations = new Dictionary<Button, (string text, Image icon, string[] roles)>
             {
-                btnManageProducts.Visible = true;
-                ConfigureButton(btnManageProducts, "Quản lý Sản phẩm", Properties.Resources.product_icon);
-            }
-            else
-            {
-                btnManageProducts.Visible = false;
-            }
+                { btnManageProducts, ("Manage Products", Properties.Resources.product_icon, new[] { "admin", "employee" }) },
+                { btnManageOrders, ("Manage Orders", Properties.Resources.order_icon, new[] { "admin" }) },
+                { btnManageVouchers, ("Manage Vouchers", Properties.Resources.voucher_icon, new[] { "admin" }) },
+                { btnReports, ("Reports", Properties.Resources.report_icon, new[] { "admin" }) },
+                { btnManageCustomers, ("Manage Customers", Properties.Resources.customer_icon, new[] { "employee" }) },
+                { btnManageFeedback, ("Manage Feedback", Properties.Resources.feedback_icon, new[] { "admin", "employee" }) },
+                { btnSettings, ("Settings", Properties.Resources.settings_icon, new[] { "admin", "employee" }) }
+            };
 
-            // Quản lý đơn hàng
-            if (userRole == "admin")
+            foreach (var config in buttonConfigurations)
             {
-                btnManageOrders.Visible = true;
-                ConfigureButton(btnManageOrders, "Quản lý Đơn hàng", Properties.Resources.order_icon);
+                ConfigureButtonVisibility(config.Key, config.Value.text, config.Value.icon, config.Value.roles);
             }
-            else
-            {
-                btnManageOrders.Visible = false;
-            }
-
-            // Quản lý voucher
-            if (userRole == "admin")
-            {
-                btnManageVouchers.Visible = true;
-                ConfigureButton(btnManageVouchers, "Quản lý Voucher", Properties.Resources.voucher_icon);
-            }
-            else
-            {
-                btnManageVouchers.Visible = false;
-            }
-
-            // Thống kê và báo cáo
-            if (userRole == "admin")
-            {
-                btnReports.Visible = true;
-                ConfigureButton(btnReports, "Thống kê và Báo cáo", Properties.Resources.report_icon);
-            }
-            else
-            {
-                btnReports.Visible = false;
-            }
-
-            // Quản lý khách hàng
-            if (userRole == "employee")
-            {
-                btnManageCustomers.Visible = true;
-                ConfigureButton(btnManageCustomers, "Quản lý Khách hàng", Properties.Resources.customer_icon);
-            }
-            else
-            {
-                btnManageCustomers.Visible = false;
-            }
-
-            // Quản lý phản hồi (hiển thị cho tất cả vai trò)
-            btnManageFeedback.Visible = true;
-            ConfigureButton(btnManageFeedback, "Quản lý Phản hồi", Properties.Resources.feedback_icon);
-
-            // Cài đặt (hiển thị cho tất cả vai trò)
-            btnSettings.Visible = true;
-            ConfigureButton(btnSettings, "Cài đặt", Properties.Resources.settings_icon);
         }
 
-
+        private void ConfigureButtonVisibility(Button button, string text, Image icon, string[] roles)
+        {
+            if (roles.Contains(userRole))
+            {
+                button.Visible = true;
+                ConfigureButton(button, text, icon);
+            }
+            else
+            {
+                button.Visible = false;
+            }
+        }
 
         private void ConfigureButton(Button button, string text, Image icon)
         {
@@ -130,13 +95,11 @@ namespace GUI
             });
         }
 
-
         private void BtnManageCategories_Click(object sender, EventArgs e)
         {
-            // OpenFormInMainPanel(new FrmCategoryManagement());
             using (var categoryDialog = new FrmCategoryDialog())
             {
-               categoryDialog.ShowDialog();
+                categoryDialog.ShowDialog();
             }
         }
 
@@ -154,7 +117,7 @@ namespace GUI
             TogglePanelChildren(new[]
             {
                 new Tuple<string, EventHandler>("Cập nhật trạng thái đơn hàng", BtnUpdateOrderStatus_Click),
-                new Tuple<string, EventHandler>("Xử lý hoàn trả", BtnHandleReturn_Click)
+                new Tuple<string, EventHandler>("Thông tin/ Tra cứu đơn hàng", BtnOrderManagement_Click)
             });
         }
 
@@ -206,46 +169,42 @@ namespace GUI
             form.Show();
         }
 
-        private void BtnProductInfo_Click(object sender, EventArgs e) 
+        private void BtnProductInfo_Click(object sender, EventArgs e)
             => OpenFormInMainPanel(new FrmProductManagement());
-        private void BtnStockManagement_Click(object sender, EventArgs e) 
+        private void BtnStockManagement_Click(object sender, EventArgs e)
             => OpenFormInMainPanel(new FrmStockManagement());
-        private void BtnCustomerInfo_Click(object sender, EventArgs e) 
+        private void BtnCustomerInfo_Click(object sender, EventArgs e)
             => OpenFormInMainPanel(new FrmCustomerInfo());
-        private void BtnPurchaseHistory_Click(object sender, EventArgs e) 
-            => OpenFormInMainPanel(new FrmPurchaseHistory ());
-        private void BtnUpdateOrderStatus_Click(object sender, EventArgs e) 
+        private void BtnPurchaseHistory_Click(object sender, EventArgs e)
+            => OpenFormInMainPanel(new FrmPurchaseHistory());
+        private void BtnUpdateOrderStatus_Click(object sender, EventArgs e)
             => OpenFormInMainPanel(new FrmOrderStatusUpdate());
-        private void BtnHandleReturn_Click(object sender, EventArgs e) 
+        private void BtnOrderManagement_Click(object sender, EventArgs e)
+            => OpenFormInMainPanel(new FrmOrderManagement());
+        private void BtnHandleReturn_Click(object sender, EventArgs e)
             => OpenFormInMainPanel(new FrmLogin());
         private void BtnLogout_Click(object sender, EventArgs e)
         {
-            // Hiển thị thông báo xác nhận trước khi logout
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
-                // Đóng form hiện tại
                 this.Hide();
-
-                // Mở lại form Login
                 FrmLogin loginForm = new FrmLogin();
                 loginForm.Show();
-
-                // Đóng hoàn toàn ứng dụng khi Login Form bị tắt
                 loginForm.FormClosed += (s, args) => this.Close();
             }
         }
 
-        private void BtnGeneralSettings_Click(object sender, EventArgs e) 
+        private void BtnGeneralSettings_Click(object sender, EventArgs e)
             => OpenFormInMainPanel(new FrmAccountManagement());
 
-        private void btnToggle_Click(object sender, EventArgs e) 
+        private void btnToggle_Click(object sender, EventArgs e)
             => timer.Start();
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            int step = 30; // Tăng bước thay đổi để tăng tốc độ
+            int step = 30;
             if (isCollapsed)
             {
                 leftContainerPanel.Width += step;
@@ -268,7 +227,6 @@ namespace GUI
             }
         }
 
-        // Cập nhật text của các nút điều hướng
         private void UpdateNavigationButtonsText(bool isCollapsed)
         {
             foreach (Control control in navigationPanel.Controls)
@@ -291,7 +249,6 @@ namespace GUI
             }
         }
 
-        // Bật DoubleBuffered để giảm nhấp nháy
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -309,6 +266,5 @@ namespace GUI
                 control,
                 new object[] { true });
         }
-
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class frmDangKy
+    partial class FrmDangKy
     {
         private CustomControl.RegisterControl registerControl1;
 

@@ -4,10 +4,10 @@ using System.Windows.Forms;
 using Validation;
 namespace GUI
 {
-    public partial class frmDangKy : Form
+    public partial class FrmDangKy : Form
     {
 
-        public frmDangKy()
+        public FrmDangKy()
         {
             InitializeComponent();
 

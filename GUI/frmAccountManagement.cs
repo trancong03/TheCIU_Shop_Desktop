@@ -9,15 +9,15 @@ namespace GUI
 {
     public partial class FrmAccountManagement : Form
     {
-        private AccountBLL accountBLL = new AccountBLL();
+        private readonly AccountBLL accountBLL = new AccountBLL();
 
         public FrmAccountManagement()
         {
             InitializeComponent();
             ConfigureDataGridView();
-            LoadAccounts(); // Load dữ liệu tài khoản khi mở form
-
-            // Đăng ký sự kiện cho ActionControl
+            LoadAccounts();
+            InitializeGenderComboBox();
+            
             actionControl.AddClicked += ActionControl_AddClicked;
             actionControl.UpdateClicked += ActionControl_UpdateClicked;
             actionControl.DeleteClicked += ActionControl_DeleteClicked;
@@ -25,8 +25,25 @@ namespace GUI
 
             actionControl.SearchTextChanged += ActionControl_SearchTextChanged;
             dataGridViewAccounts.CellClick += DataGridViewAccounts_CellClick;
+            dataGridViewAccounts.CellFormatting += DataGridViewAccounts_CellFormatting;
 
+        }
 
+        private void DataGridViewAccounts_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridViewAccounts.Columns[e.ColumnIndex].Name == "passwordColumn" && e.Value != null)
+            {
+                e.Value = new string('*', e.Value.ToString().Length);
+            }
+        }
+
+        private void InitializeGenderComboBox()
+        {
+            cmbGender.Items.Clear();
+            cmbGender.Items.Add("Nam");
+            cmbGender.Items.Add("Nữ");
+
+            cmbGender.SelectedIndex = 0;
         }
         private void ConfigureDataGridView()
         {

@@ -74,11 +74,11 @@
     <Compile Include="FrmCustomerInfo.Designer.cs">
       <DependentUpon>FrmCustomerInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDangKy.cs">
+    <Compile Include="FrmDangKy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDangKy.Designer.cs">
-      <DependentUpon>frmDangKy.cs</DependentUpon>
+    <Compile Include="FrmDangKy.Designer.cs">
+      <DependentUpon>FrmDangKy.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmFeedbackManagement.cs">
       <SubType>Form</SubType>
@@ -97,6 +97,18 @@
     </Compile>
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmOrderDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOrderDetail.Designer.cs">
+      <DependentUpon>FrmOrderDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmOrderManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOrderManagement.Designer.cs">
+      <DependentUpon>FrmOrderManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmOrderStatusUpdate.cs">
       <SubType>Form</SubType>
@@ -142,8 +154,8 @@
     <EmbeddedResource Include="FrmCategoryDialog.resx">
       <DependentUpon>FrmCategoryDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDangKy.resx">
-      <DependentUpon>frmDangKy.cs</DependentUpon>
+    <EmbeddedResource Include="FrmDangKy.resx">
+      <DependentUpon>FrmDangKy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
@@ -151,8 +163,14 @@
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmOrderManagement.resx">
+      <DependentUpon>FrmOrderManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmProductManagement.resx">
       <DependentUpon>FrmProductManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVoucherManagement.resx">
+      <DependentUpon>FrmVoucherManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

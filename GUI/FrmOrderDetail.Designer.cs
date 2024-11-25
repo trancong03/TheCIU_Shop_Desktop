@@ -47,85 +47,108 @@
             this.dgvOrderDetails = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetails)).BeginInit();
             this.SuspendLayout();
-
+            // 
             // lblOrderId
+            // 
             this.lblOrderId.AutoSize = true;
             this.lblOrderId.Location = new System.Drawing.Point(30, 20);
             this.lblOrderId.Name = "lblOrderId";
-            this.lblOrderId.Size = new System.Drawing.Size(90, 20);
+            this.lblOrderId.Size = new System.Drawing.Size(88, 16);
+            this.lblOrderId.TabIndex = 0;
             this.lblOrderId.Text = "Mã đơn hàng:";
-
+            // 
             // txtOrderId
+            // 
             this.txtOrderId.Location = new System.Drawing.Point(150, 20);
             this.txtOrderId.Name = "txtOrderId";
             this.txtOrderId.ReadOnly = true;
-            this.txtOrderId.Size = new System.Drawing.Size(200, 26);
-
+            this.txtOrderId.Size = new System.Drawing.Size(200, 22);
+            this.txtOrderId.TabIndex = 1;
+            // 
             // lblProductId
+            // 
             this.lblProductId.AutoSize = true;
             this.lblProductId.Location = new System.Drawing.Point(30, 60);
             this.lblProductId.Name = "lblProductId";
-            this.lblProductId.Size = new System.Drawing.Size(90, 20);
+            this.lblProductId.Size = new System.Drawing.Size(91, 16);
+            this.lblProductId.TabIndex = 2;
             this.lblProductId.Text = "Mã sản phẩm:";
-
+            // 
             // txtProductId
+            // 
             this.txtProductId.Location = new System.Drawing.Point(150, 60);
             this.txtProductId.Name = "txtProductId";
-            this.txtProductId.Size = new System.Drawing.Size(200, 26);
-
+            this.txtProductId.Size = new System.Drawing.Size(200, 22);
+            this.txtProductId.TabIndex = 3;
+            // 
             // lblQuantity
+            // 
             this.lblQuantity.AutoSize = true;
             this.lblQuantity.Location = new System.Drawing.Point(30, 100);
             this.lblQuantity.Name = "lblQuantity";
-            this.lblQuantity.Size = new System.Drawing.Size(80, 20);
+            this.lblQuantity.Size = new System.Drawing.Size(63, 16);
+            this.lblQuantity.TabIndex = 4;
             this.lblQuantity.Text = "Số lượng:";
-
+            // 
             // txtQuantity
+            // 
             this.txtQuantity.Location = new System.Drawing.Point(150, 100);
             this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(200, 26);
-
+            this.txtQuantity.Size = new System.Drawing.Size(200, 22);
+            this.txtQuantity.TabIndex = 5;
+            // 
             // lblPrice
+            // 
             this.lblPrice.AutoSize = true;
             this.lblPrice.Location = new System.Drawing.Point(30, 140);
             this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(50, 20);
+            this.lblPrice.Size = new System.Drawing.Size(31, 16);
+            this.lblPrice.TabIndex = 6;
             this.lblPrice.Text = "Giá:";
-
+            // 
             // txtPrice
+            // 
             this.txtPrice.Location = new System.Drawing.Point(150, 140);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(200, 26);
-
+            this.txtPrice.Size = new System.Drawing.Size(200, 22);
+            this.txtPrice.TabIndex = 7;
+            // 
             // btnUpdate
+            // 
             this.btnUpdate.Location = new System.Drawing.Point(150, 190);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(100, 30);
+            this.btnUpdate.TabIndex = 8;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-
+            // 
             // btnClose
+            // 
             this.btnClose.Location = new System.Drawing.Point(260, 190);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(100, 30);
+            this.btnClose.TabIndex = 9;
             this.btnClose.Text = "Đóng";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-
+            // 
             // dgvOrderDetails
+            // 
             this.dgvOrderDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrderDetails.Location = new System.Drawing.Point(30, 240);
             this.dgvOrderDetails.Name = "dgvOrderDetails";
             this.dgvOrderDetails.RowHeadersWidth = 51;
             this.dgvOrderDetails.RowTemplate.Height = 24;
-            this.dgvOrderDetails.Size = new System.Drawing.Size(740, 300);
+            this.dgvOrderDetails.Size = new System.Drawing.Size(1025, 300);
+            this.dgvOrderDetails.TabIndex = 10;
             this.dgvOrderDetails.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderDetails_CellClick);
-
+            // 
             // FrmOrderDetail
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 600);
+            this.ClientSize = new System.Drawing.Size(1126, 600);
             this.Controls.Add(this.lblOrderId);
             this.Controls.Add(this.txtOrderId);
             this.Controls.Add(this.lblProductId);
@@ -142,6 +165,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetails)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
     }
 }

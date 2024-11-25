@@ -10,10 +10,10 @@ namespace GUI
     public partial class FrmOrderDetail : Form
     {
         private readonly int orderId;
-        private readonly List<OrderDetail> orderDetails;
         OrderDetailsBLL orderDetailsBLL = new OrderDetailsBLL();
+        private readonly List<dynamic> orderDetails;
 
-        public FrmOrderDetail(int orderId, List<OrderDetail> orderDetails)
+        public FrmOrderDetail(int orderId, List<dynamic> orderDetails)
         {
             InitializeComponent();
             this.orderId = orderId;
@@ -26,7 +26,50 @@ namespace GUI
         {
             try
             {
-                var orderDetails = orderDetailsBLL.GetOrderDetailsWithProductInfo(orderId);
+                dgvOrderDetails.AutoGenerateColumns = false; // Ngừng tự động tạo cột
+                dgvOrderDetails.Columns.Clear(); // Xóa các cột hiện tại để tránh trùng lặp
+
+                // Tạo cột ProductName
+                var productNameColumn = new DataGridViewTextBoxColumn
+                {
+                    Name = "ProductName",
+                    HeaderText = "Tên Sản Phẩm",
+                    DataPropertyName = "ProductName", 
+                    AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                };
+                dgvOrderDetails.Columns.Add(productNameColumn);
+
+                // Tạo các cột khác
+                dgvOrderDetails.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    Name = "Quantity",
+                    HeaderText = "Số Lượng",
+                    DataPropertyName = "Quantity",
+                    AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                });
+                dgvOrderDetails.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    Name = "Subtotal",
+                    HeaderText = "Thành Tiền",
+                    DataPropertyName = "Subtotal",
+                    AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                });
+                dgvOrderDetails.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    Name = "Size",
+                    HeaderText = "Kích Cỡ",
+                    DataPropertyName = "Size",
+                    AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                });
+                dgvOrderDetails.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    Name = "Color",
+                    HeaderText = "Màu Sắc",
+                    DataPropertyName = "Color",
+                    AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                });
+
+                // Gán dữ liệu
                 dgvOrderDetails.DataSource = orderDetails;
             }
             catch (Exception ex)
@@ -34,6 +77,7 @@ namespace GUI
                 MessageBox.Show($"Lỗi khi tải chi tiết đơn hàng: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -44,9 +88,9 @@ namespace GUI
             if (e.RowIndex >= 0)
             {
                 var row = dgvOrderDetails.Rows[e.RowIndex];
-                txtProductId.Text = row.Cells["ProductId"].Value?.ToString();
+                //txtProductId.Text = row.Cells["ProductId"].Value?.ToString();
                 txtQuantity.Text = row.Cells["Quantity"].Value?.ToString();
-                txtPrice.Text = row.Cells["Price"].Value?.ToString();
+                txtPrice.Text = row.Cells["Subtotal"].Value?.ToString();
             }
         }
         private void btnUpdate_Click(object sender, EventArgs e)

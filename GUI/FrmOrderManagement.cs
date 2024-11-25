@@ -144,8 +144,8 @@ namespace GUI
         {
             try
             {
-                // Lấy danh sách chi tiết đơn hàng
-                List<OrderDetail> orderDetails = orderDetailsBLL.GetOrderDetailsByOrderId(orderId);
+                // Lấy chi tiết đơn hàng từ BLL
+                List<dynamic> orderDetails = orderDetailsBLL.GetOrderDetailsWithProductInfo(orderId);
 
                 // Mở form chi tiết đơn hàng
                 FrmOrderDetail orderDetailForm = new FrmOrderDetail(orderId, orderDetails);

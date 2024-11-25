@@ -14,6 +14,27 @@ namespace DAL
         {
             return context.Products.ToList();
         }
+        public Product GetProductById(int productId)
+        {
+            try
+            {
+                var product = context.Products.FirstOrDefault(p => p.product_id == productId);
+                if (product == null)
+                {
+                    Console.WriteLine($"Không tìm thấy sản phẩm với ID: {productId}");
+                }
+                else
+                {
+                    Console.WriteLine($"Lấy được sản phẩm: {product.product_name} với ID: {productId}");
+                }
+                return product;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Lỗi khi lấy sản phẩm: {ex.Message}");
+            }
+        }
+
 
         // Thêm sản phẩm
         public bool AddProduct(Product product)

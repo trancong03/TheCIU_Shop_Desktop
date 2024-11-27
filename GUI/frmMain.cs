@@ -133,7 +133,7 @@ namespace GUI
 
         private void BtnReports_Click(object sender, EventArgs e)
         {
-            OpenFormInMainPanel(new FrmReports());
+            OpenFormInMainPanel(new FrmReport());
         }
 
         private void BtnSettings_Click(object sender, EventArgs e)

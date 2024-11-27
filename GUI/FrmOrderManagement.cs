@@ -30,15 +30,22 @@ namespace GUI
         {
             try
             {
-                // Lấy danh sách đơn hàng và gán vào CustomDataGridViewControl
-                customDataGridViewOrders.DataSource = orderBLL.GetAllOrders();
-                customDataGridViewOrders.AddFilterButtons();
+                var orders = orderBLL.GetAllOrders();
+                if (orders == null || orders.Count == 0)
+                {
+                    MessageBox.Show("Không có đơn hàng nào để hiển thị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                // Gán dữ liệu vào DataGridView
+                customDataGridViewOrders.DataSource = orders;
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Lỗi khi tải danh sách đơn hàng: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void ActionControl_AddClicked(object sender, EventArgs e)
         {
@@ -144,8 +151,10 @@ namespace GUI
         {
             try
             {
-                // Lấy chi tiết đơn hàng từ BLL
+                // Lấy danh sách chi tiết đơn hàng
                 List<dynamic> orderDetails = orderDetailsBLL.GetOrderDetailsWithProductInfo(orderId);
+
+         
 
                 // Mở form chi tiết đơn hàng
                 FrmOrderDetail orderDetailForm = new FrmOrderDetail(orderId, orderDetails);
@@ -156,5 +165,7 @@ namespace GUI
                 MessageBox.Show($"Lỗi khi mở chi tiết đơn hàng: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
     }
 }

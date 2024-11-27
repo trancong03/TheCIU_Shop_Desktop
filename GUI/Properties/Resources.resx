@@ -121,6 +121,9 @@
   <data name="category_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\category_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="customers_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\customers-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="customer_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\customer_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -136,14 +139,23 @@
   <data name="menu_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\menu_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="orders_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\orders-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="order_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\order_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="products_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\products_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="product_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\product_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="report_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\report_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="revenue_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\revenue_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="settings_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\settings_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

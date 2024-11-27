@@ -88,11 +88,15 @@ namespace GUI
             if (e.RowIndex >= 0)
             {
                 var row = dgvOrderDetails.Rows[e.RowIndex];
-                //txtProductId.Text = row.Cells["ProductId"].Value?.ToString();
+                txtProductName.Text = row.Cells["ProductName"].Value?.ToString();
                 txtQuantity.Text = row.Cells["Quantity"].Value?.ToString();
-                txtPrice.Text = row.Cells["Subtotal"].Value?.ToString();
+                txtSubtotal.Text = row.Cells["Subtotal"].Value?.ToString();
+                txtSize.Text = row.Cells["Size"].Value?.ToString();
+                txtColor.Text = row.Cells["Color"].Value?.ToString();
             }
         }
+
+
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             //try

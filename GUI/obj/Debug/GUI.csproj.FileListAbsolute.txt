@@ -1,7 +1,6 @@
 D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\bin\Debug\GUI.exe.config
 D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\bin\Debug\GUI.exe
 D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\bin\Debug\GUI.pdb
-D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\bin\Debug\BLL.dll
 D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\bin\Debug\CustomControl.dll
 D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\bin\Debug\DTO.dll
 D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\bin\Debug\Validation.dll
@@ -29,13 +28,9 @@ D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\obj\Debug\GUI.exe
 D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\obj\Debug\GUI.pdb
 D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\obj\Debug\GUI.FrmOrderDetail.resources
 D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\bin\Debug\LiveCharts.dll
-D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\bin\Debug\LiveCharts.WinForms.dll
 D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\bin\Debug\LiveCharts.Wpf.dll
-D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\bin\Debug\MaterialSkin.dll
 D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\bin\Debug\LiveCharts.pdb
 D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\bin\Debug\LiveCharts.xml
-D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\bin\Debug\LiveCharts.WinForms.pdb
-D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\bin\Debug\LiveCharts.WinForms.xml
 D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\bin\Debug\LiveCharts.Wpf.pdb
 D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\bin\Debug\LiveCharts.Wpf.xml
 D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\obj\Debug\GUI.FrmReport.resources

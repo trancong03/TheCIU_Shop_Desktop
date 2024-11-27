@@ -1,6 +1,7 @@
 ﻿using DTO;
 using System;
 using System.Collections.Generic;
+using System.Data.Linq;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
 
@@ -14,7 +15,12 @@ namespace DAL
         {
             return db.ProductVariants.ToList();
         }
-
+        public List<ProductVariant> GetVariantsByProductId(int productId)
+        {
+            return db.ProductVariants
+                .Where(v => v.product_id == productId)
+                .ToList();
+        }
         public ProductVariant GetProductVariantById(int id)
         {
             return db.ProductVariants.SingleOrDefault(v => v.variant_id == id);

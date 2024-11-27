@@ -49,11 +49,7 @@ namespace GUI
             }
         }
 
-        /// <summary>
-        /// Load stock data into the DataGridView.
-        /// </summary>
-        /// <param name="search">Search keyword.</param>
-        /// <param name="categoryId">Category ID for filtering.</param>
+
         private void LoadStockData(string search = "", int? categoryId = null)
         {
             try
@@ -88,7 +84,7 @@ namespace GUI
             var search = txtSearch.Text.Trim();
             var categoryId = (int)cmbCategories.SelectedValue;
 
-            LoadStockData(search, categoryId == 0 ? null : categoryId);
+            LoadStockData(search, categoryId == 0 ? (int?)null : categoryId);
         }
 
 

@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
+using System.Drawing;
+using System.IO;
 using BLL;
 using DTO;
+using Ultis;
 
 namespace GUI
 {
@@ -30,9 +33,17 @@ namespace GUI
             actionControl.DeleteClicked += ActionControl_DeleteClicked;
             actionControl.SearchClicked += ActionControl_SearchClicked;
             actionControl.FilterChanged += ActionControl_FilterChanged;
+            actionControl.ReloadClicked += ActionControl_ReloadClicked;
             dataGridViewProducts.CellFormatting += DataGridViewProducts_CellFormatting;
 
             dataGridViewProducts.SelectionChanged += DataGridViewProducts_SelectionChanged;
+            
+            
+        }
+
+        private void ActionControl_ReloadClicked(object sender, EventArgs e)
+        {
+            LoadProducts();
         }
 
         private void DataGridViewProducts_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -70,11 +81,12 @@ namespace GUI
 
         private void LoadProducts()
         {
+            // Clear existing data
             dataGridViewProducts.DataSource = null;
 
-            var products = productBLL.GetProductDetails().ToList();
-
-            if (products.Count == 0)
+            // Fetch product details
+            var products = productBLL.GetProductDetails();
+            if (products == null || !products.Any())
             {
                 var emptyTable = new System.Data.DataTable();
                 emptyTable.Columns.Add("Thông báo", typeof(string));
@@ -82,50 +94,52 @@ namespace GUI
                 dataGridViewProducts.DataSource = emptyTable;
 
                 dataGridViewProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dataGridViewProducts.ColumnHeadersVisible = false; // Ẩn tiêu đề cột
+                dataGridViewProducts.ColumnHeadersVisible = false;
                 dataGridViewProducts.ReadOnly = true;
                 return;
             }
 
-            // Gán dữ liệu nếu có
+            // Bind data to DataGridView
             dataGridViewProducts.DataSource = products;
 
-            // Adjust column properties
-            dataGridViewProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-
-            // Hide unnecessary columns and set column headers
-            dataGridViewProducts.Columns["product_id"].Visible = false; // Ẩn cột ID nếu không cần thiết
-            dataGridViewProducts.Columns["product_name"].HeaderText = "Tên Sản Phẩm";
-            dataGridViewProducts.Columns["Title"].HeaderText = "Tiêu Đề";
-            dataGridViewProducts.Columns["Dateadd"].HeaderText = "Ngày Thêm";
-            dataGridViewProducts.Columns["rating"].HeaderText = "Đánh Giá";
-
-            // Format the Price column
-            dataGridViewProducts.Columns["Price"].HeaderText = "Giá";
-            dataGridViewProducts.Columns["Price"].DefaultCellStyle.Format = "N0"; // Thousand separator
-            dataGridViewProducts.Columns["Price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-
+            // Adjust column headers
+            dataGridViewProducts.Columns["ProductId"].Visible = false;
+            dataGridViewProducts.Columns["CategoryId"].Visible = false;
+            dataGridViewProducts.Columns["ProductName"].HeaderText = "Tên Sản Phẩm";
             dataGridViewProducts.Columns["CategoryName"].HeaderText = "Danh Mục";
-            dataGridViewProducts.Columns["CategoryName"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewProducts.Columns["SizeName"].HeaderText = "Kích Cỡ";
-            dataGridViewProducts.Columns["SizeName"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewProducts.Columns["ColorName"].HeaderText = "Màu Sắc";
-            dataGridViewProducts.Columns["ColorName"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
+            dataGridViewProducts.Columns["SizeName"].HeaderText = "Kích Cỡ";
             dataGridViewProducts.Columns["Quantity"].HeaderText = "Số Lượng";
-            dataGridViewProducts.Columns["Quantity"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewProducts.Columns["Price"].HeaderText = "Giá";
+            dataGridViewProducts.Columns["Rating"].HeaderText = "Đánh Giá";
+            dataGridViewProducts.Columns["DateAdd"].HeaderText = "Ngày Thêm";
 
-            foreach (DataGridViewColumn column in dataGridViewProducts.Columns)
+            // Set DataGridView properties
+            dataGridViewProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewProducts.ReadOnly = true;
+
+            // Attach CellClick event
+            dataGridViewProducts.CellClick += DataGridViewProducts_CellClick;
+
+            pictureBoxProduct.Image = Properties.Resources.DefaultImage; // Ảnh mặc định
+            pictureBoxProduct.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
+        private void DataGridViewProducts_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.RowIndex >= dataGridViewProducts.Rows.Count)
+                return;
+
+            var row = dataGridViewProducts.Rows[e.RowIndex];
+            var product = row.DataBoundItem as ProductDetailDTO;
+
+            if (product != null)
             {
-                column.MinimumWidth = 100;
+                string localImagePath = Path.Combine(@"D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\bin\Debug", product.ImageSP);
+
+                Ultis.ImageHelper.LoadImageFromLocalOrURL(pictureBoxProduct, localImagePath);
             }
-
-            // Disable horizontal scrolling
-            dataGridViewProducts.ScrollBars = ScrollBars.Vertical;
-
-            // Hiển thị tiêu đề cột
-            dataGridViewProducts.ColumnHeadersVisible = true;
         }
 
         private void LoadFilterOptions()
@@ -183,17 +197,44 @@ namespace GUI
 
             try
             {
+                // Lấy tên tệp hình ảnh từ PictureBox (nếu có)
+                string imageFileName = null;
+
+                if (pictureBoxProduct.Image != null)
+                {
+                    // Đường dẫn lưu ảnh
+                    string imageFolderPath = @"D:\TEAMWORKING\TheCIU_Shop_Desktop\Images";
+                    if (!Directory.Exists(imageFolderPath))
+                    {
+                        Directory.CreateDirectory(imageFolderPath);
+                    }
+
+                    // Tạo tên tệp duy nhất hoặc giữ nguyên tên gốc từ OpenFileDialog
+                    string originalFileName = Guid.NewGuid().ToString() + ".jpg"; // Tạo tên file duy nhất
+                    string imageFilePath = Path.Combine(imageFolderPath, originalFileName);
+
+                    // Lưu ảnh từ PictureBox vào thư mục
+                    pictureBoxProduct.Image.Save(imageFilePath, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+                    // Lưu tên file (không bao gồm đường dẫn) vào database
+                    imageFileName = originalFileName;
+                }
+
+                // Tạo sản phẩm mới
                 var product = new Product
                 {
                     product_name = txtProductName.Text,
                     Title = txtTitle.Text,
                     price = float.TryParse(txtPrice.Text, out var price) ? price : 0,
                     category_id = cmbCategory.SelectedValue != null ? (int)cmbCategory.SelectedValue : 0,
-                    Dateadd = dtpDateAdd.Value
+                    Dateadd = dtpDateAdd.Value,
+                    ImageSP = imageFileName // Gán tên file ảnh vào cơ sở dữ liệu
                 };
 
+                // Thêm sản phẩm vào cơ sở dữ liệu
                 if (productBLL.AddProduct(product))
                 {
+                    // Tạo biến thể sản phẩm
                     var variant = new ProductVariant
                     {
                         product_id = product.product_id,
@@ -202,7 +243,10 @@ namespace GUI
                         quantity = int.TryParse(txtQuantity.Text, out var qty) ? qty : 0
                     };
 
+                    // Thêm biến thể sản phẩm
                     productVariantBLL.AddProductVariant(variant);
+
+                    // Tải lại danh sách sản phẩm
                     LoadProducts();
                     MessageBox.Show("Thêm sản phẩm thành công!");
                     ClearInputFields();
@@ -214,9 +258,10 @@ namespace GUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void ActionControl_UpdateClicked(object sender, EventArgs e)
         {
@@ -310,18 +355,31 @@ namespace GUI
                 MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void BtnUploadImage_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Choose file (*.jpg, *.jpeg, *.png)|*.jpg;*.jpeg;*.png";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    pictureBoxProduct.Image?.Dispose();
+                    pictureBoxProduct.Image = System.Drawing.Image.FromFile(openFileDialog.FileName);
+                    MessageBox.Show("Ảnh đã được tải lên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
 
         private void DataGridViewProducts_SelectionChanged(object sender, EventArgs e)
         {
             if (dataGridViewProducts.CurrentRow == null) return;
 
             // Kiểm tra và gán giá trị cho từng cột
-            txtProductName.Text = dataGridViewProducts.Columns.Contains("product_name") ?
-                dataGridViewProducts.CurrentRow.Cells["product_name"].Value?.ToString() ?? string.Empty : string.Empty;
+            txtProductName.Text = dataGridViewProducts.Columns.Contains("ProductName") ?
+                dataGridViewProducts.CurrentRow.Cells["ProductName"].Value?.ToString() ?? string.Empty : string.Empty;
 
             txtTitle.Text = dataGridViewProducts.Columns.Contains("Title") ?
                 dataGridViewProducts.CurrentRow.Cells["Title"].Value?.ToString() ?? string.Empty : string.Empty;
-
+            txtRating.Text = dataGridViewProducts.Columns.Contains("Rating") ? dataGridViewProducts.CurrentRow.Cells["Rating"].Value?.ToString() ?? string.Empty : string.Empty;
             txtPrice.Text = dataGridViewProducts.Columns.Contains("Price") ?
                 dataGridViewProducts.CurrentRow.Cells["Price"].Value?.ToString() ?? string.Empty : string.Empty;
 

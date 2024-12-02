@@ -11,22 +11,17 @@ namespace GUI
     {
         private readonly ProductBLL productBLL;
         private readonly CategoryBLL categoryBLL;
-        private readonly StockBLL stockBLL;
 
         public FrmStockManagement()
         {
             InitializeComponent();
 
-
             productBLL = new ProductBLL();
             categoryBLL = new CategoryBLL();
-            stockBLL = new StockBLL();
-
 
             LoadCategories();
             LoadStockData();
         }
-
 
         private void LoadCategories()
         {
@@ -49,35 +44,65 @@ namespace GUI
             }
         }
 
-
         private void LoadStockData(string search = "", int? categoryId = null)
         {
             try
             {
-                var stockData = stockBLL.GetStockData(search, categoryId);
+                // Lấy danh sách sản phẩm từ BLL
+                var products = productBLL.GetAllProducts();
 
+                // Lọc theo từ khóa và danh mục (nếu có)
+                if (!string.IsNullOrEmpty(search))
+                {
+                    products = products.Where(p => p.product_name.IndexOf(search, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+                }
+                if (categoryId.HasValue && categoryId > 0)
+                {
+                    products = products.Where(p => p.category_id == categoryId).ToList();
+                }
+
+                // Tính tồn kho cho từng sản phẩm
+                var stockData = products.SelectMany(product =>
+                {
+                    var stockByProduct = productBLL.GetStockByProductId(product.product_id);
+                    return stockByProduct.Select(stock => new
+                    {
+                        ProductId = product.product_id,
+                        ProductName = product.product_name,
+                        VariantId = stock.VariantId,
+                        TotalStock = stock.TotalStock
+                    });
+                }).ToList();
+
+                // Kiểm tra nếu không có dữ liệu tồn kho
+                if (!stockData.Any())
+                {
+                    MessageBox.Show("Không có dữ liệu tồn kho để hiển thị.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dgvStock.DataSource = null;
+                    return;
+                }
+
+                // Bind dữ liệu vào DataGridView
                 dgvStock.DataSource = stockData;
 
-                // Format DataGridView
-                dgvStock.Columns["ProductId"].HeaderText = "Mã sản phẩm";
-                dgvStock.Columns["ProductName"].HeaderText = "Tên sản phẩm";
-                dgvStock.Columns["CategoryId"].HeaderText = "Mã danh mục";
-                dgvStock.Columns["TotalStock"].HeaderText = "Tồn kho";
+                // Định nghĩa cột
+                dgvStock.Columns.Clear();
+                dgvStock.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Mã sản phẩm", DataPropertyName = "ProductId", Width = 100 });
+                dgvStock.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Tên sản phẩm", DataPropertyName = "ProductName", Width = 200 });
+                dgvStock.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Mã biến thể", DataPropertyName = "VariantId", Width = 150 });
+                dgvStock.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Tồn kho", DataPropertyName = "TotalStock", Width = 100 });
 
-                dgvStock.Columns["ProductId"].Width = 100;
-                dgvStock.Columns["ProductName"].Width = 200;
-                dgvStock.Columns["CategoryId"].Width = 150;
-                dgvStock.Columns["TotalStock"].Width = 100;
-
+                // Cấu hình DataGridView
                 dgvStock.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dgvStock.AutoGenerateColumns = true;
+                dgvStock.AllowUserToAddRows = false;
+                dgvStock.ReadOnly = true;
+                dgvStock.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Lỗi khi tải dữ liệu tồn kho: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
@@ -86,7 +111,6 @@ namespace GUI
 
             LoadStockData(search, categoryId == 0 ? (int?)null : categoryId);
         }
-
 
         private void btnReset_Click(object sender, EventArgs e)
         {

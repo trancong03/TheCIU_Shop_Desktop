@@ -63,7 +63,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportBLL.cs" />
     <Compile Include="SizeBLL.cs" />
-    <Compile Include="StockBLL.cs" />
     <Compile Include="VoucherBLL.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

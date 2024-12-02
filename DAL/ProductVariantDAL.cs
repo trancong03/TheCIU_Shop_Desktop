@@ -10,6 +10,7 @@ namespace DAL
     public class ProductVariantDAL
     {
         private QuanLyShopDataContext db = new QuanLyShopDataContext();
+        public int? quantity { get; set; } 
 
         public List<ProductVariant> GetAllProductVariants()
         {

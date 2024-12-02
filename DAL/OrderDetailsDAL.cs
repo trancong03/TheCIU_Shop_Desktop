@@ -94,5 +94,30 @@ namespace DAL
                 throw new Exception("Error: " + ex.Message);
             }
         }
+        // Lấy số lượng sản phẩm đã bán theo variant_id
+        //public int GetTotalSoldByVariantId(int variantId)
+        //{
+        //    return db.OrderDetails
+        //        .Where(od => od.variant_id == variantId)
+        //        .Sum(od => od.quantity.GetValueOrDefault(0));
+        //}
+
+        public int GetTotalSoldByVariantId(int variantId)
+        {
+            try
+            {
+                // Nếu cột quantity chứa null, dùng GetValueOrDefault để thay thế bằng 0
+                return db.OrderDetails
+                    .Where(od => od.variant_id == variantId)
+                    .Sum(od => od.quantity.GetValueOrDefault()); ; // Xử lý giá trị null
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi khi tính tổng số lượng đã bán: {ex.Message}");
+                return 0;
+            }
+        }
+
+
     }
 }

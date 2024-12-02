@@ -8,6 +8,9 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnReload;
+        private System.Windows.Forms.Button btnExcel; // Nút Export Excel
+        private System.Windows.Forms.Button btnPrint; // Nút Print
         private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.ComboBox cbFilter;
         private System.Windows.Forms.Label lblFilter;
@@ -31,6 +34,9 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.btnReload = new System.Windows.Forms.Button();
+            this.btnExcel = new System.Windows.Forms.Button();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtSearch
@@ -127,8 +133,50 @@
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // btnReload
+            // 
+            this.btnReload.BackColor = System.Drawing.Color.Transparent;
+            this.btnReload.FlatAppearance.BorderSize = 0;
+            this.btnReload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReload.Image = global::CustomControl.Properties.Resources.reload;
+            this.btnReload.Location = new System.Drawing.Point(760, 10);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Size = new System.Drawing.Size(40, 40);
+            this.btnReload.TabIndex = 8;
+            this.btnReload.UseVisualStyleBackColor = false;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
+            // 
+            // btnExcel
+            // 
+            this.btnExcel.BackColor = System.Drawing.Color.Transparent;
+            this.btnExcel.FlatAppearance.BorderSize = 0;
+            this.btnExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExcel.Image = global::CustomControl.Properties.Resources.excel;// Biểu tượng Excel
+            this.btnExcel.Location = new System.Drawing.Point(810, 10); // Đặt sau nút Reload
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(40, 40);
+            this.btnExcel.TabIndex = 9;
+            this.btnExcel.UseVisualStyleBackColor = false;
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.BackColor = System.Drawing.Color.Transparent;
+            this.btnPrint.FlatAppearance.BorderSize = 0;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.Image = global::CustomControl.Properties.Resources.printer ; // Biểu tượng Print
+            this.btnPrint.Location = new System.Drawing.Point(860, 10); // Đặt sau nút Excel
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(40, 40);
+            this.btnPrint.TabIndex = 10;
+            this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // ActionControl
             // 
+            this.Controls.Add(this.btnExcel);
+            this.Controls.Add(this.btnPrint);
+            this.Controls.Add(this.btnReload);
             this.Controls.Add(this.lblFilter);
             this.Controls.Add(this.cbFilter);
             this.Controls.Add(this.lblSearch);
@@ -138,10 +186,9 @@
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnDelete);
             this.Name = "ActionControl";
-            this.Size = new System.Drawing.Size(770, 63);
+            this.Size = new System.Drawing.Size(950, 63); // Tăng chiều rộng để chứa các nút mới
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
     }
 }

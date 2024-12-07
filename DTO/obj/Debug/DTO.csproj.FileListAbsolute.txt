@@ -5,3 +5,5 @@ D:\TEAMWORKING\TheCIU_Shop_Desktop\DTO\obj\Debug\DTO.csproj.AssemblyReference.ca
 D:\TEAMWORKING\TheCIU_Shop_Desktop\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 D:\TEAMWORKING\TheCIU_Shop_Desktop\DTO\obj\Debug\DTO.dll
 D:\TEAMWORKING\TheCIU_Shop_Desktop\DTO\obj\Debug\DTO.pdb
+D:\TEAMWORKING\TheCIU_Shop_Desktop\DTO\obj\Debug\DTO.Properties.Resources.resources
+D:\TEAMWORKING\TheCIU_Shop_Desktop\DTO\obj\Debug\DTO.csproj.GenerateResource.cache

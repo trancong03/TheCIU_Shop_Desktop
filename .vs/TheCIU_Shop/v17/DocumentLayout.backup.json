@@ -7,15 +7,11 @@
       "RelativeMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|solutionrelative:gui\\frmproductmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3C0DF494-832A-401F-AE04-6BE14A7A2477}|Ultis\\Ultis.csproj|d:\\teamworking\\theciu_shop_desktop\\ultis\\imagehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C0DF494-832A-401F-AE04-6BE14A7A2477}|Ultis\\Ultis.csproj|solutionrelative:ultis\\imagehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{241D47FC-EF27-48D1-A7D7-A1156546BD41}|CustomControl\\CustomControl.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\customcontrol\\actioncontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{241D47FC-EF27-48D1-A7D7-A1156546BD41}|CustomControl\\CustomControl.csproj|solutionrelative:customcontrol\\actioncontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|d:\\teamworking\\theciu_shop_desktop\\gui\\frmproductmanagement.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|solutionrelative:gui\\frmproductmanagement.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|d:\\teamworking\\theciu_shop_desktop\\gui\\frmproductmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\gui\\frmproductmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|solutionrelative:gui\\frmproductmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -31,15 +27,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ImageHelper.cs",
-              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\Ultis\\ImageHelper.cs",
-              "RelativeDocumentMoniker": "Ultis\\ImageHelper.cs",
-              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\Ultis\\ImageHelper.cs",
-              "RelativeToolTip": "Ultis\\ImageHelper.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAjAAAAAAAAAA==",
+              "Title": "ActionControl.cs [Design]",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\CustomControl\\ActionControl.cs",
+              "RelativeDocumentMoniker": "CustomControl\\ActionControl.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\CustomControl\\ActionControl.cs [Design]",
+              "RelativeToolTip": "CustomControl\\ActionControl.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-02T06:37:34.604Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-07T16:44:13.259Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
@@ -49,34 +44,21 @@
               "RelativeDocumentMoniker": "GUI\\FrmProductManagement.cs",
               "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmProductManagement.cs",
               "RelativeToolTip": "GUI\\FrmProductManagement.cs",
-              "ViewState": "AgIAAKAAAAAAAAAAAAAvwJEAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAYwDIAAABOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-02T06:34:25.509Z",
+              "WhenOpened": "2024-12-07T16:42:16.401Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "FrmProductManagement.Designer.cs",
-              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmProductManagement.Designer.cs",
-              "RelativeDocumentMoniker": "GUI\\FrmProductManagement.Designer.cs",
-              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmProductManagement.Designer.cs",
-              "RelativeToolTip": "GUI\\FrmProductManagement.Designer.cs",
-              "ViewState": "AgIAAIEAAAAAAAAAAAAiwJUAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-02T06:26:46.208Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "FrmProductManagement.cs [Design]",
               "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmProductManagement.cs",
               "RelativeDocumentMoniker": "GUI\\FrmProductManagement.cs",
               "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmProductManagement.cs [Design]",
               "RelativeToolTip": "GUI\\FrmProductManagement.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-02T06:26:41.036Z",
+              "WhenOpened": "2024-12-07T16:42:14.981Z",
               "EditorCaption": " [Design]"
             }
           ]

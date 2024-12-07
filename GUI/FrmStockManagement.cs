@@ -65,13 +65,16 @@ namespace GUI
                 var stockData = products.SelectMany(product =>
                 {
                     var stockByProduct = productBLL.GetStockByProductId(product.product_id);
-                    return stockByProduct.Select(stock => new
+                    return new List<dynamic>
                     {
-                        ProductId = product.product_id,
-                        ProductName = product.product_name,
-                        VariantId = stock.VariantId,
-                        TotalStock = stock.TotalStock
-                    });
+                        new
+                        {
+                            ProductId = product.product_id,
+                            ProductName = product.product_name,
+                            VariantId = product.product_id,
+                            TotalStock = stockByProduct
+                        }
+                    };
                 }).ToList();
 
                 // Kiểm tra nếu không có dữ liệu tồn kho

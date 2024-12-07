@@ -48,6 +48,18 @@
     <Compile Include="ActionControl.Designer.cs">
       <DependentUpon>ActionControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="ActionControlMini.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ActionControlMini.Designer.cs">
+      <DependentUpon>ActionControlMini.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CurrencyTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CurrencyTextBox.Designer.cs">
+      <DependentUpon>CurrencyTextBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomDataGridViewControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -108,6 +120,9 @@
     <EmbeddedResource Include="ActionControl.resx">
       <DependentUpon>ActionControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ActionControlMini.resx">
+      <DependentUpon>ActionControlMini.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginControl.resx">
       <DependentUpon>LoginControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -163,6 +178,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\printer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

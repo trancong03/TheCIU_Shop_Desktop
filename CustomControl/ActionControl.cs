@@ -15,12 +15,60 @@ namespace CustomControl
         public event EventHandler PrintClicked; // Sự kiện Print
         public event EventHandler SearchTextChanged;
         public event EventHandler FilterChanged;
+        public event EventHandler SaveClicked;
+
 
         private bool filterVisible = true; // Mặc định bộ lọc hiển thị
 
         public ActionControl()
         {
             InitializeComponent();
+            this.KeyDown += new KeyEventHandler(ActionControl_KeyDown);
+            this.btnSave.KeyDown += new KeyEventHandler(ActionControl_KeyDown);
+            this.btnSearch.KeyDown += new KeyEventHandler(ActionControl_KeyDown);
+            this.btnAdd.KeyDown += new KeyEventHandler(ActionControl_KeyDown);
+            this.btnUpdate.KeyDown += new KeyEventHandler(ActionControl_KeyDown);
+            this.btnDelete.KeyDown += new KeyEventHandler(ActionControl_KeyDown);
+            this.btnReload.KeyDown += new KeyEventHandler(ActionControl_KeyDown);
+            this.btnExcel.KeyDown += new KeyEventHandler(ActionControl_KeyDown);
+            this.btnPrint.KeyDown += new KeyEventHandler(ActionControl_KeyDown);
+        }
+       
+        // Xử lý KeyDown
+        private void ActionControl_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.S && e.Control) // Ctrl + S để Save
+            {
+                SaveClicked?.Invoke(this, EventArgs.Empty);
+            }
+            else if (e.KeyCode == Keys.F && e.Control) // Ctrl + F để Search
+            {
+                SearchClicked?.Invoke(this, EventArgs.Empty);
+            }
+            else if (e.KeyCode == Keys.N && e.Control) // Ctrl + N để Add
+            {
+                AddClicked?.Invoke(this, EventArgs.Empty);
+            }
+            else if (e.KeyCode == Keys.U && e.Control) // Ctrl + U để Update
+            {
+                UpdateClicked?.Invoke(this, EventArgs.Empty);
+            }
+            else if (e.KeyCode == Keys.D && e.Control) // Ctrl + D để Delete
+            {
+                DeleteClicked?.Invoke(this, EventArgs.Empty);
+            }
+            else if (e.KeyCode == Keys.R && e.Control) // Ctrl + R để Reload
+            {
+                ReloadClicked?.Invoke(this, EventArgs.Empty);
+            }
+            else if (e.KeyCode == Keys.E && e.Control) // Ctrl + E để Export Excel
+            {
+                ExcelExportClicked?.Invoke(this, EventArgs.Empty);
+            }
+            else if (e.KeyCode == Keys.P && e.Control) // Ctrl + P để Print
+            {
+                PrintClicked?.Invoke(this, EventArgs.Empty);
+            }
         }
 
         // Thuộc tính TextBox tìm kiếm
@@ -64,7 +112,6 @@ namespace CustomControl
             {
                 filterVisible = value;
                 cbFilter.Visible = filterVisible;
-                lblFilter.Visible = filterVisible;
             }
         }
 
@@ -90,6 +137,12 @@ namespace CustomControl
         private void btnDelete_Click(object sender, EventArgs e)
         {
             DeleteClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        // Xử lý nút Save
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            SaveClicked?.Invoke(this, EventArgs.Empty);
         }
 
         // Xử lý nút Reload

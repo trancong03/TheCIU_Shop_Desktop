@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using DTO;
 
 namespace DAL
@@ -17,6 +19,12 @@ namespace DAL
         {
             return db.Sizes.SingleOrDefault(s => s.size_id == id);
         }
+        public int GetSizeIdByName(string sizeName)
+        {
+            var size = db.Sizes.FirstOrDefault(s => s.size_name.Equals(sizeName, StringComparison.OrdinalIgnoreCase));
+            return size?.size_id ?? 0;
+        }
+
 
         public bool InsertSize(Size size)
         {

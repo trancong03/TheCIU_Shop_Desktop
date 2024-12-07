@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using DTO;
 
 namespace DAL
@@ -16,6 +18,11 @@ namespace DAL
         public Color GetColorById(int id)
         {
             return db.Colors.SingleOrDefault(c => c.color_id == id);
+        }
+        public int GetColorIdByName(string colorName)
+        {
+            var color = db.Colors.FirstOrDefault(c => c.color_name.Equals(colorName, StringComparison.OrdinalIgnoreCase));
+            return color?.color_id ?? 0; 
         }
 
         public bool InsertColor(Color color)

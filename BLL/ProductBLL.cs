@@ -12,155 +12,145 @@ namespace BLL
         private readonly ProductDAL productDAL = new ProductDAL();
         private readonly ProductValidation productValidation = new ProductValidation();
         private readonly ProductVariantDAL productVariantDAL = new ProductVariantDAL();
-        private readonly OrderDetailsDAL orderDetailsDAL = new OrderDetailsDAL();
-        private readonly CategoryDAL categoryDAL = new CategoryDAL();
         private readonly SizeDAL sizeDAL = new SizeDAL();
         private readonly ColorDAL colorDAL = new ColorDAL();
+        private readonly CategoryDAL categoryDAL = new CategoryDAL();
 
         public List<Product> GetAllProducts()
         {
             return productDAL.GetAllProducts();
         }
 
-        //public List<dynamic> SearchProducts(string searchText)
-        //{
-        //    var products = GetProductDetails();
-
-        //    if (!string.IsNullOrWhiteSpace(searchText))
-        //    {
-        //        string lowerSearchText = searchText.ToLower();
-
-        //        products = products.Where(p =>
-        //            p.product_name.ToLower().Contains(lowerSearchText) ||
-        //            p.Title.ToLower().Contains(lowerSearchText) ||
-        //            p.CategoryName.ToLower().Contains(lowerSearchText)).ToList();
-        //    }
-
-        //    return products;
-        //}
-        //public List<object> SearchProducts(string searchText)
-        //{
-        //    var products = GetProductDetails();
-
-        //    if (!string.IsNullOrWhiteSpace(searchText))
-        //    {
-        //        string lowerSearchText = searchText.ToLower();
-
-        //        products = products
-        //            .Where(p =>
-        //            {
-        //                var product = (dynamic)p; // Ép kiểu object về dynamic tạm thời để truy cập thuộc tính
-        //                return product.ProductName.ToLower().Contains(lowerSearchText) ||
-        //                       product.Title.ToLower().Contains(lowerSearchText) ||
-        //                       product.CategoryName.ToLower().Contains(lowerSearchText);
-        //            })
-        //            .ToList();
-        //    }
-
-        //    return products;
-        //}
-        public List<ProductDetailDTO> SearchProducts(string searchText)
+        public int UpdateProductAndGetId(ProductDetailDTO productDetail)
         {
-            var products = GetProductDetails();
-            if (!string.IsNullOrWhiteSpace(searchText))
+            var product = new Product
             {
-                string lowerSearchText = searchText.ToLower();
-                products = products.Where(p =>
-                    p.ProductName.ToLower().Contains(lowerSearchText) ||
-                    p.Title.ToLower().Contains(lowerSearchText) ||
-                    p.CategoryName.ToLower().Contains(lowerSearchText)
-                ).ToList();
-            }
-            return products;
+                product_id = productDetail.ProductId,
+                product_name = productDetail.ProductName,
+                Title = productDetail.Title,
+                price = productDetail.Price,
+                category_id = productDetail.CategoryId,
+                Dateadd = productDetail.DateAdd,
+                ImageSP = productDetail.ImageSP
+            };
+
+            return productDAL.UpdateProductAndGetId(product);
         }
 
-        //public List<dynamic> SortProductsByPriceAscending()
-        //{
-        //    var products = GetProductDetails();
-        //    return products.OrderBy(p => p.price).ToList();
-        //}
 
-        //public List<dynamic> SortProductsByPriceDescending()
-        //{
-        //    var products = GetProductDetails();
-        //    return products.OrderByDescending(p => p.price).ToList();
-        //}
-        //public List<object> SortProductsByPriceAscending()
-        //{
-        //    var products = GetProductDetails();
-        //    return products.OrderBy(p => ((dynamic)p).Price).ToList();
-        //}
-
-        //public List<object> SortProductsByPriceDescending()
-        //{
-        //    var products = GetProductDetails();
-        //    return products.OrderByDescending(p => ((dynamic)p).Price).ToList();
-        //}
-
-
-        public List<ProductDetailDTO> SortProductsByPriceAscending()
+        public int AddProductAndGetId(ProductDetailDTO productDetail)
         {
-            var products = GetProductDetails();
-            return products.OrderBy(p => p.Price).ToList();
-        }
-
-        public List<ProductDetailDTO> SortProductsByPriceDescending()
-        {
-            var products = GetProductDetails();
-            return products.OrderByDescending(p => p.Price).ToList();
-        }
-        //public List<dynamic> FilterProductsByCategory(int categoryId)
-        //{
-        //    var products = GetProductDetails();
-
-        //    if (categoryId > 0)
-        //    {
-        //        products = products.Where(p => p.category_id == categoryId).ToList();
-        //    }
-
-        //    return products;
-        //}
-        //public List<object> FilterProductsByCategory(int categoryId)
-        //{
-        //    var products = GetProductDetails();
-
-        //    if (categoryId > 0)
-        //    {
-        //        products = products
-        //            .Where(p => ((dynamic)p).CategoryId == categoryId)
-        //            .ToList();
-        //    }
-
-        //    return products;
-        //}
-
-        public List<ProductDetailDTO> FilterProductsByCategory(int categoryId)
-        {
-            var products = GetProductDetails();
-
-            if (categoryId > 0)
+            var product = new Product
             {
-                products = products
-                    .Where(p => p.CategoryId == categoryId)
-                    .ToList();
+                product_name = productDetail.ProductName,
+                Title = productDetail.Title,
+                price = productDetail.Price,
+                category_id = productDetail.CategoryId,
+                Dateadd = productDetail.DateAdd,
+                ImageSP = productDetail.ImageSP
+            };
+
+            return productDAL.AddProductAndGetId(product);
+        }
+
+
+        // Lấy danh sách sản phẩm chi tiết
+        public List<ProductDetailDTO> GetProductDetails()
+        {
+            return (from p in productDAL.GetAllProducts()
+                    join pv in productVariantDAL.GetAllProductVariants() on p.product_id equals pv.product_id into pvGroup
+                    from variant in pvGroup.DefaultIfEmpty()
+                    join c in colorDAL.GetAllColors() on variant.color_id equals c.color_id into colorGroup
+                    from color in colorGroup.DefaultIfEmpty()
+                    join s in sizeDAL.GetAllSizes() on variant.size_id equals s.size_id into sizeGroup
+                    from size in sizeGroup.DefaultIfEmpty()
+                    join cat in categoryDAL.GetAllCategories() on p.category_id equals cat.category_id into categoryGroup
+                    from category in categoryGroup.DefaultIfEmpty()
+                    select new ProductDetailDTO
+                    {
+                        ProductId = p.product_id,
+                        ProductName = p.product_name,
+                        Title = p.Title,
+                        Price = p.price ?? 0,
+                        DateAdd = p.Dateadd ?? DateTime.MinValue,
+                        Rating = (float)(p.rating ?? 0),
+                        ImageSP = p.ImageSP,
+                        CategoryName = category?.category_name,
+                        ColorName = color?.color_name,
+                        SizeName = size?.size_name,
+                        Quantity = variant?.quantity ?? 0,
+                        CategoryId = p.category_id ?? 0
+                    }).ToList();
+        }
+        public List<ProductDetailDTO> GetBasicProductDetails()
+        {
+            return productDAL.GetBasicProductDetails();
+        }
+
+        // Thêm sản phẩm chi tiết
+        public bool AddProduct(ProductDetailDTO productDetail)
+        {
+            // Xác thực dữ liệu
+            ValidateProduct(productDetail);
+
+            // Tạo đối tượng `Product`
+            var product = new Product
+            {
+                product_name = productDetail.ProductName,
+                Title = productDetail.Title,
+                price = productDetail.Price,
+                category_id = productDetail.CategoryId,
+                Dateadd = productDetail.DateAdd,
+                ImageSP = productDetail.ImageSP
+            };
+
+            // Tạo đối tượng `ProductVariant`
+            var variant = new ProductVariant
+            {
+                size_id = sizeDAL.GetSizeIdByName(productDetail.SizeName),
+                color_id = colorDAL.GetColorIdByName(productDetail.ColorName),
+                quantity = productDetail.Quantity
+            };
+
+            // Thêm sản phẩm và biến thể
+            return productDAL.AddProductWithVariant(product, variant);
+        }
+
+        // Cập nhật sản phẩm chi tiết
+        public bool EditProduct(ProductDetailDTO productDetail)
+        {
+            // Xác thực dữ liệu
+            ValidateProduct(productDetail);
+
+            // Cập nhật sản phẩm
+            var product = new Product
+            {
+                product_id = productDetail.ProductId,
+                product_name = productDetail.ProductName,
+                Title = productDetail.Title,
+                price = productDetail.Price,
+                category_id = productDetail.CategoryId,
+                Dateadd = productDetail.DateAdd,
+                ImageSP = productDetail.ImageSP
+            };
+
+            if (productDAL.UpdateProduct(product))
+            {
+                // Cập nhật biến thể sản phẩm
+                var variant = productVariantDAL.GetProductVariantById(productDetail.ProductId);
+                if (variant != null)
+                {
+                    variant.size_id = sizeDAL.GetSizeIdByName(productDetail.SizeName);
+                    variant.color_id = colorDAL.GetColorIdByName(productDetail.ColorName);
+                    variant.quantity = productDetail.Quantity;
+
+                    return productVariantDAL.UpdateProductVariant(variant);
+                }
             }
-
-            return products;
+            return false;
         }
 
-
-        public bool AddProduct(Product product)
-        {
-            ValidateProduct(product);
-            return productDAL.AddProduct(product);
-        }
-
-        public bool EditProduct(Product product)
-        {
-            ValidateProduct(product);
-            return productDAL.UpdateProduct(product);
-        }
-
+        // Xóa sản phẩm
         public bool RemoveProduct(int productId)
         {
             // Kiểm tra phụ thuộc
@@ -170,152 +160,67 @@ namespace BLL
                 return false;
             }
 
-            // Xóa Product và các ProductVariant liên quan
-            return productDAL.DeleteProduct(productId);
-        }
-        //public List<dynamic> GetProductDetails()
-        //{
-        //    var products = from p in productDAL.GetAllProducts()
-        //                   join pv in productVariantDAL.GetAllProductVariants() on p.product_id equals pv.product_id
-        //                   join c in colorDAL.GetAllColors() on pv.color_id equals c.color_id
-        //                   join s in sizeDAL.GetAllSizes() on pv.size_id equals s.size_id
-        //                   join cat in categoryDAL.GetAllCategories() on p.category_id equals cat.category_id
-        //                   select new
-        //                   {
-        //                       p.product_id,
-        //                       p.product_name,
-        //                       p.Title,
-        //                       p.price,
-        //                       p.Dateadd,
-        //                       p.rating,
-        //                       p.ImageSP,
-        //                       CategoryName = cat.category_name,
-        //                       ColorName = c.color_name,
-        //                       SizeName = s.size_name,
-        //                       pv.quantity
-        //                   };
-        //    return products.ToList<dynamic>();
-        //}
-
-
-        public List<ProductDetailDTO> GetProductDetails()
-        {
-            var products = from p in productDAL.GetAllProducts()
-                           join pv in productVariantDAL.GetAllProductVariants() on p.product_id equals pv.product_id
-                           join c in colorDAL.GetAllColors() on pv.color_id equals c.color_id
-                           join s in sizeDAL.GetAllSizes() on pv.size_id equals s.size_id
-                           join cat in categoryDAL.GetAllCategories() on p.category_id equals cat.category_id
-                           select new ProductDetailDTO
-                           {
-                               ProductId = p.product_id,
-                               ProductName = p.product_name,
-                               Title = p.Title,
-                               Price = p.price ?? 0.0,
-                               DateAdd = p.Dateadd ?? DateTime.MinValue,
-                               Rating = (float)(p.rating ?? 0.0),
-                               ImageSP = p.ImageSP,
-                               CategoryName = cat.category_name,
-                               ColorName = c.color_name,
-                               SizeName = s.size_name,
-                               Quantity = pv.quantity ?? 0,
-                               CategoryId = p.category_id ?? 0
-                           };
-            return products.ToList();
+            // Xóa sản phẩm và biến thể
+            return productDAL.DeleteProductWithVariants(productId);
         }
 
-        //public List<object> GetProductDetails()
-        //{
-        //    var products = from p in productDAL.GetAllProducts()
-        //                   join pv in productVariantDAL.GetAllProductVariants() on p.product_id equals pv.product_id
-        //                   join c in colorDAL.GetAllColors() on pv.color_id equals c.color_id
-        //                   join s in sizeDAL.GetAllSizes() on pv.size_id equals s.size_id
-        //                   join cat in categoryDAL.GetAllCategories() on p.category_id equals cat.category_id
-        //                   select new
-        //                   {
-        //                       p.product_id,
-        //                       p.product_name,
-        //                       p.Title,
-        //                       p.price,
-        //                       p.Dateadd,
-        //                       p.rating,
-        //                       p.ImageSP,
-        //                       CategoryName = cat.category_name,
-        //                       ColorName = c.color_name,
-        //                       SizeName = s.size_name,
-        //                       pv.quantity,
-        //                       p.category_id // Thêm cột category_id
-        //                   };
-        //    return products.ToList<object>();
-        //}
-
-        public List<ProductVariant> GetProductVariants()
+        // Tìm kiếm sản phẩm
+        public List<ProductDetailDTO> SearchProducts(string searchText)
         {
-            return productVariantDAL.GetAllProductVariants();
+            var products = GetProductDetails();
+            if (!string.IsNullOrWhiteSpace(searchText))
+            {
+                string lowerSearchText = searchText.ToLower();
+                products = products.Where(p =>
+                    (!string.IsNullOrEmpty(p.ProductName) && p.ProductName.ToLower().Contains(lowerSearchText)) ||
+                    (!string.IsNullOrEmpty(p.Title) && p.Title.ToLower().Contains(lowerSearchText)) ||
+                    (!string.IsNullOrEmpty(p.CategoryName) && p.CategoryName.ToLower().Contains(lowerSearchText))
+                ).ToList();
+            }
+            return products;
         }
 
-        public List<Category> GetAllCategories()
+        // Sắp xếp sản phẩm theo giá
+      
+        public List<ProductDetailDTO> SortProductsByPriceAscending()
         {
-            return categoryDAL.GetAllCategories();
+            return GetProductDetails().OrderBy(p => p.Price).ToList();
         }
 
-        public List<Size> GetAllSizes()
+        public List<ProductDetailDTO> SortProductsByPriceDescending()
         {
-            return sizeDAL.GetAllSizes();
+            return GetProductDetails().OrderByDescending(p => p.Price).ToList();
         }
 
-        public List<Color> GetAllColors()
+        public int GetStockByProductId(int productId)
         {
-            return colorDAL.GetAllColors();
+            try
+            {
+                return productDAL.GetStockByProductId(productId);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi khi xử lý trong BLL: {ex.Message}");
+                throw;
+            }
         }
 
-        // Phương thức kiểm tra phụ thuộc cho sản phẩm
-        public bool HasDependencies(int productId)
+        public List<ProductDetailDTO> FilterProductsByPrice(float price)
         {
-            return productDAL.HasDependencies(productId);
+            return productDAL.FilterProductsByPrice(price);
         }
-
-        private void ValidateProduct(Product product)
+        // Xác thực sản phẩm
+        private void ValidateProduct(ProductDetailDTO productDetail)
         {
-            ValidateField(productValidation.ValidateProductName(product.product_name), "Tên sản phẩm không hợp lệ.");
-            ValidateField(productValidation.ValidateProductPrice(product.price), "Giá sản phẩm không hợp lệ.");
-            ValidateField(productValidation.ValidateProductCategory(product.category_id), "Danh mục sản phẩm không hợp lệ.");
+            ValidateField(productValidation.ValidateProductName(productDetail.ProductName), "Tên sản phẩm không hợp lệ.");
+            ValidateField(productValidation.ValidateProductPrice(productDetail.Price), "Giá sản phẩm không hợp lệ.");
+            ValidateField(productValidation.ValidateProductCategory(productDetail.CategoryId), "Danh mục sản phẩm không hợp lệ.");
         }
 
         private void ValidateField(ValidationResult validationResult, string errorMessage)
         {
             if (!validationResult.IsValid)
                 throw new Exception(errorMessage);
-        }
-
-        // Tính tồn kho của sản phẩm dựa vào product_id
-        public List<dynamic> GetStockByProductId(int productId)
-        {
-            var productVariants = productVariantDAL.GetVariantsByProductId(productId);
-
-            foreach (var variant in productVariants)
-            {
-                Console.WriteLine($"VariantId: {variant.variant_id}, Quantity: {variant.quantity}");
-            }
-
-            var stockData = productVariants.Select(variant =>
-            {
-                int totalSold = orderDetailsDAL.GetTotalSoldByVariantId(variant.variant_id);
-                Console.WriteLine($"VariantId: {variant.variant_id}, TotalSold: {totalSold}");
-
-                int quantity = variant.quantity ?? 0;
-
-                var remainingStock = quantity - totalSold;
-                Console.WriteLine($"RemainingStock for VariantId {variant.variant_id}: {remainingStock}");
-
-                return new
-                {
-                    ProductId = productId,
-                    VariantId = variant.variant_id,
-                    TotalStock = remainingStock
-                };
-            }).ToList<dynamic>();
-
-            return stockData;
         }
     }
 }

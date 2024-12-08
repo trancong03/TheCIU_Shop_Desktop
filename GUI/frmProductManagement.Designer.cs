@@ -70,6 +70,7 @@ namespace GUI
             this.actionControlMini = new CustomControl.ActionControlMini();
             this.txtPrice = new CustomControls.CurrencyTextBox();
             this.actionControl = new CustomControl.ActionControl();
+            this.btnSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProductVariant)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProduct)).BeginInit();
@@ -314,12 +315,22 @@ namespace GUI
             this.actionControl.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.actionControl.Location = new System.Drawing.Point(23, 218);
             this.actionControl.Name = "actionControl";
-            this.actionControl.Size = new System.Drawing.Size(1281, 50);
+            this.actionControl.Size = new System.Drawing.Size(929, 50);
             this.actionControl.TabIndex = 22;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(965, 247);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 25;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
             // 
             // FrmProductManagement
             // 
             this.ClientSize = new System.Drawing.Size(1321, 800);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.actionControlMini);
             this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.lblProductName);
@@ -356,5 +367,6 @@ namespace GUI
 
         private CustomControls.CurrencyTextBox txtPrice;
         private CustomControl.ActionControlMini actionControlMini;
+        private Button btnSave;
     }
 }

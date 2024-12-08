@@ -7,39 +7,18 @@ namespace DAL
 {
     public class OrderDetailsDAL
     {
-        private QuanLyShopDataContext db = new QuanLyShopDataContext();
+        private readonly QuanLyShopDataContext db = new QuanLyShopDataContext();
 
-        public OrderDetailsDAL()
-        {
-        }
-
-        // Lấy tất cả chi tiết đơn hàng
         public List<OrderDetail> GetAllOrderDetails()
         {
-            try
-            {
-                return db.OrderDetails.ToList();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error: " + ex.Message);
-            }
+            return db.OrderDetails.ToList();
         }
 
-        // Lấy chi tiết đơn hàng theo mã đơn hàng
         public List<OrderDetail> GetOrderDetailsByOrderId(int orderId)
         {
-            try
-            {
-                return db.OrderDetails.Where(od => od.order_id == orderId).ToList();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error: " + ex.Message);
-            }
+            return db.OrderDetails.Where(od => od.order_id == orderId).ToList();
         }
 
-        // Thêm chi tiết đơn hàng
         public bool AddOrderDetail(OrderDetail orderDetail)
         {
             try
@@ -48,39 +27,37 @@ namespace DAL
                 db.SubmitChanges();
                 return true;
             }
-            catch (Exception ex)
+            catch
             {
-                throw new Exception("Error: " + ex.Message);
+                return false;
             }
         }
 
-        // Sửa chi tiết đơn hàng
         public bool UpdateOrderDetail(OrderDetail orderDetail)
         {
             try
             {
-                var existingOrderDetail = db.OrderDetails.FirstOrDefault(od => od.order_id == orderDetail.order_id && od.variant_id == orderDetail.variant_id);
-                if (existingOrderDetail != null)
+                var existingDetail = db.OrderDetails.SingleOrDefault(od => od.order_id == orderDetail.order_id && od.variant_id == orderDetail.variant_id);
+                if (existingDetail != null)
                 {
-                    existingOrderDetail.quantity = orderDetail.quantity;
-                    existingOrderDetail.subtotal = orderDetail.subtotal;
+                    existingDetail.quantity = orderDetail.quantity;
+                    existingDetail.subtotal = orderDetail.subtotal;
                     db.SubmitChanges();
                     return true;
                 }
                 return false;
             }
-            catch (Exception ex)
+            catch
             {
-                throw new Exception("Error: " + ex.Message);
+                return false;
             }
         }
 
-        // Xóa chi tiết đơn hàng
         public bool DeleteOrderDetail(int orderId, int variantId)
         {
             try
             {
-                var orderDetail = db.OrderDetails.FirstOrDefault(od => od.order_id == orderId && od.variant_id == variantId);
+                var orderDetail = db.OrderDetails.SingleOrDefault(od => od.order_id == orderId && od.variant_id == variantId);
                 if (orderDetail != null)
                 {
                     db.OrderDetails.DeleteOnSubmit(orderDetail);
@@ -89,35 +66,28 @@ namespace DAL
                 }
                 return false;
             }
-            catch (Exception ex)
+            catch
             {
-                throw new Exception("Error: " + ex.Message);
+                return false;
             }
         }
-        // Lấy số lượng sản phẩm đã bán theo variant_id
-        //public int GetTotalSoldByVariantId(int variantId)
-        //{
-        //    return db.OrderDetails
-        //        .Where(od => od.variant_id == variantId)
-        //        .Sum(od => od.quantity.GetValueOrDefault(0));
-        //}
-
-        public int GetTotalSoldByVariantId(int variantId)
+        // Trả về List<DetailsOrderDTO>
+        public List<DetailsOrderDTO> GetOrderDetailsByOrderDetailsId(int orderId)
         {
-            try
-            {
-                // Nếu cột quantity chứa null, dùng GetValueOrDefault để thay thế bằng 0
-                return db.OrderDetails
-                    .Where(od => od.variant_id == variantId)
-                    .Sum(od => od.quantity.GetValueOrDefault()); ; // Xử lý giá trị null
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Lỗi khi tính tổng số lượng đã bán: {ex.Message}");
-                return 0;
-            }
+            var query = from od in db.OrderDetails
+                        join pv in db.ProductVariants on od.variant_id equals pv.variant_id
+                        join p in db.Products on pv.product_id equals p.product_id
+                        where od.order_id == orderId
+                        select new DetailsOrderDTO
+                        {
+                            OrderId = od.order_id,
+                            VariantId = od.variant_id,
+                            ProductName = p.product_name,
+                            Quantity = od.quantity.HasValue ? od.quantity.Value : 0,
+                            Subtotal = od.subtotal.HasValue ? od.subtotal.Value : 0
+                        };
+
+            return query.ToList();
         }
-
-
     }
 }

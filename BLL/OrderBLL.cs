@@ -1,5 +1,5 @@
-﻿using DAL;
-using DTO;
+﻿using DTO;
+using DAL;
 using System;
 using System.Collections.Generic;
 using Validation;
@@ -9,6 +9,7 @@ namespace BLL
     public class OrderBLL
     {
         private readonly OrderDAL orderDAL = new OrderDAL();
+        private readonly OrderDetailsDAL orderDetailsDAL = new OrderDetailsDAL();
         private readonly OrderValidation orderValidation = new OrderValidation();
 
         public List<Order> GetAllOrders()
@@ -21,7 +22,7 @@ namespace BLL
             return orderDAL.GetOrderById(id);
         }
 
-        public void AddOrder(Order order)
+        public bool AddOrder(Order order)
         {
             // Validate order amount
             var amountValidation = orderValidation.ValidateOrderAmount(order.amount);
@@ -34,28 +35,61 @@ namespace BLL
                 throw new Exception(dateValidation.ErrorMessage);
 
             // Add order to database
-            orderDAL.InsertOrder(order);
+            return orderDAL.InsertOrder(order);
         }
 
-        public void EditOrder(Order order)
+        public bool EditOrder(Order order)
         {
-            // Validate order amount
+            // Validate data
             var amountValidation = orderValidation.ValidateOrderAmount(order.amount);
             if (!amountValidation.IsValid)
                 throw new Exception(amountValidation.ErrorMessage);
 
-            // Validate order date
             var dateValidation = orderValidation.ValidateOrderDate(order.order_date);
             if (!dateValidation.IsValid)
                 throw new Exception(dateValidation.ErrorMessage);
 
-            // Update order in database
-            orderDAL.UpdateOrder(order);
+            return orderDAL.UpdateOrder(order);
         }
 
-        public void RemoveOrder(int id)
+        public bool RemoveOrder(int id)
         {
-            orderDAL.DeleteOrder(id);
+            return orderDAL.DeleteOrder(id);
         }
+
+        public bool UpdateOrderStatus(Order order)
+        {
+            var existingOrder = orderDAL.GetOrderById(order.order_id);
+            if (existingOrder == null)
+                throw new Exception("Không tìm thấy đơn hàng!");
+
+            existingOrder.status = order.status;
+            return orderDAL.UpdateOrder(existingOrder);
+        }
+        public List<Order> GetOrdersByStatus(int status)
+        {
+            return orderDAL.GetOrdersByStatus(status);
+        }
+
+        public bool UpdateOrderStatus(int orderId, int newStatus)
+        {
+            return orderDAL.UpdateOrderStatus(orderId, newStatus);
+        }
+        // Phương thức sử dụng DTO
+        public List<DetailsOrderDTO> GetOrderDetailsByStatus(int? status)
+        {
+            return orderDAL.GetOrderDetailsByStatus(status);
+        }
+        public List<DetailsOrderDTO> SearchOrders(string keyword)
+        {
+            // Kiểm tra từ khóa
+            if (string.IsNullOrWhiteSpace(keyword))
+                throw new ArgumentException("Từ khóa tìm kiếm không được để trống!");
+
+            // Gọi phương thức trong DAL
+            return orderDAL.SearchOrders(keyword);
+        }
+
+
     }
 }

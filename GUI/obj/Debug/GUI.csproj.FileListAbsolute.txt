@@ -46,6 +46,7 @@ D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\obj\Debug\GUI.FrmLogin.resources
 D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\obj\Debug\GUI.FrmMain.resources
 D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\obj\Debug\GUI.FrmOrderDetail.resources
 D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\obj\Debug\GUI.FrmOrderManagement.resources
+D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\obj\Debug\GUI.FrmOrderStatusUpdate.resources
 D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\obj\Debug\GUI.FrmProductManagement.resources
 D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\obj\Debug\GUI.FrmReport.resources
 D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\obj\Debug\GUI.FrmVoucherManagement.resources

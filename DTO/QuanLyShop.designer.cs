@@ -39,6 +39,12 @@ namespace DTO
     partial void InsertCategory(Category instance);
     partial void UpdateCategory(Category instance);
     partial void DeleteCategory(Category instance);
+    partial void InsertCollection(Collection instance);
+    partial void UpdateCollection(Collection instance);
+    partial void DeleteCollection(Collection instance);
+    partial void InsertCollectionProduct(CollectionProduct instance);
+    partial void UpdateCollectionProduct(CollectionProduct instance);
+    partial void DeleteCollectionProduct(CollectionProduct instance);
     partial void InsertColor(Color instance);
     partial void UpdateColor(Color instance);
     partial void DeleteColor(Color instance);
@@ -131,6 +137,22 @@ namespace DTO
 			get
 			{
 				return this.GetTable<Category>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Collection> Collections
+		{
+			get
+			{
+				return this.GetTable<Collection>();
+			}
+		}
+		
+		public System.Data.Linq.Table<CollectionProduct> CollectionProducts
+		{
+			get
+			{
+				return this.GetTable<CollectionProduct>();
 			}
 		}
 		
@@ -1002,6 +1024,336 @@ namespace DTO
 		{
 			this.SendPropertyChanging();
 			entity.Category = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Collection")]
+	public partial class Collection : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _image;
+		
+		private string _review;
+		
+		private EntitySet<CollectionProduct> _CollectionProducts;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnimageChanging(string value);
+    partial void OnimageChanged();
+    partial void OnreviewChanging(string value);
+    partial void OnreviewChanged();
+    #endregion
+		
+		public Collection()
+		{
+			this._CollectionProducts = new EntitySet<CollectionProduct>(new Action<CollectionProduct>(this.attach_CollectionProducts), new Action<CollectionProduct>(this.detach_CollectionProducts));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string image
+		{
+			get
+			{
+				return this._image;
+			}
+			set
+			{
+				if ((this._image != value))
+				{
+					this.OnimageChanging(value);
+					this.SendPropertyChanging();
+					this._image = value;
+					this.SendPropertyChanged("image");
+					this.OnimageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_review", DbType="NVarChar(MAX)")]
+		public string review
+		{
+			get
+			{
+				return this._review;
+			}
+			set
+			{
+				if ((this._review != value))
+				{
+					this.OnreviewChanging(value);
+					this.SendPropertyChanging();
+					this._review = value;
+					this.SendPropertyChanged("review");
+					this.OnreviewChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Collection_CollectionProduct", Storage="_CollectionProducts", ThisKey="id", OtherKey="collection_id")]
+		public EntitySet<CollectionProduct> CollectionProducts
+		{
+			get
+			{
+				return this._CollectionProducts;
+			}
+			set
+			{
+				this._CollectionProducts.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_CollectionProducts(CollectionProduct entity)
+		{
+			this.SendPropertyChanging();
+			entity.Collection = this;
+		}
+		
+		private void detach_CollectionProducts(CollectionProduct entity)
+		{
+			this.SendPropertyChanging();
+			entity.Collection = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CollectionProduct")]
+	public partial class CollectionProduct : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private int _product_id;
+		
+		private int _collection_id;
+		
+		private EntityRef<Collection> _Collection;
+		
+		private EntityRef<Product> _Product;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void Onproduct_idChanging(int value);
+    partial void Onproduct_idChanged();
+    partial void Oncollection_idChanging(int value);
+    partial void Oncollection_idChanged();
+    #endregion
+		
+		public CollectionProduct()
+		{
+			this._Collection = default(EntityRef<Collection>);
+			this._Product = default(EntityRef<Product>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_product_id", DbType="Int NOT NULL")]
+		public int product_id
+		{
+			get
+			{
+				return this._product_id;
+			}
+			set
+			{
+				if ((this._product_id != value))
+				{
+					if (this._Product.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onproduct_idChanging(value);
+					this.SendPropertyChanging();
+					this._product_id = value;
+					this.SendPropertyChanged("product_id");
+					this.Onproduct_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_collection_id", DbType="Int NOT NULL")]
+		public int collection_id
+		{
+			get
+			{
+				return this._collection_id;
+			}
+			set
+			{
+				if ((this._collection_id != value))
+				{
+					if (this._Collection.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Oncollection_idChanging(value);
+					this.SendPropertyChanging();
+					this._collection_id = value;
+					this.SendPropertyChanged("collection_id");
+					this.Oncollection_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Collection_CollectionProduct", Storage="_Collection", ThisKey="collection_id", OtherKey="id", IsForeignKey=true)]
+		public Collection Collection
+		{
+			get
+			{
+				return this._Collection.Entity;
+			}
+			set
+			{
+				Collection previousValue = this._Collection.Entity;
+				if (((previousValue != value) 
+							|| (this._Collection.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Collection.Entity = null;
+						previousValue.CollectionProducts.Remove(this);
+					}
+					this._Collection.Entity = value;
+					if ((value != null))
+					{
+						value.CollectionProducts.Add(this);
+						this._collection_id = value.id;
+					}
+					else
+					{
+						this._collection_id = default(int);
+					}
+					this.SendPropertyChanged("Collection");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Product_CollectionProduct", Storage="_Product", ThisKey="product_id", OtherKey="product_id", IsForeignKey=true)]
+		public Product Product
+		{
+			get
+			{
+				return this._Product.Entity;
+			}
+			set
+			{
+				Product previousValue = this._Product.Entity;
+				if (((previousValue != value) 
+							|| (this._Product.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Product.Entity = null;
+						previousValue.CollectionProducts.Remove(this);
+					}
+					this._Product.Entity = value;
+					if ((value != null))
+					{
+						value.CollectionProducts.Add(this);
+						this._product_id = value.product_id;
+					}
+					else
+					{
+						this._product_id = default(int);
+					}
+					this.SendPropertyChanged("Product");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	
@@ -1888,6 +2240,8 @@ namespace DTO
 		
 		private System.Nullable<double> _amount;
 		
+		private string _address_deliver;
+		
 		private EntitySet<OrderDetail> _OrderDetails;
 		
 		private EntityRef<Account> _Account;
@@ -1912,6 +2266,8 @@ namespace DTO
     partial void Onvoucher_idChanged();
     partial void OnamountChanging(System.Nullable<double> value);
     partial void OnamountChanged();
+    partial void Onaddress_deliverChanging(string value);
+    partial void Onaddress_deliverChanged();
     #endregion
 		
 		public Order()
@@ -2066,6 +2422,26 @@ namespace DTO
 					this._amount = value;
 					this.SendPropertyChanged("amount");
 					this.OnamountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_address_deliver", DbType="NVarChar(255)")]
+		public string address_deliver
+		{
+			get
+			{
+				return this._address_deliver;
+			}
+			set
+			{
+				if ((this._address_deliver != value))
+				{
+					this.Onaddress_deliverChanging(value);
+					this.SendPropertyChanging();
+					this._address_deliver = value;
+					this.SendPropertyChanged("address_deliver");
+					this.Onaddress_deliverChanged();
 				}
 			}
 		}
@@ -2398,6 +2774,8 @@ namespace DTO
 		
 		private System.Nullable<System.DateTime> _Dateadd;
 		
+		private EntitySet<CollectionProduct> _CollectionProducts;
+		
 		private EntitySet<Feedback> _Feedbacks;
 		
 		private EntitySet<Image> _Images;
@@ -2430,6 +2808,7 @@ namespace DTO
 		
 		public Product()
 		{
+			this._CollectionProducts = new EntitySet<CollectionProduct>(new Action<CollectionProduct>(this.attach_CollectionProducts), new Action<CollectionProduct>(this.detach_CollectionProducts));
 			this._Feedbacks = new EntitySet<Feedback>(new Action<Feedback>(this.attach_Feedbacks), new Action<Feedback>(this.detach_Feedbacks));
 			this._Images = new EntitySet<Image>(new Action<Image>(this.attach_Images), new Action<Image>(this.detach_Images));
 			this._ProductVariants = new EntitySet<ProductVariant>(new Action<ProductVariant>(this.attach_ProductVariants), new Action<ProductVariant>(this.detach_ProductVariants));
@@ -2601,6 +2980,19 @@ namespace DTO
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Product_CollectionProduct", Storage="_CollectionProducts", ThisKey="product_id", OtherKey="product_id")]
+		public EntitySet<CollectionProduct> CollectionProducts
+		{
+			get
+			{
+				return this._CollectionProducts;
+			}
+			set
+			{
+				this._CollectionProducts.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Product_Feedback", Storage="_Feedbacks", ThisKey="product_id", OtherKey="product_id")]
 		public EntitySet<Feedback> Feedbacks
 		{
@@ -2692,6 +3084,18 @@ namespace DTO
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_CollectionProducts(CollectionProduct entity)
+		{
+			this.SendPropertyChanging();
+			entity.Product = this;
+		}
+		
+		private void detach_CollectionProducts(CollectionProduct entity)
+		{
+			this.SendPropertyChanging();
+			entity.Product = null;
 		}
 		
 		private void attach_Feedbacks(Feedback entity)

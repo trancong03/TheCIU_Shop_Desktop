@@ -17,9 +17,68 @@ namespace CustomControl
         public event EventHandler FilterChanged;
         public event EventHandler SaveClicked;
 
+        public string SelectedFilter { get; set; }
+
 
         private bool filterVisible = true; // Mặc định bộ lọc hiển thị
+                                           // Thuộc tính Visible cho từng nút
+        public bool AddButtonVisible
+        {
+            get => btnAdd.Visible;
+            set => btnAdd.Visible = value;
+        }
 
+        public bool UpdateButtonVisible
+        {
+            get => btnUpdate.Visible;
+            set => btnUpdate.Visible = value;
+        }
+
+        public bool DeleteButtonVisible
+        {
+            get => btnDelete.Visible;
+            set => btnDelete.Visible = value;
+        }
+
+        public bool SaveButtonVisible
+        {
+            get => btnSave.Visible;
+            set => btnSave.Visible = value;
+        }
+
+        public bool ReloadButtonVisible
+        {
+            get => btnReload.Visible;
+            set => btnReload.Visible = value;
+        }
+
+        public bool ExcelButtonVisible
+        {
+            get => btnExcel.Visible;
+            set => btnExcel.Visible = value;
+        }
+
+        public bool PrintButtonVisible
+        {
+            get => btnPrint.Visible;
+            set => btnPrint.Visible = value;
+        }
+
+        public bool SearchButtonVisible
+        {
+            get => btnSearch.Visible;
+            set => btnSearch.Visible = value;
+        }
+
+        public bool FilterVisible
+        {
+            get => cbFilter.Visible;
+            set
+            {
+                cbFilter.Visible = value;
+                // Hiển thị/ẩn label đi kèm
+            }
+        }
         public ActionControl()
         {
             InitializeComponent();
@@ -33,7 +92,19 @@ namespace CustomControl
             this.btnExcel.KeyDown += new KeyEventHandler(ActionControl_KeyDown);
             this.btnPrint.KeyDown += new KeyEventHandler(ActionControl_KeyDown);
         }
-       
+        public void SetSelectedFilterValue(object value)
+        {
+            if (cbFilter.Items.Count > 0 && value != null)
+            {
+                cbFilter.SelectedValue = value;
+            }
+            else
+            {
+                // Đặt giá trị mặc định khi ComboBox chưa có giá trị hợp lệ
+                cbFilter.SelectedIndex = 0; // Đặt mặc định là mục đầu tiên
+            }
+        }
+
         // Xử lý KeyDown
         private void ActionControl_KeyDown(object sender, KeyEventArgs e)
         {
@@ -105,15 +176,7 @@ namespace CustomControl
         }
 
         // Thuộc tính hiển thị/ẩn ComboBox và Label lọc
-        public bool FilterVisible
-        {
-            get => filterVisible;
-            set
-            {
-                filterVisible = value;
-                cbFilter.Visible = filterVisible;
-            }
-        }
+        
 
         // Xử lý nút Tìm kiếm
         private void btnSearch_Click(object sender, EventArgs e)
@@ -172,7 +235,36 @@ namespace CustomControl
         // Xử lý sự kiện thay đổi ComboBox Lọc
         private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            FilterChanged?.Invoke(this, EventArgs.Empty);
+            if (cbFilter.SelectedValue != null)
+            {
+                FilterChanged?.Invoke(this, EventArgs.Empty);
+            }
         }
+        // Thuộc tính để chỉnh vị trí và kích thước của ComboBox Filter
+        public System.Drawing.Point FilterLocation
+        {
+            get => cbFilter.Location;
+            set => cbFilter.Location = value;
+        }
+
+        public System.Drawing.Size FilterSize
+        {
+            get => cbFilter.Size;
+            set => cbFilter.Size = value;
+        }
+
+        // Thuộc tính để chỉnh vị trí và kích thước của nút Tìm kiếm
+        public System.Drawing.Point SearchButtonLocation
+        {
+            get => btnSearch.Location;
+            set => btnSearch.Location = value;
+        }
+
+        public System.Drawing.Size SearchButtonSize
+        {
+            get => btnSearch.Size;
+            set => btnSearch.Size = value;
+        }
+
     }
 }

@@ -25,39 +25,54 @@ namespace CustomControls
             }
         }
 
-        // Sự kiện xử lý định dạng tiền tệ
         private void TxtCurrency_TextChanged(object sender, EventArgs e)
         {
+            // Kiểm tra nếu TextBox trống
             if (string.IsNullOrEmpty(txtCurrency.Text)) return;
 
-            // Xóa định dạng hiện tại
-            txtCurrency.TextChanged -= TxtCurrency_TextChanged;
+            // Lấy vị trí con trỏ hiện tại
+            int selectionStart = txtCurrency.SelectionStart;
 
-            // Lấy giá trị số
+            // Loại bỏ định dạng hiện tại (dấu phẩy và chữ "đ")
             string value = txtCurrency.Text.Replace(",", "").Replace("đ", "").Trim();
+
+            // Nếu giá trị hợp lệ, định dạng lại chuỗi
             if (decimal.TryParse(value, out decimal number))
             {
-                // Định dạng lại
-                txtCurrency.Text = string.Format(CultureInfo.InvariantCulture, "{0:n0} đ", number);
-                txtCurrency.SelectionStart = txtCurrency.Text.Length;
-            }
+                txtCurrency.TextChanged -= TxtCurrency_TextChanged;
 
-            txtCurrency.TextChanged += TxtCurrency_TextChanged;
+                // Định dạng lại và thêm "đ" vào cuối
+                txtCurrency.Text = string.Format(CultureInfo.InvariantCulture, "{0:n0} đ", number);
+
+                // Đặt lại vị trí con trỏ
+                txtCurrency.SelectionStart = Math.Min(selectionStart, txtCurrency.Text.Length - 2);
+
+                txtCurrency.TextChanged += TxtCurrency_TextChanged;
+            }
         }
+
+
+
 
         // Thuộc tính để lấy giá trị tiền tệ
         public decimal Value
         {
             get
             {
+                if (string.IsNullOrWhiteSpace(txtCurrency.Text))
+                    return 0;
+
                 string value = txtCurrency.Text.Replace(",", "").Replace("đ", "").Trim();
                 return decimal.TryParse(value, out decimal number) ? number : 0;
             }
             set
             {
-                txtCurrency.Text = string.Format(CultureInfo.InvariantCulture, "{0:n0} đ", value);
+                txtCurrency.Text = value > 0
+                    ? string.Format(CultureInfo.InvariantCulture, "{0:n0} đ", value)
+                    : string.Empty;
             }
         }
+
         public void Clear()
         {
             txtCurrency.Clear(); // Xóa nội dung của TextBox

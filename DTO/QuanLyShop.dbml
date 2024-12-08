@@ -38,6 +38,23 @@
       <Association Name="Category_Product" Member="Products" ThisKey="category_id" OtherKey="category_id" Type="Product" />
     </Type>
   </Table>
+  <Table Name="dbo.Collection" Member="Collections">
+    <Type Name="Collection">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="image" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="review" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="Collection_CollectionProduct" Member="CollectionProducts" ThisKey="id" OtherKey="collection_id" Type="CollectionProduct" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CollectionProduct" Member="CollectionProducts">
+    <Type Name="CollectionProduct">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="product_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="collection_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Collection_CollectionProduct" Member="Collection" ThisKey="collection_id" OtherKey="id" Type="Collection" IsForeignKey="true" />
+      <Association Name="Product_CollectionProduct" Member="Product" ThisKey="product_id" OtherKey="product_id" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.Colors" Member="Colors">
     <Type Name="Color">
       <Column Name="color_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -91,6 +108,7 @@
       <Column Name="payment_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="voucher_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="amount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="address_deliver" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Association Name="Order_OrderDetail" Member="OrderDetails" ThisKey="order_id" OtherKey="order_id" Type="OrderDetail" />
       <Association Name="Account_Order" Member="Account" ThisKey="username" OtherKey="username" Type="Account" IsForeignKey="true" />
       <Association Name="Voucher_Order" Member="Voucher" ThisKey="voucher_id" OtherKey="voucher_id" Type="Voucher" IsForeignKey="true" />
@@ -115,6 +133,7 @@
       <Column Name="ImageSP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="rating" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="Dateadd" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Product_CollectionProduct" Member="CollectionProducts" ThisKey="product_id" OtherKey="product_id" Type="CollectionProduct" />
       <Association Name="Product_Feedback" Member="Feedbacks" ThisKey="product_id" OtherKey="product_id" Type="Feedback" />
       <Association Name="Product_Image" Member="Images" ThisKey="product_id" OtherKey="product_id" Type="Image" />
       <Association Name="Product_ProductVariant" Member="ProductVariants" ThisKey="product_id" OtherKey="product_id" Type="ProductVariant" />

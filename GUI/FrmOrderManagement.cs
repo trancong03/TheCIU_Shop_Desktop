@@ -376,11 +376,11 @@ namespace GUI
                     order.Amount,
                     order.AddressDeliver,
                     order.VariantId, // Ẩn cột này
-                    order.ProductName, // Ẩn cột này
-                    order.Quantity, // Ẩn cột này
-                    order.Subtotal, // Ẩn cột này
-                    order.ColorName, // Ẩn cột này
-                    order.SizeName // Ẩn cột này
+                    order.ProductName, 
+                    order.Quantity, 
+                    order.Subtotal, 
+                    order.ColorName, 
+                    order.SizeName 
                 }).ToList();
 
                 // Kiểm tra nếu không có dữ liệu phù hợp

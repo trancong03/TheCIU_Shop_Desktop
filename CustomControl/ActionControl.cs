@@ -39,7 +39,11 @@ namespace CustomControl
             get => btnDelete.Visible;
             set => btnDelete.Visible = value;
         }
-
+        public bool UpdateButtonVisble
+        {
+            get => btnUpdate.Visible;
+            set => btnUpdate.Visible = value;
+        }
         public bool SaveButtonVisible
         {
             get => btnSave.Visible;

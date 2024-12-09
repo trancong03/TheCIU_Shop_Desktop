@@ -306,17 +306,30 @@ namespace GUI
             // 
             // actionControl
             // 
+            this.actionControl.AddButtonVisible = true;
             this.actionControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.actionControl.DeleteButtonVisible = true;
+            this.actionControl.ExcelButtonVisible = true;
             this.actionControl.FilterDataSource = null;
             this.actionControl.FilterDisplayMember = "";
+            this.actionControl.FilterLocation = new System.Drawing.Point(578, 16);
+            this.actionControl.FilterSize = new System.Drawing.Size(150, 28);
             this.actionControl.FilterValueMember = "";
             this.actionControl.FilterVisible = true;
             this.actionControl.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.actionControl.Location = new System.Drawing.Point(23, 218);
             this.actionControl.Name = "actionControl";
+            this.actionControl.PrintButtonVisible = true;
+            this.actionControl.ReloadButtonVisible = true;
+            this.actionControl.SaveButtonVisible = true;
+            this.actionControl.SearchButtonLocation = new System.Drawing.Point(340, 10);
+            this.actionControl.SearchButtonSize = new System.Drawing.Size(40, 40);
+            this.actionControl.SearchButtonVisible = true;
+            this.actionControl.SelectedFilter = null;
             this.actionControl.Size = new System.Drawing.Size(929, 50);
             this.actionControl.TabIndex = 22;
+            this.actionControl.UpdateButtonVisible = true;
             // 
             // btnSave
             // 
@@ -354,6 +367,7 @@ namespace GUI
             this.Controls.Add(this.dataGridViewProducts);
             this.Controls.Add(this.dataGridViewProductVariant);
             this.Controls.Add(this.actionControl);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmProductManagement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý sản phẩm";

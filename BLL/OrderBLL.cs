@@ -73,8 +73,17 @@ namespace BLL
 
         public bool UpdateOrderStatus(int orderId, int newStatus)
         {
-            return orderDAL.UpdateOrderStatus(orderId, newStatus);
+            try
+            {
+                // Gọi DAL để cập nhật trạng thái
+                return orderDAL.UpdateOrderStatus(orderId, newStatus);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
+
         // Phương thức sử dụng DTO
         public List<DetailsOrderDTO> GetOrderDetailsByStatus(int? status)
         {

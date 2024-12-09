@@ -12,7 +12,7 @@ namespace CustomControls
             InitializeComponent();
             txtCurrency.TextAlign = HorizontalAlignment.Right;
             txtCurrency.TextChanged += TxtCurrency_TextChanged;
-            txtCurrency.Font = new Font("Times New Roman", 10);
+            txtCurrency.Font = new Font("Times New Roman", 11);
             txtCurrency.KeyPress += TxtCurrency_KeyPress;
         }
 

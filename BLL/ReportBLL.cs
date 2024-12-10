@@ -68,8 +68,8 @@ namespace BLL
                          select new
                          {
                              ProductName = grouped.Key.product_name,
-                             TotalRevenue = grouped.Sum(d => d.subtotal ?? 0),
-                             TotalQuantity = grouped.Sum(d => d.quantity ?? 0)
+                             TotalRevenue = grouped.Sum(d => d.subtotal),
+                             TotalQuantity = grouped.Sum(d => d.quantity)
                          };
 
             return result.ToList<dynamic>();
@@ -91,8 +91,8 @@ namespace BLL
                          select new
                          {
                              Category = grouped.Key.category_name,
-                             Revenue = grouped.Sum(d => d.subtotal ?? 0),
-                             Quantity = grouped.Sum(d => d.quantity ?? 0)
+                             Revenue = grouped.Sum(d => d.subtotal),
+                             Quantity = grouped.Sum(d => d.quantity)
                          };
 
             return result.ToList<dynamic>();
@@ -107,7 +107,7 @@ namespace BLL
         // Tổng số sản phẩm đã bán
         public int GetTotalProductsSold()
         {
-            return orderDetailsDAL.GetAllOrderDetails().Sum(d => d.quantity ?? 0);
+            return orderDetailsDAL.GetAllOrderDetails().Sum(d => d.quantity);
         }
 
         // Tổng doanh thu
@@ -146,8 +146,8 @@ namespace BLL
                              OrderId = detail.order_id,
                              ProductName = product.product_name,
                              Category = category.category_name,
-                             Quantity = detail.quantity ?? 0,
-                             Revenue = detail.subtotal ?? 0
+                             Quantity = detail.quantity,
+                             Revenue = detail.subtotal
                          };
 
             return result.ToList<dynamic>();

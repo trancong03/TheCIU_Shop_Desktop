@@ -1,11 +1,5 @@
 D:\TEAMWORKING\TheCIU_Shop_Desktop\Ultis\bin\Debug\Ultis.dll
 D:\TEAMWORKING\TheCIU_Shop_Desktop\Ultis\bin\Debug\Ultis.pdb
-D:\TEAMWORKING\TheCIU_Shop_Desktop\Ultis\obj\Debug\Ultis.csproj.AssemblyReference.cache
-D:\TEAMWORKING\TheCIU_Shop_Desktop\Ultis\obj\Debug\Ultis.Properties.Resources.resources
-D:\TEAMWORKING\TheCIU_Shop_Desktop\Ultis\obj\Debug\Ultis.csproj.GenerateResource.cache
-D:\TEAMWORKING\TheCIU_Shop_Desktop\Ultis\obj\Debug\Ultis.csproj.CoreCompileInputs.cache
-D:\TEAMWORKING\TheCIU_Shop_Desktop\Ultis\obj\Debug\Ultis.dll
-D:\TEAMWORKING\TheCIU_Shop_Desktop\Ultis\obj\Debug\Ultis.pdb
 D:\TEAMWORKING\TheCIU_Shop_Desktop\Ultis\bin\Debug\EPPlus.dll
 D:\TEAMWORKING\TheCIU_Shop_Desktop\Ultis\bin\Debug\EPPlus.Interfaces.dll
 D:\TEAMWORKING\TheCIU_Shop_Desktop\Ultis\bin\Debug\EPPlus.System.Drawing.dll
@@ -27,4 +21,10 @@ D:\TEAMWORKING\TheCIU_Shop_Desktop\Ultis\bin\Debug\System.Drawing.Common.xml
 D:\TEAMWORKING\TheCIU_Shop_Desktop\Ultis\bin\Debug\System.Memory.xml
 D:\TEAMWORKING\TheCIU_Shop_Desktop\Ultis\bin\Debug\System.Numerics.Vectors.xml
 D:\TEAMWORKING\TheCIU_Shop_Desktop\Ultis\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\TEAMWORKING\TheCIU_Shop_Desktop\Ultis\obj\Debug\Ultis.csproj.AssemblyReference.cache
+D:\TEAMWORKING\TheCIU_Shop_Desktop\Ultis\obj\Debug\Ultis.Properties.Resources.resources
+D:\TEAMWORKING\TheCIU_Shop_Desktop\Ultis\obj\Debug\Ultis.csproj.GenerateResource.cache
+D:\TEAMWORKING\TheCIU_Shop_Desktop\Ultis\obj\Debug\Ultis.csproj.CoreCompileInputs.cache
 D:\TEAMWORKING\TheCIU_Shop_Desktop\Ultis\obj\Debug\Ultis.csproj.Up2Date
+D:\TEAMWORKING\TheCIU_Shop_Desktop\Ultis\obj\Debug\Ultis.dll
+D:\TEAMWORKING\TheCIU_Shop_Desktop\Ultis\obj\Debug\Ultis.pdb

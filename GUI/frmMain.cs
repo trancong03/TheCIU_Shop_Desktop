@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace GUI
 {
@@ -12,10 +13,24 @@ namespace GUI
 
         public string UserRole { get => userRole; set => userRole = value; }
 
-        public FrmMain(string role)
+        public FrmMain(string username)
         {
             InitializeComponent();
-            userRole = role;
+            // Phân quyền dựa trên username
+            if (username.ToLower().Contains("admin"))
+            {
+                userRole = "admin";
+            }
+            else if (username.ToLower().Contains("employee"))
+            {
+                userRole = "employee";
+            }
+            else
+            {
+                userRole = "guest"; // Vai trò mặc định nếu không chứa admin/employee
+            }
+
+            MessageBox.Show($"Chào mừng, vai trò của bạn: {userRole}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -123,8 +138,15 @@ namespace GUI
 
         private void BtnManageVouchers_Click(object sender, EventArgs e)
         {
-            OpenFormInMainPanel(new FrmVoucherManagement());
+            // Thay đổi nội dung các nút tương ứng trên giao diện
+            TogglePanelChildren(new[]
+            {
+                new Tuple<string, EventHandler>("Phân phối voucher", (s, ev) => OpenFormInMainPanel(new FrmDistributeVoucher())),
+
+                new Tuple<string, EventHandler>("Thông tin voucher", (s, ev) => OpenFormInMainPanel(new FrmVoucherManagement()))
+             });
         }
+
 
         private void BtnManageFeedback_Click(object sender, EventArgs e)
         {

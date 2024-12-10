@@ -115,11 +115,11 @@ namespace DAL
                                  PaymentDate = order.payment_date,
                                  VoucherId = order.voucher_id,
                                  Amount = order.amount ?? 0,
-                                 AddressDeliver = order.address_deliver,
+                                 AddressDeliver = order.address,
                                  VariantId = orderDetail.variant_id,
                                  ProductName = product.product_name,
-                                 Quantity = orderDetail.quantity ?? 0,
-                                 Subtotal = orderDetail.subtotal ?? 0
+                                 Quantity = orderDetail.quantity,
+                                 Subtotal = orderDetail.subtotal
                              };
 
                 // Group by OrderId to ensure unique rows per order
@@ -143,7 +143,7 @@ namespace DAL
                              join account in db.Accounts on order.username equals account.username
                              where order.order_id.ToString().Contains(keyword) || // Tìm theo mã đơn hàng
                                    account.name.Contains(keyword) ||             // Tìm theo tên khách hàng
-                                   order.address_deliver.Contains(keyword)       // Tìm theo địa chỉ giao hàng
+                                   order.address.Contains(keyword)       // Tìm theo địa chỉ giao hàng
                              select new DetailsOrderDTO
                              {
                                  OrderId = order.order_id,
@@ -154,7 +154,7 @@ namespace DAL
                                  PaymentDate = order.payment_date,
                                  VoucherId = order.voucher_id,
                                  Amount = order.amount ?? 0,
-                                 AddressDeliver = order.address_deliver
+                                 AddressDeliver = order.address
                              };
 
                 return result.Distinct().ToList(); // Sử dụng Distinct để loại bỏ kết quả trùng lặp
@@ -179,8 +179,8 @@ namespace DAL
                             OrderId = od.order_id,
                             VariantId = od.variant_id,
                             ProductName = p.product_name,
-                            Quantity = od.quantity.HasValue ? od.quantity.Value : 0,
-                            Subtotal = od.subtotal.HasValue ? od.subtotal.Value : 0
+                            Quantity = od.quantity,
+                            Subtotal = od.subtotal
                         };
 
             return query.ToList();

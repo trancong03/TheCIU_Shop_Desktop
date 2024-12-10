@@ -34,13 +34,6 @@
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblAmount = new System.Windows.Forms.Label();
             this.btnShipOrders = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblQuantity = new System.Windows.Forms.Label();
-            this.txtQuantity = new System.Windows.Forms.TextBox();
-            this.txtSubtotal = new CustomControls.CurrencyTextBox();
-            this.lblProductName = new System.Windows.Forms.Label();
-            this.txtProductName = new System.Windows.Forms.TextBox();
-            this.lblSubtotal = new System.Windows.Forms.Label();
             this.btnConfirmOrders = new System.Windows.Forms.Button();
             this.dataGridViewShippingOrders = new System.Windows.Forms.DataGridView();
             this.dataGridViewCompletedOrders = new System.Windows.Forms.DataGridView();
@@ -49,7 +42,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPendingOrders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrderDetails)).BeginInit();
             this.groupBoxOrder.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewShippingOrders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCompletedOrders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConfirmedOrders)).BeginInit();
@@ -67,7 +59,6 @@
             this.panelScrollContent.Controls.Add(this.btnCompleteOrders);
             this.panelScrollContent.Controls.Add(this.groupBoxOrder);
             this.panelScrollContent.Controls.Add(this.btnShipOrders);
-            this.panelScrollContent.Controls.Add(this.groupBox1);
             this.panelScrollContent.Controls.Add(this.btnConfirmOrders);
             this.panelScrollContent.Controls.Add(this.dataGridViewShippingOrders);
             this.panelScrollContent.Controls.Add(this.dataGridViewCompletedOrders);
@@ -89,7 +80,7 @@
             this.actionControl.FilterSize = new System.Drawing.Size(150, 28);
             this.actionControl.FilterValueMember = "";
             this.actionControl.FilterVisible = true;
-            this.actionControl.Location = new System.Drawing.Point(238, 286);
+            this.actionControl.Location = new System.Drawing.Point(217, 222);
             this.actionControl.Name = "actionControl";
             this.actionControl.PrintButtonVisible = true;
             this.actionControl.ReloadButtonVisible = true;
@@ -100,6 +91,7 @@
             this.actionControl.SelectedFilter = null;
             this.actionControl.Size = new System.Drawing.Size(1004, 63);
             this.actionControl.TabIndex = 31;
+            this.actionControl.UpdateButtonVisble = true;
             this.actionControl.UpdateButtonVisible = true;
             // 
             // dataGridViewPendingOrders
@@ -137,10 +129,10 @@
             this.dataGridViewOrderDetails.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewOrderDetails.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewOrderDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewOrderDetails.Location = new System.Drawing.Point(19, 355);
+            this.dataGridViewOrderDetails.Location = new System.Drawing.Point(19, 291);
             this.dataGridViewOrderDetails.Name = "dataGridViewOrderDetails";
             this.dataGridViewOrderDetails.RowHeadersWidth = 51;
-            this.dataGridViewOrderDetails.Size = new System.Drawing.Size(1423, 254);
+            this.dataGridViewOrderDetails.Size = new System.Drawing.Size(1423, 318);
             this.dataGridViewOrderDetails.TabIndex = 29;
             // 
             // btnCompleteOrders
@@ -170,7 +162,7 @@
             this.groupBoxOrder.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxOrder.Location = new System.Drawing.Point(52, 21);
             this.groupBoxOrder.Name = "groupBoxOrder";
-            this.groupBoxOrder.Size = new System.Drawing.Size(1335, 177);
+            this.groupBoxOrder.Size = new System.Drawing.Size(1314, 177);
             this.groupBoxOrder.TabIndex = 3;
             this.groupBoxOrder.TabStop = false;
             this.groupBoxOrder.Text = "THÔNG TIN ĐƠN HÀNG";
@@ -179,7 +171,7 @@
             // 
             this.cboStatus.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cboStatus.FormattingEnabled = true;
-            this.cboStatus.Location = new System.Drawing.Point(175, 116);
+            this.cboStatus.Location = new System.Drawing.Point(165, 116);
             this.cboStatus.Name = "cboStatus";
             this.cboStatus.Size = new System.Drawing.Size(200, 28);
             this.cboStatus.TabIndex = 13;
@@ -187,7 +179,7 @@
             // txtAmount
             // 
             this.txtAmount.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtAmount.Location = new System.Drawing.Point(175, 79);
+            this.txtAmount.Location = new System.Drawing.Point(165, 79);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(200, 22);
             this.txtAmount.TabIndex = 12;
@@ -201,7 +193,7 @@
             // 
             this.lblAddressDeliver.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblAddressDeliver.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddressDeliver.Location = new System.Drawing.Point(435, 79);
+            this.lblAddressDeliver.Location = new System.Drawing.Point(425, 79);
             this.lblAddressDeliver.Name = "lblAddressDeliver";
             this.lblAddressDeliver.Size = new System.Drawing.Size(100, 23);
             this.lblAddressDeliver.TabIndex = 10;
@@ -211,7 +203,7 @@
             // 
             this.txtAddressDeliver.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtAddressDeliver.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddressDeliver.Location = new System.Drawing.Point(555, 76);
+            this.txtAddressDeliver.Location = new System.Drawing.Point(545, 76);
             this.txtAddressDeliver.Multiline = true;
             this.txtAddressDeliver.Name = "txtAddressDeliver";
             this.txtAddressDeliver.Size = new System.Drawing.Size(593, 65);
@@ -221,7 +213,7 @@
             // 
             this.lblName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblName.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(55, 39);
+            this.lblName.Location = new System.Drawing.Point(45, 39);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(114, 23);
             this.lblName.TabIndex = 2;
@@ -232,7 +224,7 @@
             // 
             this.txtName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtName.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(175, 36);
+            this.txtName.Location = new System.Drawing.Point(165, 36);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(200, 28);
             this.txtName.TabIndex = 3;
@@ -241,7 +233,7 @@
             // 
             this.lblOrderDate.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblOrderDate.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrderDate.Location = new System.Drawing.Point(435, 39);
+            this.lblOrderDate.Location = new System.Drawing.Point(425, 39);
             this.lblOrderDate.Name = "lblOrderDate";
             this.lblOrderDate.Size = new System.Drawing.Size(100, 23);
             this.lblOrderDate.TabIndex = 4;
@@ -251,7 +243,7 @@
             // 
             this.dateOrderDate.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dateOrderDate.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateOrderDate.Location = new System.Drawing.Point(555, 39);
+            this.dateOrderDate.Location = new System.Drawing.Point(545, 39);
             this.dateOrderDate.Name = "dateOrderDate";
             this.dateOrderDate.Size = new System.Drawing.Size(292, 28);
             this.dateOrderDate.TabIndex = 5;
@@ -260,7 +252,7 @@
             // 
             this.lblStatus.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblStatus.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.Location = new System.Drawing.Point(55, 116);
+            this.lblStatus.Location = new System.Drawing.Point(45, 116);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(100, 23);
             this.lblStatus.TabIndex = 6;
@@ -270,7 +262,7 @@
             // 
             this.lblAmount.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblAmount.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAmount.Location = new System.Drawing.Point(55, 79);
+            this.lblAmount.Location = new System.Drawing.Point(45, 79);
             this.lblAmount.Name = "lblAmount";
             this.lblAmount.Size = new System.Drawing.Size(100, 23);
             this.lblAmount.TabIndex = 8;
@@ -285,72 +277,6 @@
             this.btnShipOrders.TabIndex = 19;
             this.btnShipOrders.Text = "Giao Hàng";
             this.btnShipOrders.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.lblQuantity);
-            this.groupBox1.Controls.Add(this.txtQuantity);
-            this.groupBox1.Controls.Add(this.txtSubtotal);
-            this.groupBox1.Controls.Add(this.lblProductName);
-            this.groupBox1.Controls.Add(this.txtProductName);
-            this.groupBox1.Controls.Add(this.lblSubtotal);
-            this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(52, 204);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1244, 76);
-            this.groupBox1.TabIndex = 15;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "THÔNG TIN CHI TIẾT ĐƠN HÀNG";
-            // 
-            // lblQuantity
-            // 
-            this.lblQuantity.Location = new System.Drawing.Point(466, 35);
-            this.lblQuantity.Name = "lblQuantity";
-            this.lblQuantity.Size = new System.Drawing.Size(114, 23);
-            this.lblQuantity.TabIndex = 13;
-            this.lblQuantity.Text = "Số lượng:";
-            // 
-            // txtQuantity
-            // 
-            this.txtQuantity.Location = new System.Drawing.Point(586, 35);
-            this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(59, 28);
-            this.txtQuantity.TabIndex = 14;
-            // 
-            // txtSubtotal
-            // 
-            this.txtSubtotal.Location = new System.Drawing.Point(807, 36);
-            this.txtSubtotal.Name = "txtSubtotal";
-            this.txtSubtotal.Size = new System.Drawing.Size(200, 22);
-            this.txtSubtotal.TabIndex = 12;
-            this.txtSubtotal.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            // 
-            // lblProductName
-            // 
-            this.lblProductName.Location = new System.Drawing.Point(115, 35);
-            this.lblProductName.Name = "lblProductName";
-            this.lblProductName.Size = new System.Drawing.Size(114, 23);
-            this.lblProductName.TabIndex = 0;
-            this.lblProductName.Text = "Sản phẩm:";
-            // 
-            // txtProductName
-            // 
-            this.txtProductName.Location = new System.Drawing.Point(235, 35);
-            this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(200, 28);
-            this.txtProductName.TabIndex = 1;
-            // 
-            // lblSubtotal
-            // 
-            this.lblSubtotal.Location = new System.Drawing.Point(687, 35);
-            this.lblSubtotal.Name = "lblSubtotal";
-            this.lblSubtotal.Size = new System.Drawing.Size(100, 23);
-            this.lblSubtotal.TabIndex = 8;
-            this.lblSubtotal.Text = "Thành tiền:";
             // 
             // btnConfirmOrders
             // 
@@ -400,8 +326,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrderDetails)).EndInit();
             this.groupBoxOrder.ResumeLayout(false);
             this.groupBoxOrder.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewShippingOrders)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCompletedOrders)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConfirmedOrders)).EndInit();
@@ -424,13 +348,6 @@
         private System.Windows.Forms.Label lblAmount;
         private System.Windows.Forms.DataGridView dataGridViewPendingOrders;
         private System.Windows.Forms.DataGridView dataGridViewConfirmedOrders;
-        private System.Windows.Forms.Label lblQuantity;
-        private System.Windows.Forms.TextBox txtQuantity;
-        private CustomControls.CurrencyTextBox txtSubtotal;
-        private System.Windows.Forms.Label lblProductName;
-        private System.Windows.Forms.TextBox txtProductName;
-        private System.Windows.Forms.Label lblSubtotal;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridViewShippingOrders;
         private System.Windows.Forms.DataGridView dataGridViewCompletedOrders;
         private System.Windows.Forms.Button btnConfirmOrders;

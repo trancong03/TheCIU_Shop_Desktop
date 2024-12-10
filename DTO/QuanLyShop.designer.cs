@@ -33,9 +33,9 @@ namespace DTO
     partial void InsertAccount(Account instance);
     partial void UpdateAccount(Account instance);
     partial void DeleteAccount(Account instance);
-    partial void InsertVoucher(Voucher instance);
-    partial void UpdateVoucher(Voucher instance);
-    partial void DeleteVoucher(Voucher instance);
+    partial void InsertCart(Cart instance);
+    partial void UpdateCart(Cart instance);
+    partial void DeleteCart(Cart instance);
     partial void InsertCategory(Category instance);
     partial void UpdateCategory(Category instance);
     partial void DeleteCategory(Category instance);
@@ -48,6 +48,9 @@ namespace DTO
     partial void InsertColor(Color instance);
     partial void UpdateColor(Color instance);
     partial void DeleteColor(Color instance);
+    partial void InsertFavoriteProduct(FavoriteProduct instance);
+    partial void UpdateFavoriteProduct(FavoriteProduct instance);
+    partial void DeleteFavoriteProduct(FavoriteProduct instance);
     partial void InsertFeedback(Feedback instance);
     partial void UpdateFeedback(Feedback instance);
     partial void DeleteFeedback(Feedback instance);
@@ -84,6 +87,9 @@ namespace DTO
     partial void InsertUser_GroupUser(User_GroupUser instance);
     partial void UpdateUser_GroupUser(User_GroupUser instance);
     partial void DeleteUser_GroupUser(User_GroupUser instance);
+    partial void InsertVoucher(Voucher instance);
+    partial void UpdateVoucher(Voucher instance);
+    partial void DeleteVoucher(Voucher instance);
     #endregion
 		
 		public QuanLyShopDataContext() : 
@@ -124,11 +130,11 @@ namespace DTO
 			}
 		}
 		
-		public System.Data.Linq.Table<Voucher> Vouchers
+		public System.Data.Linq.Table<Cart> Carts
 		{
 			get
 			{
-				return this.GetTable<Voucher>();
+				return this.GetTable<Cart>();
 			}
 		}
 		
@@ -161,6 +167,14 @@ namespace DTO
 			get
 			{
 				return this.GetTable<Color>();
+			}
+		}
+		
+		public System.Data.Linq.Table<FavoriteProduct> FavoriteProducts
+		{
+			get
+			{
+				return this.GetTable<FavoriteProduct>();
 			}
 		}
 		
@@ -259,6 +273,14 @@ namespace DTO
 				return this.GetTable<User_GroupUser>();
 			}
 		}
+		
+		public System.Data.Linq.Table<Voucher> Vouchers
+		{
+			get
+			{
+				return this.GetTable<Voucher>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Account")]
@@ -279,6 +301,8 @@ namespace DTO
 		
 		private string _phone;
 		
+		private System.Nullable<System.DateTime> _birthday;
+		
 		private string _address;
 		
 		private string _gender;
@@ -286,6 +310,8 @@ namespace DTO
 		private string _avatar;
 		
 		private string _background;
+		
+		private EntitySet<Cart> _Carts;
 		
 		private EntitySet<Feedback> _Feedbacks;
 		
@@ -311,6 +337,8 @@ namespace DTO
     partial void OnemailChanged();
     partial void OnphoneChanging(string value);
     partial void OnphoneChanged();
+    partial void OnbirthdayChanging(System.Nullable<System.DateTime> value);
+    partial void OnbirthdayChanged();
     partial void OnaddressChanging(string value);
     partial void OnaddressChanged();
     partial void OngenderChanging(string value);
@@ -323,6 +351,7 @@ namespace DTO
 		
 		public Account()
 		{
+			this._Carts = new EntitySet<Cart>(new Action<Cart>(this.attach_Carts), new Action<Cart>(this.detach_Carts));
 			this._Feedbacks = new EntitySet<Feedback>(new Action<Feedback>(this.attach_Feedbacks), new Action<Feedback>(this.detach_Feedbacks));
 			this._Orders = new EntitySet<Order>(new Action<Order>(this.attach_Orders), new Action<Order>(this.detach_Orders));
 			this._product_vouchers = new EntitySet<product_voucher>(new Action<product_voucher>(this.attach_product_vouchers), new Action<product_voucher>(this.detach_product_vouchers));
@@ -450,6 +479,26 @@ namespace DTO
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_birthday", DbType="Date")]
+		public System.Nullable<System.DateTime> birthday
+		{
+			get
+			{
+				return this._birthday;
+			}
+			set
+			{
+				if ((this._birthday != value))
+				{
+					this.OnbirthdayChanging(value);
+					this.SendPropertyChanging();
+					this._birthday = value;
+					this.SendPropertyChanged("birthday");
+					this.OnbirthdayChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_address", DbType="NVarChar(255)")]
 		public string address
 		{
@@ -530,6 +579,19 @@ namespace DTO
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Account_Cart", Storage="_Carts", ThisKey="username", OtherKey="username")]
+		public EntitySet<Cart> Carts
+		{
+			get
+			{
+				return this._Carts;
+			}
+			set
+			{
+				this._Carts.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Account_Feedback", Storage="_Feedbacks", ThisKey="username", OtherKey="username")]
 		public EntitySet<Feedback> Feedbacks
 		{
@@ -602,6 +664,18 @@ namespace DTO
 			}
 		}
 		
+		private void attach_Carts(Cart entity)
+		{
+			this.SendPropertyChanging();
+			entity.Account = this;
+		}
+		
+		private void detach_Carts(Cart entity)
+		{
+			this.SendPropertyChanging();
+			entity.Account = null;
+		}
+		
 		private void attach_Feedbacks(Feedback entity)
 		{
 			this.SendPropertyChanging();
@@ -651,220 +725,222 @@ namespace DTO
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Voucher")]
-	public partial class Voucher : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Cart")]
+	public partial class Cart : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _voucher_id;
+		private int _cart_id;
 		
-		private string _dateStart;
+		private int _variant_id;
 		
-		private System.Nullable<System.DateTime> _dateEnd;
+		private string _username;
 		
-		private System.Nullable<int> _discount;
+		private System.Nullable<int> _quantity;
 		
-		private string _tiltle;
+		private System.Nullable<double> _price;
 		
-		private string _discription;
+		private EntityRef<Account> _Account;
 		
-		private System.Nullable<bool> _status;
-		
-		private EntitySet<Order> _Orders;
-		
-		private EntitySet<product_voucher> _product_vouchers;
+		private EntityRef<ProductVariant> _ProductVariant;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void Onvoucher_idChanging(int value);
-    partial void Onvoucher_idChanged();
-    partial void OndateStartChanging(string value);
-    partial void OndateStartChanged();
-    partial void OndateEndChanging(System.Nullable<System.DateTime> value);
-    partial void OndateEndChanged();
-    partial void OndiscountChanging(System.Nullable<int> value);
-    partial void OndiscountChanged();
-    partial void OntiltleChanging(string value);
-    partial void OntiltleChanged();
-    partial void OndiscriptionChanging(string value);
-    partial void OndiscriptionChanged();
-    partial void OnstatusChanging(System.Nullable<bool> value);
-    partial void OnstatusChanged();
+    partial void Oncart_idChanging(int value);
+    partial void Oncart_idChanged();
+    partial void Onvariant_idChanging(int value);
+    partial void Onvariant_idChanged();
+    partial void OnusernameChanging(string value);
+    partial void OnusernameChanged();
+    partial void OnquantityChanging(System.Nullable<int> value);
+    partial void OnquantityChanged();
+    partial void OnpriceChanging(System.Nullable<double> value);
+    partial void OnpriceChanged();
     #endregion
 		
-		public Voucher()
+		public Cart()
 		{
-			this._Orders = new EntitySet<Order>(new Action<Order>(this.attach_Orders), new Action<Order>(this.detach_Orders));
-			this._product_vouchers = new EntitySet<product_voucher>(new Action<product_voucher>(this.attach_product_vouchers), new Action<product_voucher>(this.detach_product_vouchers));
+			this._Account = default(EntityRef<Account>);
+			this._ProductVariant = default(EntityRef<ProductVariant>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_voucher_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int voucher_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cart_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int cart_id
 		{
 			get
 			{
-				return this._voucher_id;
+				return this._cart_id;
 			}
 			set
 			{
-				if ((this._voucher_id != value))
+				if ((this._cart_id != value))
 				{
-					this.Onvoucher_idChanging(value);
+					this.Oncart_idChanging(value);
 					this.SendPropertyChanging();
-					this._voucher_id = value;
-					this.SendPropertyChanged("voucher_id");
-					this.Onvoucher_idChanged();
+					this._cart_id = value;
+					this.SendPropertyChanged("cart_id");
+					this.Oncart_idChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dateStart", DbType="NChar(10) NOT NULL", CanBeNull=false)]
-		public string dateStart
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_variant_id", DbType="Int NOT NULL")]
+		public int variant_id
 		{
 			get
 			{
-				return this._dateStart;
+				return this._variant_id;
 			}
 			set
 			{
-				if ((this._dateStart != value))
+				if ((this._variant_id != value))
 				{
-					this.OndateStartChanging(value);
+					if (this._ProductVariant.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onvariant_idChanging(value);
 					this.SendPropertyChanging();
-					this._dateStart = value;
-					this.SendPropertyChanged("dateStart");
-					this.OndateStartChanged();
+					this._variant_id = value;
+					this.SendPropertyChanged("variant_id");
+					this.Onvariant_idChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dateEnd", DbType="Date")]
-		public System.Nullable<System.DateTime> dateEnd
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string username
 		{
 			get
 			{
-				return this._dateEnd;
+				return this._username;
 			}
 			set
 			{
-				if ((this._dateEnd != value))
+				if ((this._username != value))
 				{
-					this.OndateEndChanging(value);
+					if (this._Account.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnusernameChanging(value);
 					this.SendPropertyChanging();
-					this._dateEnd = value;
-					this.SendPropertyChanged("dateEnd");
-					this.OndateEndChanged();
+					this._username = value;
+					this.SendPropertyChanged("username");
+					this.OnusernameChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_discount", DbType="Int")]
-		public System.Nullable<int> discount
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_quantity", DbType="Int")]
+		public System.Nullable<int> quantity
 		{
 			get
 			{
-				return this._discount;
+				return this._quantity;
 			}
 			set
 			{
-				if ((this._discount != value))
+				if ((this._quantity != value))
 				{
-					this.OndiscountChanging(value);
+					this.OnquantityChanging(value);
 					this.SendPropertyChanging();
-					this._discount = value;
-					this.SendPropertyChanged("discount");
-					this.OndiscountChanged();
+					this._quantity = value;
+					this.SendPropertyChanged("quantity");
+					this.OnquantityChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tiltle", DbType="NVarChar(50)")]
-		public string tiltle
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Float")]
+		public System.Nullable<double> price
 		{
 			get
 			{
-				return this._tiltle;
+				return this._price;
 			}
 			set
 			{
-				if ((this._tiltle != value))
+				if ((this._price != value))
 				{
-					this.OntiltleChanging(value);
+					this.OnpriceChanging(value);
 					this.SendPropertyChanging();
-					this._tiltle = value;
-					this.SendPropertyChanged("tiltle");
-					this.OntiltleChanged();
+					this._price = value;
+					this.SendPropertyChanged("price");
+					this.OnpriceChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_discription", DbType="NVarChar(255)")]
-		public string discription
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Account_Cart", Storage="_Account", ThisKey="username", OtherKey="username", IsForeignKey=true)]
+		public Account Account
 		{
 			get
 			{
-				return this._discription;
+				return this._Account.Entity;
 			}
 			set
 			{
-				if ((this._discription != value))
+				Account previousValue = this._Account.Entity;
+				if (((previousValue != value) 
+							|| (this._Account.HasLoadedOrAssignedValue == false)))
 				{
-					this.OndiscriptionChanging(value);
 					this.SendPropertyChanging();
-					this._discription = value;
-					this.SendPropertyChanged("discription");
-					this.OndiscriptionChanged();
+					if ((previousValue != null))
+					{
+						this._Account.Entity = null;
+						previousValue.Carts.Remove(this);
+					}
+					this._Account.Entity = value;
+					if ((value != null))
+					{
+						value.Carts.Add(this);
+						this._username = value.username;
+					}
+					else
+					{
+						this._username = default(string);
+					}
+					this.SendPropertyChanged("Account");
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="Bit")]
-		public System.Nullable<bool> status
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProductVariant_Cart", Storage="_ProductVariant", ThisKey="variant_id", OtherKey="variant_id", IsForeignKey=true)]
+		public ProductVariant ProductVariant
 		{
 			get
 			{
-				return this._status;
+				return this._ProductVariant.Entity;
 			}
 			set
 			{
-				if ((this._status != value))
+				ProductVariant previousValue = this._ProductVariant.Entity;
+				if (((previousValue != value) 
+							|| (this._ProductVariant.HasLoadedOrAssignedValue == false)))
 				{
-					this.OnstatusChanging(value);
 					this.SendPropertyChanging();
-					this._status = value;
-					this.SendPropertyChanged("status");
-					this.OnstatusChanged();
+					if ((previousValue != null))
+					{
+						this._ProductVariant.Entity = null;
+						previousValue.Carts.Remove(this);
+					}
+					this._ProductVariant.Entity = value;
+					if ((value != null))
+					{
+						value.Carts.Add(this);
+						this._variant_id = value.variant_id;
+					}
+					else
+					{
+						this._variant_id = default(int);
+					}
+					this.SendPropertyChanged("ProductVariant");
 				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Voucher_Order", Storage="_Orders", ThisKey="voucher_id", OtherKey="voucher_id")]
-		public EntitySet<Order> Orders
-		{
-			get
-			{
-				return this._Orders;
-			}
-			set
-			{
-				this._Orders.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Voucher_product_voucher", Storage="_product_vouchers", ThisKey="voucher_id", OtherKey="voucher_id")]
-		public EntitySet<product_voucher> product_vouchers
-		{
-			get
-			{
-				return this._product_vouchers;
-			}
-			set
-			{
-				this._product_vouchers.Assign(value);
 			}
 		}
 		
@@ -886,30 +962,6 @@ namespace DTO
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_Orders(Order entity)
-		{
-			this.SendPropertyChanging();
-			entity.Voucher = this;
-		}
-		
-		private void detach_Orders(Order entity)
-		{
-			this.SendPropertyChanging();
-			entity.Voucher = null;
-		}
-		
-		private void attach_product_vouchers(product_voucher entity)
-		{
-			this.SendPropertyChanging();
-			entity.Voucher = this;
-		}
-		
-		private void detach_product_vouchers(product_voucher entity)
-		{
-			this.SendPropertyChanging();
-			entity.Voucher = null;
 		}
 	}
 	
@@ -1035,6 +1087,8 @@ namespace DTO
 		
 		private int _id;
 		
+		private string _name;
+		
 		private string _image;
 		
 		private string _review;
@@ -1047,6 +1101,8 @@ namespace DTO
     partial void OnCreated();
     partial void OnidChanging(int value);
     partial void OnidChanged();
+    partial void OnnameChanging(string value);
+    partial void OnnameChanged();
     partial void OnimageChanging(string value);
     partial void OnimageChanged();
     partial void OnreviewChanging(string value);
@@ -1075,6 +1131,26 @@ namespace DTO
 					this._id = value;
 					this.SendPropertyChanged("id");
 					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(50)")]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this.OnnameChanging(value);
+					this.SendPropertyChanging();
+					this._name = value;
+					this.SendPropertyChanged("name");
+					this.OnnameChanged();
 				}
 			}
 		}
@@ -1468,6 +1544,157 @@ namespace DTO
 		{
 			this.SendPropertyChanging();
 			entity.Color = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.FavoriteProduct")]
+	public partial class FavoriteProduct : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _username;
+		
+		private System.Nullable<int> _product_id;
+		
+		private EntityRef<Product> _Product;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnusernameChanging(string value);
+    partial void OnusernameChanged();
+    partial void Onproduct_idChanging(System.Nullable<int> value);
+    partial void Onproduct_idChanged();
+    #endregion
+		
+		public FavoriteProduct()
+		{
+			this._Product = default(EntityRef<Product>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string username
+		{
+			get
+			{
+				return this._username;
+			}
+			set
+			{
+				if ((this._username != value))
+				{
+					this.OnusernameChanging(value);
+					this.SendPropertyChanging();
+					this._username = value;
+					this.SendPropertyChanged("username");
+					this.OnusernameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_product_id", DbType="Int")]
+		public System.Nullable<int> product_id
+		{
+			get
+			{
+				return this._product_id;
+			}
+			set
+			{
+				if ((this._product_id != value))
+				{
+					if (this._Product.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onproduct_idChanging(value);
+					this.SendPropertyChanging();
+					this._product_id = value;
+					this.SendPropertyChanged("product_id");
+					this.Onproduct_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Product_FavoriteProduct", Storage="_Product", ThisKey="product_id", OtherKey="product_id", IsForeignKey=true)]
+		public Product Product
+		{
+			get
+			{
+				return this._Product.Entity;
+			}
+			set
+			{
+				Product previousValue = this._Product.Entity;
+				if (((previousValue != value) 
+							|| (this._Product.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Product.Entity = null;
+						previousValue.FavoriteProducts.Remove(this);
+					}
+					this._Product.Entity = value;
+					if ((value != null))
+					{
+						value.FavoriteProducts.Add(this);
+						this._product_id = value.product_id;
+					}
+					else
+					{
+						this._product_id = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Product");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	
@@ -2010,13 +2237,15 @@ namespace DTO
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
+		private int _id;
+		
 		private int _order_id;
 		
 		private int _variant_id;
 		
-		private System.Nullable<int> _quantity;
+		private int _quantity;
 		
-		private System.Nullable<double> _subtotal;
+		private decimal _subtotal;
 		
 		private EntityRef<Order> _Order;
 		
@@ -2026,13 +2255,15 @@ namespace DTO
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
     partial void Onorder_idChanging(int value);
     partial void Onorder_idChanged();
     partial void Onvariant_idChanging(int value);
     partial void Onvariant_idChanged();
-    partial void OnquantityChanging(System.Nullable<int> value);
+    partial void OnquantityChanging(int value);
     partial void OnquantityChanged();
-    partial void OnsubtotalChanging(System.Nullable<double> value);
+    partial void OnsubtotalChanging(decimal value);
     partial void OnsubtotalChanged();
     #endregion
 		
@@ -2043,7 +2274,27 @@ namespace DTO
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_order_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_order_id", DbType="Int NOT NULL")]
 		public int order_id
 		{
 			get
@@ -2067,7 +2318,7 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_variant_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_variant_id", DbType="Int NOT NULL")]
 		public int variant_id
 		{
 			get
@@ -2091,8 +2342,8 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_quantity", DbType="Int")]
-		public System.Nullable<int> quantity
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_quantity", DbType="Int NOT NULL")]
+		public int quantity
 		{
 			get
 			{
@@ -2111,8 +2362,8 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_subtotal", DbType="Float")]
-		public System.Nullable<double> subtotal
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_subtotal", DbType="Decimal(18,2) NOT NULL")]
+		public decimal subtotal
 		{
 			get
 			{
@@ -2236,11 +2487,11 @@ namespace DTO
 		
 		private System.Nullable<System.DateTime> _payment_date;
 		
-		private System.Nullable<int> _voucher_id;
+		private string _voucher_id;
 		
 		private System.Nullable<double> _amount;
 		
-		private string _address_deliver;
+		private string _address;
 		
 		private EntitySet<OrderDetail> _OrderDetails;
 		
@@ -2262,12 +2513,12 @@ namespace DTO
     partial void OnstatusChanged();
     partial void Onpayment_dateChanging(System.Nullable<System.DateTime> value);
     partial void Onpayment_dateChanged();
-    partial void Onvoucher_idChanging(System.Nullable<int> value);
+    partial void Onvoucher_idChanging(string value);
     partial void Onvoucher_idChanged();
     partial void OnamountChanging(System.Nullable<double> value);
     partial void OnamountChanged();
-    partial void Onaddress_deliverChanging(string value);
-    partial void Onaddress_deliverChanged();
+    partial void OnaddressChanging(string value);
+    partial void OnaddressChanged();
     #endregion
 		
 		public Order()
@@ -2382,8 +2633,8 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_voucher_id", DbType="Int")]
-		public System.Nullable<int> voucher_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_voucher_id", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string voucher_id
 		{
 			get
 			{
@@ -2426,22 +2677,22 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_address_deliver", DbType="NVarChar(255)")]
-		public string address_deliver
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_address", DbType="NVarChar(255)")]
+		public string address
 		{
 			get
 			{
-				return this._address_deliver;
+				return this._address;
 			}
 			set
 			{
-				if ((this._address_deliver != value))
+				if ((this._address != value))
 				{
-					this.Onaddress_deliverChanging(value);
+					this.OnaddressChanging(value);
 					this.SendPropertyChanging();
-					this._address_deliver = value;
-					this.SendPropertyChanged("address_deliver");
-					this.Onaddress_deliverChanged();
+					this._address = value;
+					this.SendPropertyChanged("address");
+					this.OnaddressChanged();
 				}
 			}
 		}
@@ -2520,7 +2771,7 @@ namespace DTO
 					}
 					else
 					{
-						this._voucher_id = default(Nullable<int>);
+						this._voucher_id = default(string);
 					}
 					this.SendPropertyChanged("Voucher");
 				}
@@ -2568,7 +2819,7 @@ namespace DTO
 		
 		private string _username;
 		
-		private int _voucher_id;
+		private string _voucher_id;
 		
 		private System.Nullable<int> _count;
 		
@@ -2582,7 +2833,7 @@ namespace DTO
     partial void OnCreated();
     partial void OnusernameChanging(string value);
     partial void OnusernameChanged();
-    partial void Onvoucher_idChanging(int value);
+    partial void Onvoucher_idChanging(string value);
     partial void Onvoucher_idChanged();
     partial void OncountChanging(System.Nullable<int> value);
     partial void OncountChanged();
@@ -2619,8 +2870,8 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_voucher_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int voucher_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_voucher_id", DbType="NVarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string voucher_id
 		{
 			get
 			{
@@ -2724,7 +2975,7 @@ namespace DTO
 					}
 					else
 					{
-						this._voucher_id = default(int);
+						this._voucher_id = default(string);
 					}
 					this.SendPropertyChanged("Voucher");
 				}
@@ -2776,6 +3027,8 @@ namespace DTO
 		
 		private EntitySet<CollectionProduct> _CollectionProducts;
 		
+		private EntitySet<FavoriteProduct> _FavoriteProducts;
+		
 		private EntitySet<Feedback> _Feedbacks;
 		
 		private EntitySet<Image> _Images;
@@ -2809,6 +3062,7 @@ namespace DTO
 		public Product()
 		{
 			this._CollectionProducts = new EntitySet<CollectionProduct>(new Action<CollectionProduct>(this.attach_CollectionProducts), new Action<CollectionProduct>(this.detach_CollectionProducts));
+			this._FavoriteProducts = new EntitySet<FavoriteProduct>(new Action<FavoriteProduct>(this.attach_FavoriteProducts), new Action<FavoriteProduct>(this.detach_FavoriteProducts));
 			this._Feedbacks = new EntitySet<Feedback>(new Action<Feedback>(this.attach_Feedbacks), new Action<Feedback>(this.detach_Feedbacks));
 			this._Images = new EntitySet<Image>(new Action<Image>(this.attach_Images), new Action<Image>(this.detach_Images));
 			this._ProductVariants = new EntitySet<ProductVariant>(new Action<ProductVariant>(this.attach_ProductVariants), new Action<ProductVariant>(this.detach_ProductVariants));
@@ -2993,6 +3247,19 @@ namespace DTO
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Product_FavoriteProduct", Storage="_FavoriteProducts", ThisKey="product_id", OtherKey="product_id")]
+		public EntitySet<FavoriteProduct> FavoriteProducts
+		{
+			get
+			{
+				return this._FavoriteProducts;
+			}
+			set
+			{
+				this._FavoriteProducts.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Product_Feedback", Storage="_Feedbacks", ThisKey="product_id", OtherKey="product_id")]
 		public EntitySet<Feedback> Feedbacks
 		{
@@ -3098,6 +3365,18 @@ namespace DTO
 			entity.Product = null;
 		}
 		
+		private void attach_FavoriteProducts(FavoriteProduct entity)
+		{
+			this.SendPropertyChanging();
+			entity.Product = this;
+		}
+		
+		private void detach_FavoriteProducts(FavoriteProduct entity)
+		{
+			this.SendPropertyChanging();
+			entity.Product = null;
+		}
+		
 		private void attach_Feedbacks(Feedback entity)
 		{
 			this.SendPropertyChanging();
@@ -3151,6 +3430,8 @@ namespace DTO
 		
 		private System.Nullable<int> _size_id;
 		
+		private EntitySet<Cart> _Carts;
+		
 		private EntitySet<OrderDetail> _OrderDetails;
 		
 		private EntityRef<Color> _Color;
@@ -3177,6 +3458,7 @@ namespace DTO
 		
 		public ProductVariant()
 		{
+			this._Carts = new EntitySet<Cart>(new Action<Cart>(this.attach_Carts), new Action<Cart>(this.detach_Carts));
 			this._OrderDetails = new EntitySet<OrderDetail>(new Action<OrderDetail>(this.attach_OrderDetails), new Action<OrderDetail>(this.detach_OrderDetails));
 			this._Color = default(EntityRef<Color>);
 			this._Product = default(EntityRef<Product>);
@@ -3293,6 +3575,19 @@ namespace DTO
 					this.SendPropertyChanged("size_id");
 					this.Onsize_idChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProductVariant_Cart", Storage="_Carts", ThisKey="variant_id", OtherKey="variant_id")]
+		public EntitySet<Cart> Carts
+		{
+			get
+			{
+				return this._Carts;
+			}
+			set
+			{
+				this._Carts.Assign(value);
 			}
 		}
 		
@@ -3429,6 +3724,18 @@ namespace DTO
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_Carts(Cart entity)
+		{
+			this.SendPropertyChanging();
+			entity.ProductVariant = this;
+		}
+		
+		private void detach_Carts(Cart entity)
+		{
+			this.SendPropertyChanging();
+			entity.ProductVariant = null;
 		}
 		
 		private void attach_OrderDetails(OrderDetail entity)
@@ -4053,6 +4360,292 @@ namespace DTO
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Voucher")]
+	public partial class Voucher : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _voucher_id;
+		
+		private System.Nullable<System.DateTime> _dateEnd;
+		
+		private System.Nullable<int> _discount;
+		
+		private string _tiltle;
+		
+		private string _discription;
+		
+		private System.Nullable<bool> _status;
+		
+		private System.Nullable<System.DateTime> _dateStart;
+		
+		private int _quantity;
+		
+		private EntitySet<Order> _Orders;
+		
+		private EntitySet<product_voucher> _product_vouchers;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onvoucher_idChanging(string value);
+    partial void Onvoucher_idChanged();
+    partial void OndateEndChanging(System.Nullable<System.DateTime> value);
+    partial void OndateEndChanged();
+    partial void OndiscountChanging(System.Nullable<int> value);
+    partial void OndiscountChanged();
+    partial void OntiltleChanging(string value);
+    partial void OntiltleChanged();
+    partial void OndiscriptionChanging(string value);
+    partial void OndiscriptionChanged();
+    partial void OnstatusChanging(System.Nullable<bool> value);
+    partial void OnstatusChanged();
+    partial void OndateStartChanging(System.Nullable<System.DateTime> value);
+    partial void OndateStartChanged();
+    partial void OnquantityChanging(int value);
+    partial void OnquantityChanged();
+    #endregion
+		
+		public Voucher()
+		{
+			this._Orders = new EntitySet<Order>(new Action<Order>(this.attach_Orders), new Action<Order>(this.detach_Orders));
+			this._product_vouchers = new EntitySet<product_voucher>(new Action<product_voucher>(this.attach_product_vouchers), new Action<product_voucher>(this.detach_product_vouchers));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_voucher_id", DbType="NVarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string voucher_id
+		{
+			get
+			{
+				return this._voucher_id;
+			}
+			set
+			{
+				if ((this._voucher_id != value))
+				{
+					this.Onvoucher_idChanging(value);
+					this.SendPropertyChanging();
+					this._voucher_id = value;
+					this.SendPropertyChanged("voucher_id");
+					this.Onvoucher_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dateEnd", DbType="Date")]
+		public System.Nullable<System.DateTime> dateEnd
+		{
+			get
+			{
+				return this._dateEnd;
+			}
+			set
+			{
+				if ((this._dateEnd != value))
+				{
+					this.OndateEndChanging(value);
+					this.SendPropertyChanging();
+					this._dateEnd = value;
+					this.SendPropertyChanged("dateEnd");
+					this.OndateEndChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_discount", DbType="Int")]
+		public System.Nullable<int> discount
+		{
+			get
+			{
+				return this._discount;
+			}
+			set
+			{
+				if ((this._discount != value))
+				{
+					this.OndiscountChanging(value);
+					this.SendPropertyChanging();
+					this._discount = value;
+					this.SendPropertyChanged("discount");
+					this.OndiscountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tiltle", DbType="NVarChar(50)")]
+		public string tiltle
+		{
+			get
+			{
+				return this._tiltle;
+			}
+			set
+			{
+				if ((this._tiltle != value))
+				{
+					this.OntiltleChanging(value);
+					this.SendPropertyChanging();
+					this._tiltle = value;
+					this.SendPropertyChanged("tiltle");
+					this.OntiltleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_discription", DbType="NVarChar(255)")]
+		public string discription
+		{
+			get
+			{
+				return this._discription;
+			}
+			set
+			{
+				if ((this._discription != value))
+				{
+					this.OndiscriptionChanging(value);
+					this.SendPropertyChanging();
+					this._discription = value;
+					this.SendPropertyChanged("discription");
+					this.OndiscriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="Bit")]
+		public System.Nullable<bool> status
+		{
+			get
+			{
+				return this._status;
+			}
+			set
+			{
+				if ((this._status != value))
+				{
+					this.OnstatusChanging(value);
+					this.SendPropertyChanging();
+					this._status = value;
+					this.SendPropertyChanged("status");
+					this.OnstatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dateStart", DbType="Date")]
+		public System.Nullable<System.DateTime> dateStart
+		{
+			get
+			{
+				return this._dateStart;
+			}
+			set
+			{
+				if ((this._dateStart != value))
+				{
+					this.OndateStartChanging(value);
+					this.SendPropertyChanging();
+					this._dateStart = value;
+					this.SendPropertyChanged("dateStart");
+					this.OndateStartChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_quantity", DbType="Int NOT NULL")]
+		public int quantity
+		{
+			get
+			{
+				return this._quantity;
+			}
+			set
+			{
+				if ((this._quantity != value))
+				{
+					this.OnquantityChanging(value);
+					this.SendPropertyChanging();
+					this._quantity = value;
+					this.SendPropertyChanged("quantity");
+					this.OnquantityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Voucher_Order", Storage="_Orders", ThisKey="voucher_id", OtherKey="voucher_id")]
+		public EntitySet<Order> Orders
+		{
+			get
+			{
+				return this._Orders;
+			}
+			set
+			{
+				this._Orders.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Voucher_product_voucher", Storage="_product_vouchers", ThisKey="voucher_id", OtherKey="voucher_id")]
+		public EntitySet<product_voucher> product_vouchers
+		{
+			get
+			{
+				return this._product_vouchers;
+			}
+			set
+			{
+				this._product_vouchers.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Orders(Order entity)
+		{
+			this.SendPropertyChanging();
+			entity.Voucher = this;
+		}
+		
+		private void detach_Orders(Order entity)
+		{
+			this.SendPropertyChanging();
+			entity.Voucher = null;
+		}
+		
+		private void attach_product_vouchers(product_voucher entity)
+		{
+			this.SendPropertyChanging();
+			entity.Voucher = this;
+		}
+		
+		private void detach_product_vouchers(product_voucher entity)
+		{
+			this.SendPropertyChanging();
+			entity.Voucher = null;
 		}
 	}
 }

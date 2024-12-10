@@ -22,7 +22,13 @@ namespace GUI
         {
             InitializeComponent();
             //Action Control
+            actionControl.FilterLocation = new System.Drawing.Point(450, 10); // Vị trí ComboBox Filter
+            actionControl.FilterSize = new System.Drawing.Size(150, 30); // Kích thước ComboBox Filter
+
+            actionControl.SearchButtonLocation = new System.Drawing.Point(300, 10); // Vị trí nút Tìm kiếm
+            actionControl.SearchButtonSize = new System.Drawing.Size(100, 30);
             actionControl.FilterChanged += ActionControl_FilterChanged;
+            actionControl.SearchClicked += ActionControl_SearchClicked;
             actionControl.AddButtonVisible = false;
             actionControl.DeleteButtonVisible = false;
             actionControl.UpdateButtonVisble = false;
@@ -40,6 +46,61 @@ namespace GUI
             LoadStatusOptions();
             LoadOrdersByStatus();
 
+        }
+
+        private void ActionControl_SearchClicked(object sender, EventArgs e)
+        {
+            try
+            {
+                // Lấy từ khóa tìm kiếm từ TextBox của ActionControl
+                string keyword = actionControl.SearchText?.Trim();
+
+                if (string.IsNullOrEmpty(keyword))
+                {
+                    MessageBox.Show("Vui lòng nhập từ khóa để tìm kiếm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Gọi BLL để tìm kiếm đơn hàng
+                var searchResults = orderBLL.SearchOrders(keyword).Select(order => new
+                {
+                    order.OrderId,
+                    order.Username,
+                    order.CustomerName,
+                    OrderDate = order.OrderDate.HasValue ? order.OrderDate.Value.ToString("dd/MM/yyyy") : "Không có ngày đặt",
+                    StatusText = GetStatusText(order.Status), // Hiển thị trạng thái
+                    StatusId = order.Status, // Dùng để xử lý nội bộ
+                    PaymentDate = order.PaymentDate.HasValue ? order.PaymentDate.Value.ToString("dd/MM/yyyy") : "Chưa hiển thị ngày",
+                    VoucherId = order.VoucherId, // Dùng nội bộ
+                    VoucherName = order.VoucherName ?? "Không có",
+                    order.Amount,
+                    order.AddressDeliver,
+                    order.VariantId, // Ẩn cột này
+                    order.ProductName, // Ẩn cột này
+                    order.Quantity, // Ẩn cột này
+                    order.Subtotal, // Ẩn cột này
+                    order.ColorName, // Ẩn cột này
+                    order.SizeName // Ẩn cột này
+                }).ToList();
+
+                // Kiểm tra nếu không có kết quả phù hợp
+                if (!searchResults.Any())
+                {
+                    MessageBox.Show("Không tìm thấy kết quả nào phù hợp với từ khóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dataGridViewOrderDetails.DataSource = null; // Xóa dữ liệu trên DataGridView
+                    return;
+                }
+
+                // Gán dữ liệu vào DataGridView
+                dataGridViewOrderDetails.DataSource = searchResults;
+
+                // Cấu hình các cột hiển thị
+                ConfigureDataGridViewColumns();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi tìm kiếm: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void BtnShipOrders_Click(object sender, EventArgs e)

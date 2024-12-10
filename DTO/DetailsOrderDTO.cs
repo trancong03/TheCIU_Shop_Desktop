@@ -15,7 +15,7 @@ namespace DTO
         public DateTime? OrderDate { get; set; }  // order_date
         public int Status { get; set; }          // status
         public DateTime? PaymentDate { get; set; } // payment_date (nullable)
-        public int? VoucherId { get; set; }      // voucher_id (nullable)
+        public string VoucherId { get; set; }      // voucher_id (nullable)
         public string VoucherName { get; set; }  // Tên Voucher nếu có
         public double Amount { get; set; }       // amount
         public string AddressDeliver { get; set; } // address_deliver
@@ -24,7 +24,7 @@ namespace DTO
         public int VariantId { get; set; }       // variant_id
         public string ProductName { get; set; }  // Tên sản phẩm từ Product -> product_name
         public int Quantity { get; set; }        // quantity
-        public double Subtotal { get; set; }     // subtotal
+        public decimal Subtotal { get; set; }     // subtotal
 
         public string Name { get;set; }
 

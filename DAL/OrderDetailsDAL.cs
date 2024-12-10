@@ -75,19 +75,37 @@ namespace DAL
         public List<DetailsOrderDTO> GetOrderDetailsByOrderDetailsId(int orderId)
         {
             var query = from od in db.OrderDetails
+                        join o in db.Orders on od.order_id equals o.order_id
                         join pv in db.ProductVariants on od.variant_id equals pv.variant_id
                         join p in db.Products on pv.product_id equals p.product_id
+                        join v in db.Vouchers on o.voucher_id equals v.voucher_id into voucherJoin
+                        from voucher in voucherJoin.DefaultIfEmpty() // Left join for Voucher
+                        join acc in db.Accounts on o.username equals acc.username into accountJoin
+                        from account in accountJoin.DefaultIfEmpty() // Left join for Account
                         where od.order_id == orderId
                         select new DetailsOrderDTO
                         {
-                            OrderId = od.order_id,
+                            OrderId = o.order_id,
+                            Username = o.username,
+                            CustomerName = account != null ? account.name : "Không rõ",
+                            OrderDate = o.order_date,
+                            Status = o.status.HasValue ? o.status.Value : 0,
+                            PaymentDate = o.payment_date,
+                            VoucherId = o.voucher_id,
+                            VoucherName = voucher != null ? voucher.tiltle : "Không có",
+                            Amount = o.amount.HasValue ? o.amount.Value : 0,
+                            AddressDeliver = o.address,
                             VariantId = od.variant_id,
                             ProductName = p.product_name,
-                            Quantity = od.quantity.HasValue ? od.quantity.Value : 0,
-                            Subtotal = od.subtotal.HasValue ? od.subtotal.Value : 0
+                            Quantity = od.quantity,
+                            Subtotal = od.subtotal, // Dùng trực tiếp giá trị subtotal                                                   // Chuyển đổi thành decimal với 0m
+                            ColorName = pv.Color.color_name,
+                            SizeName = pv.Size.size_name
                         };
 
             return query.ToList();
         }
+
+
     }
 }

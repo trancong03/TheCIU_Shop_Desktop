@@ -90,9 +90,9 @@ namespace GUI
 
                 // Định nghĩa cột
                 dgvStock.Columns.Clear();
-                dgvStock.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Mã sản phẩm", DataPropertyName = "ProductId", Width = 100 });
+                //dgvStock.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Mã sản phẩm", DataPropertyName = "ProductId", Width = 100 });
                 dgvStock.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Tên sản phẩm", DataPropertyName = "ProductName", Width = 200 });
-                dgvStock.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Mã biến thể", DataPropertyName = "VariantId", Width = 150 });
+                //dgvStock.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Mã biến thể", DataPropertyName = "VariantId", Width = 150 });
                 dgvStock.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Tồn kho", DataPropertyName = "TotalStock", Width = 100 });
 
                 // Cấu hình DataGridView

@@ -87,82 +87,82 @@ namespace BLL
             return productDAL.GetBasicProductDetails();
         }
 
-        // Thêm sản phẩm chi tiết
-        public bool AddProduct(ProductDetailDTO productDetail)
-        {
-            // Xác thực dữ liệu
-            ValidateProduct(productDetail);
+        //// Thêm sản phẩm chi tiết
+        //public bool AddProduct(ProductDetailDTO productDetail)
+        //{
+        //    // Xác thực dữ liệu
+        //    ValidateProduct(productDetail);
 
-            // Tạo đối tượng `Product`
-            var product = new Product
-            {
-                product_name = productDetail.ProductName,
-                Title = productDetail.Title,
-                price = productDetail.Price,
-                category_id = productDetail.CategoryId,
-                Dateadd = productDetail.DateAdd,
-                ImageSP = productDetail.ImageSP
-            };
+        //    // Tạo đối tượng `Product`
+        //    var product = new Product
+        //    {
+        //        product_name = productDetail.ProductName,
+        //        Title = productDetail.Title,
+        //        price = productDetail.Price,
+        //        category_id = productDetail.CategoryId,
+        //        Dateadd = productDetail.DateAdd,
+        //        ImageSP = productDetail.ImageSP
+        //    };
 
-            // Tạo đối tượng `ProductVariant`
-            var variant = new ProductVariant
-            {
-                size_id = sizeDAL.GetSizeIdByName(productDetail.SizeName),
-                color_id = colorDAL.GetColorIdByName(productDetail.ColorName),
-                quantity = productDetail.Quantity
-            };
+        //    // Tạo đối tượng `ProductVariant`
+        //    var variant = new ProductVariant
+        //    {
+        //        size_id = sizeDAL.GetSizeIdByName(productDetail.SizeName),
+        //        color_id = colorDAL.GetColorIdByName(productDetail.ColorName),
+        //        quantity = productDetail.Quantity
+        //    };
 
-            // Thêm sản phẩm và biến thể
-            return productDAL.AddProductWithVariant(product, variant);
-        }
+        //    // Thêm sản phẩm và biến thể
+        //    return productDAL.AddProductWithVariant(product, variant);
+        //}
 
-        // Cập nhật sản phẩm chi tiết
-        public bool EditProduct(ProductDetailDTO productDetail)
-        {
-            // Xác thực dữ liệu
-            ValidateProduct(productDetail);
+        //// Cập nhật sản phẩm chi tiết
+        //public bool EditProduct(ProductDetailDTO productDetail)
+        //{
+        //    // Xác thực dữ liệu
+        //    ValidateProduct(productDetail);
 
-            // Cập nhật sản phẩm
-            var product = new Product
-            {
-                product_id = productDetail.ProductId,
-                product_name = productDetail.ProductName,
-                Title = productDetail.Title,
-                price = productDetail.Price,
-                category_id = productDetail.CategoryId,
-                Dateadd = productDetail.DateAdd,
-                ImageSP = productDetail.ImageSP
-            };
+        //    // Cập nhật sản phẩm
+        //    var product = new Product
+        //    {
+        //        product_id = productDetail.ProductId,
+        //        product_name = productDetail.ProductName,
+        //        Title = productDetail.Title,
+        //        price = productDetail.Price,
+        //        category_id = productDetail.CategoryId,
+        //        Dateadd = productDetail.DateAdd,
+        //        ImageSP = productDetail.ImageSP
+        //    };
 
-            if (productDAL.UpdateProduct(product))
-            {
-                // Cập nhật biến thể sản phẩm
-                var variant = productVariantDAL.GetProductVariantById(productDetail.ProductId);
-                if (variant != null)
-                {
-                    variant.size_id = sizeDAL.GetSizeIdByName(productDetail.SizeName);
-                    variant.color_id = colorDAL.GetColorIdByName(productDetail.ColorName);
-                    variant.quantity = productDetail.Quantity;
+        //    if (productDAL.UpdateProduct(product))
+        //    {
+        //        // Cập nhật biến thể sản phẩm
+        //        var variant = productVariantDAL.GetProductVariantById(productDetail.ProductId);
+        //        if (variant != null)
+        //        {
+        //            variant.size_id = sizeDAL.GetSizeIdByName(productDetail.SizeName);
+        //            variant.color_id = colorDAL.GetColorIdByName(productDetail.ColorName);
+        //            variant.quantity = productDetail.Quantity;
 
-                    return productVariantDAL.UpdateProductVariant(variant);
-                }
-            }
-            return false;
-        }
+        //            return productVariantDAL.UpdateProductVariant(variant);
+        //        }
+        //    }
+        //    return false;
+        //}
 
-        // Xóa sản phẩm
-        public bool RemoveProduct(int productId)
-        {
-            // Kiểm tra phụ thuộc
-            if (productDAL.HasDependencies(productId))
-            {
-                Console.WriteLine("Không thể xóa sản phẩm vì nó đang được sử dụng trong các bảng liên quan.");
-                return false;
-            }
+        //// Xóa sản phẩm
+        //public bool RemoveProduct(int productId)
+        //{
+        //    // Kiểm tra phụ thuộc
+        //    if (productDAL.HasDependencies(productId))
+        //    {
+        //        Console.WriteLine("Không thể xóa sản phẩm vì nó đang được sử dụng trong các bảng liên quan.");
+        //        return false;
+        //    }
 
-            // Xóa sản phẩm và biến thể
-            return productDAL.DeleteProductWithVariants(productId);
-        }
+        //    // Xóa sản phẩm và biến thể
+        //    return productDAL.DeleteProductWithVariants(productId);
+        //}
 
         // Tìm kiếm sản phẩm
         public List<ProductDetailDTO> SearchProducts(string searchText)
@@ -221,6 +221,119 @@ namespace BLL
         {
             if (!validationResult.IsValid)
                 throw new Exception(errorMessage);
+        }
+        public void UpdateStock(int productId)
+        {
+            try
+            {
+                int totalStock = productDAL.GetStockByProductId(productId);
+
+                // Gọi DAL để cập nhật tổng tồn kho vào Product
+                var product = productDAL.GetProductById(productId);
+                
+                if (product != null)
+                {
+                    var productDetails = productVariantDAL.GetVariantsByProductId(productId);
+                    if (productDetails != null)
+                    {
+                        foreach (var productDetail in productDetails)
+                        {
+                            totalStock += productDetail.Quantity;
+                        }
+                    }
+                    productDAL.UpdateProduct(product);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi khi cập nhật tồn kho: {ex.Message}");
+                throw;
+            }
+        }
+
+        // Thêm sản phẩm
+        public bool AddProduct(ProductDetailDTO productDetail)
+        {
+            ValidateProduct(productDetail);
+
+            var product = new Product
+            {
+                product_name = productDetail.ProductName,
+                Title = productDetail.Title,
+                price = productDetail.Price,
+                category_id = productDetail.CategoryId,
+                Dateadd = productDetail.DateAdd,
+                ImageSP = productDetail.ImageSP
+            };
+
+            var variant = new ProductVariant
+            {
+                size_id = sizeDAL.GetSizeIdByName(productDetail.SizeName),
+                color_id = colorDAL.GetColorIdByName(productDetail.ColorName),
+                quantity = productDetail.Quantity
+            };
+
+            bool isAdded = productDAL.AddProductWithVariant(product, variant);
+            if (isAdded)
+            {
+                UpdateStock(product.product_id); // Cập nhật tồn kho sau khi thêm sản phẩm
+            }
+
+            return isAdded;
+        }
+
+        // Chỉnh sửa sản phẩm
+        public bool EditProduct(ProductDetailDTO productDetail)
+        {
+            ValidateProduct(productDetail);
+
+            var product = new Product
+            {
+                product_id = productDetail.ProductId,
+                product_name = productDetail.ProductName,
+                Title = productDetail.Title,
+                price = productDetail.Price,
+                category_id = productDetail.CategoryId,
+                Dateadd = productDetail.DateAdd,
+                ImageSP = productDetail.ImageSP
+            };
+
+            if (productDAL.UpdateProduct(product))
+            {
+                var variant = productVariantDAL.GetProductVariantById(productDetail.ProductId);
+                if (variant != null)
+                {
+                    variant.size_id = sizeDAL.GetSizeIdByName(productDetail.SizeName);
+                    variant.color_id = colorDAL.GetColorIdByName(productDetail.ColorName);
+                    variant.quantity = productDetail.Quantity;
+
+                    if (productVariantDAL.UpdateProductVariant(variant))
+                    {
+                        UpdateStock(productDetail.ProductId); // Cập nhật tồn kho sau khi chỉnh sửa
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        // Xóa sản phẩm
+        public bool RemoveProduct(int productId)
+        {
+            if (productDAL.HasDependencies(productId))
+            {
+                Console.WriteLine("Không thể xóa sản phẩm vì nó đang được sử dụng trong các bảng liên quan.");
+                return false;
+            }
+
+            bool isDeleted = productDAL.DeleteProductWithVariants(productId);
+            if (isDeleted)
+            {
+                UpdateStock(productId); // Cập nhật tồn kho sau khi xóa sản phẩm
+            }
+
+            return isDeleted;
         }
     }
 }

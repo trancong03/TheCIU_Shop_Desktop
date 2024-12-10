@@ -180,7 +180,33 @@ namespace DAL
                 throw;
             }
         }
+        // Phương thức cập nhật tồn kho
+        public bool UpdateStock(int productId, int totalStock)
+        {
+            try
+            {
+                // Tìm sản phẩm theo productId
+                var product = context.Products.SingleOrDefault(p => p.product_id == productId);
+                if (product != null)
+                {
+                    var productVariants = context.ProductVariants.Where(pv => pv.product_id == productId).ToList();
+                    // Cập nhật tổng tồn kho
+                    foreach (var pv in productVariants)
+                    {
+                        pv.quantity = totalStock;
+                    }
 
+                    context.SubmitChanges();
+                    return true;
+                }
+                return false; // Sản phẩm không tồn tại
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi khi cập nhật tồn kho: {ex.Message}");
+                return false;
+            }
+        }
         public int UpdateProductAndGetId(Product product)
         {
             try

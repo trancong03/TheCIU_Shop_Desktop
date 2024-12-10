@@ -62,7 +62,6 @@ namespace GUI
                 { btnManageVouchers, ("Manage Vouchers", Properties.Resources.voucher_icon, new[] { "admin" }) },
                 { btnReports, ("Reports", Properties.Resources.report_icon, new[] { "admin" }) },
                 { btnManageCustomers, ("Manage Customers", Properties.Resources.customer_icon, new[] { "employee" }) },
-                { btnManageFeedback, ("Manage Feedback", Properties.Resources.feedback_icon, new[] { "admin", "employee" }) },
                 { btnSettings, ("Settings", Properties.Resources.settings_icon, new[] { "admin", "employee" }) }
             };
 
@@ -122,8 +121,7 @@ namespace GUI
         {
             TogglePanelChildren(new[]
             {
-                new Tuple<string, EventHandler>("Thông tin khách hàng", BtnCustomerInfo_Click),
-                new Tuple<string, EventHandler>("Lịch sử mua hàng", BtnPurchaseHistory_Click)
+                new Tuple<string, EventHandler>("Thông tin khách hàng", BtnCustomerInfo_Click)
             });
         }
 
@@ -147,11 +145,6 @@ namespace GUI
              });
         }
 
-
-        private void BtnManageFeedback_Click(object sender, EventArgs e)
-        {
-            OpenFormInMainPanel(new FrmFeedbackManagement());
-        }
 
         private void BtnReports_Click(object sender, EventArgs e)
         {
@@ -197,8 +190,6 @@ namespace GUI
             => OpenFormInMainPanel(new FrmStockManagement());
         private void BtnCustomerInfo_Click(object sender, EventArgs e)
             => OpenFormInMainPanel(new FrmCustomerInfo());
-        private void BtnPurchaseHistory_Click(object sender, EventArgs e)
-            => OpenFormInMainPanel(new FrmPurchaseHistory());
         private void BtnUpdateOrderStatus_Click(object sender, EventArgs e)
             => OpenFormInMainPanel(new FrmOrderStatusUpdate());
         private void BtnOrderManagement_Click(object sender, EventArgs e)

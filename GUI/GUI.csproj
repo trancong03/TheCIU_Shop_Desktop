@@ -219,12 +219,6 @@
     <Compile Include="FrmProductManagement.Designer.cs">
       <DependentUpon>FrmProductManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPurchaseHistory.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmPurchaseHistory.Designer.cs">
-      <DependentUpon>FrmPurchaseHistory.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmReport.cs">
       <SubType>Form</SubType>
     </Compile>

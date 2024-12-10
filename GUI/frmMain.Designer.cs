@@ -147,9 +147,6 @@ namespace GUI
             btnManageVouchers.Click += BtnManageVouchers_Click;
             navigationPanel.Controls.Add(btnManageVouchers);
 
-            btnManageFeedback = new Button { Text = "Quản lý Phản hồi", Dock = DockStyle.Top };
-            btnManageFeedback.Click += BtnManageFeedback_Click;
-            navigationPanel.Controls.Add(btnManageFeedback);
             btnManageOrders = new Button { Text = "Quản lý Đơn hàng", Dock = DockStyle.Top };
             btnManageOrders.Click += BtnManageOrders_Click;
             navigationPanel.Controls.Add(btnManageOrders);

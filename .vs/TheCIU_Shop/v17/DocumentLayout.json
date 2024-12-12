@@ -3,43 +3,122 @@
   "WorkspaceRootPath": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|d:\\teamworking\\theciu_shop_desktop\\gui\\frmstockmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|solutionrelative:gui\\frmstockmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\gui\\frmvouchermanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|solutionrelative:gui\\frmvouchermanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|d:\\teamworking\\theciu_shop_desktop\\gui\\frmstockmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|solutionrelative:gui\\frmstockmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\gui\\frmvouchermanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|solutionrelative:gui\\frmvouchermanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2208BB36-3FC5-45E0-B8E3-4B5AF856E66F}|DAL\\DAL.csproj|d:\\teamworking\\theciu_shop_desktop\\dal\\productdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2208BB36-3FC5-45E0-B8E3-4B5AF856E66F}|DAL\\DAL.csproj|solutionrelative:dal\\productdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\gui\\frmdistributevoucher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|solutionrelative:gui\\frmdistributevoucher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|d:\\teamworking\\theciu_shop_desktop\\gui\\frmproductmanagement.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|solutionrelative:gui\\frmproductmanagement.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|d:\\teamworking\\theciu_shop_desktop\\gui\\frmorderstatusupdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|solutionrelative:gui\\frmorderstatusupdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|d:\\teamworking\\theciu_shop_desktop\\gui\\frmproductmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|solutionrelative:gui\\frmproductmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|d:\\teamworking\\theciu_shop_desktop\\gui\\frmorderstatusupdate.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|solutionrelative:gui\\frmorderstatusupdate.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FA6D49F7-88B7-4637-AA69-B2E6CF151E99}|BLL\\BLL.csproj|d:\\teamworking\\theciu_shop_desktop\\bll\\productbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FA6D49F7-88B7-4637-AA69-B2E6CF151E99}|BLL\\BLL.csproj|solutionrelative:bll\\productbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|d:\\teamworking\\theciu_shop_desktop\\gui\\frmorderstatusupdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|solutionrelative:gui\\frmorderstatusupdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|d:\\teamworking\\theciu_shop_desktop\\gui\\frmproductmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|d:\\teamworking\\theciu_shop_desktop\\gui\\frmordermanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|solutionrelative:gui\\frmordermanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\gui\\frmproductmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|solutionrelative:gui\\frmproductmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|d:\\teamworking\\theciu_shop_desktop\\gui\\frmmain.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|d:\\teamworking\\theciu_shop_desktop\\gui\\frmreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|solutionrelative:gui\\frmreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\gui\\frmreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|solutionrelative:gui\\frmreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C0DF494-832A-401F-AE04-6BE14A7A2477}|Ultis\\Ultis.csproj|d:\\teamworking\\theciu_shop_desktop\\ultis\\excelhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C0DF494-832A-401F-AE04-6BE14A7A2477}|Ultis\\Ultis.csproj|solutionrelative:ultis\\excelhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|GUI||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\gui\\frmreport.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|solutionrelative:gui\\frmreport.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA6D49F7-88B7-4637-AA69-B2E6CF151E99}|BLL\\BLL.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\bll\\reportbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA6D49F7-88B7-4637-AA69-B2E6CF151E99}|BLL\\BLL.csproj|solutionrelative:bll\\reportbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2208BB36-3FC5-45E0-B8E3-4B5AF856E66F}|DAL\\DAL.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\dal\\orderdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2208BB36-3FC5-45E0-B8E3-4B5AF856E66F}|DAL\\DAL.csproj|solutionrelative:dal\\orderdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2208BB36-3FC5-45E0-B8E3-4B5AF856E66F}|DAL\\DAL.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\dal\\productdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2208BB36-3FC5-45E0-B8E3-4B5AF856E66F}|DAL\\DAL.csproj|solutionrelative:dal\\productdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F085F246-356E-40AB-AB5D-4F4932876ACA}|DTO\\DTO.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\dto\\revenuedetailfulldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F085F246-356E-40AB-AB5D-4F4932876ACA}|DTO\\DTO.csproj|solutionrelative:dto\\revenuedetailfulldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F085F246-356E-40AB-AB5D-4F4932876ACA}|DTO\\DTO.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\dto\\categoryrevenuedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F085F246-356E-40AB-AB5D-4F4932876ACA}|DTO\\DTO.csproj|solutionrelative:dto\\categoryrevenuedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F085F246-356E-40AB-AB5D-4F4932876ACA}|DTO\\DTO.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\dto\\productrevenuedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F085F246-356E-40AB-AB5D-4F4932876ACA}|DTO\\DTO.csproj|solutionrelative:dto\\productrevenuedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\gui\\frmstockmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|solutionrelative:gui\\frmstockmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F085F246-356E-40AB-AB5D-4F4932876ACA}|DTO\\DTO.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\dto\\revenuedetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F085F246-356E-40AB-AB5D-4F4932876ACA}|DTO\\DTO.csproj|solutionrelative:dto\\revenuedetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F085F246-356E-40AB-AB5D-4F4932876ACA}|DTO\\DTO.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\dto\\customerdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F085F246-356E-40AB-AB5D-4F4932876ACA}|DTO\\DTO.csproj|solutionrelative:dto\\customerdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2208BB36-3FC5-45E0-B8E3-4B5AF856E66F}|DAL\\DAL.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\dal\\voucherdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2208BB36-3FC5-45E0-B8E3-4B5AF856E66F}|DAL\\DAL.csproj|solutionrelative:dal\\voucherdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\gui\\frmstockmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|solutionrelative:gui\\frmstockmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\gui\\frmproductmanagement.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|solutionrelative:gui\\frmproductmanagement.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\gui\\frmproductmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|solutionrelative:gui\\frmproductmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA6D49F7-88B7-4637-AA69-B2E6CF151E99}|BLL\\BLL.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\bll\\productbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA6D49F7-88B7-4637-AA69-B2E6CF151E99}|BLL\\BLL.csproj|solutionrelative:bll\\productbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\gui\\frmmain.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|solutionrelative:gui\\frmmain.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|d:\\teamworking\\theciu_shop_desktop\\gui\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\gui\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|solutionrelative:gui\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|d:\\teamworking\\theciu_shop_desktop\\gui\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\gui\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|solutionrelative:gui\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -47,19 +126,8 @@
       "RelativeMoniker": "D:0:0:{F085F246-356E-40AB-AB5D-4F4932876ACA}|DTO\\DTO.csproj|solutionrelative:dto\\quanlyshop.dbml||{B465B5AD-8799-4507-B90A-EE29ACF36AF9}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|GUI||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\gui\\frmdistributevoucher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|solutionrelative:gui\\frmdistributevoucher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\gui\\frmdistributevoucher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{13E7D730-EF22-4059-B4B1-662F088CCD5B}|GUI\\GUI.csproj|solutionrelative:gui\\frmdistributevoucher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2208BB36-3FC5-45E0-B8E3-4B5AF856E66F}|DAL\\DAL.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\dal\\voucherdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2208BB36-3FC5-45E0-B8E3-4B5AF856E66F}|DAL\\DAL.csproj|solutionrelative:dal\\voucherdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FA6D49F7-88B7-4637-AA69-B2E6CF151E99}|BLL\\BLL.csproj|D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\bll\\voucherbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -109,244 +177,192 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 5,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ProductBLL.cs",
-              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\BLL\\ProductBLL.cs",
-              "RelativeDocumentMoniker": "BLL\\ProductBLL.cs",
-              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\BLL\\ProductBLL.cs",
-              "RelativeToolTip": "BLL\\ProductBLL.cs",
-              "ViewState": "AgIAAO8AAAAAAAAAAAAAAAMBAAANAAAAAAAAAA==",
+              "DocumentIndex": 18,
+              "Title": "ProductRevenueDTO.cs",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\DTO\\ProductRevenueDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\ProductRevenueDTO.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\DTO\\ProductRevenueDTO.cs",
+              "RelativeToolTip": "DTO\\ProductRevenueDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T06:53:06.505Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "FrmStockManagement.cs [Design]",
-              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmStockManagement.cs",
-              "RelativeDocumentMoniker": "GUI\\FrmStockManagement.cs",
-              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmStockManagement.cs [Design]",
-              "RelativeToolTip": "GUI\\FrmStockManagement.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T06:48:02.001Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "FrmMain.cs",
-              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmMain.cs",
-              "RelativeDocumentMoniker": "GUI\\FrmMain.cs",
-              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmMain.cs",
-              "RelativeToolTip": "GUI\\FrmMain.cs",
-              "ViewState": "AgIAAH8AAAAAAAAAAAAtwJIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T06:16:31.266Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "FrmMain.cs [Design]",
-              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmMain.cs",
-              "RelativeDocumentMoniker": "GUI\\FrmMain.cs",
-              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmMain.cs [Design]",
-              "RelativeToolTip": "GUI\\FrmMain.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T06:16:28.285Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FrmProductManagement.Designer.cs",
-              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmProductManagement.Designer.cs",
-              "RelativeDocumentMoniker": "GUI\\FrmProductManagement.Designer.cs",
-              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmProductManagement.Designer.cs",
-              "RelativeToolTip": "GUI\\FrmProductManagement.Designer.cs",
-              "ViewState": "AgIAAGcBAAAAAAAAAAAYwIIBAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T06:14:20.839Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "FrmProductManagement.cs",
-              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmProductManagement.cs",
-              "RelativeDocumentMoniker": "GUI\\FrmProductManagement.cs",
-              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmProductManagement.cs",
-              "RelativeToolTip": "GUI\\FrmProductManagement.cs",
-              "ViewState": "AgIAAGEAAAAAAAAAAAAIwGoAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T06:12:50.723Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FrmStockManagement.cs",
-              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmStockManagement.cs",
-              "RelativeDocumentMoniker": "GUI\\FrmStockManagement.cs",
-              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmStockManagement.cs",
-              "RelativeToolTip": "GUI\\FrmStockManagement.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAAwB4AAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T06:48:03.579Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ProductDAL.cs",
-              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\DAL\\ProductDAL.cs",
-              "RelativeDocumentMoniker": "DAL\\ProductDAL.cs",
-              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\DAL\\ProductDAL.cs",
-              "RelativeToolTip": "DAL\\ProductDAL.cs",
-              "ViewState": "AgIAAKgAAAAAAAAAAIA4wLYAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T07:05:49.127Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "FrmMain.Designer.cs",
-              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmMain.Designer.cs",
-              "RelativeDocumentMoniker": "GUI\\FrmMain.Designer.cs",
-              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmMain.Designer.cs",
-              "RelativeToolTip": "GUI\\FrmMain.Designer.cs",
-              "ViewState": "AgIAAIYAAAAAAAAAAAAswJIAAAA/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T06:17:41.493Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "FrmProductManagement.cs [Design]",
-              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmProductManagement.cs",
-              "RelativeDocumentMoniker": "GUI\\FrmProductManagement.cs",
-              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmProductManagement.cs [Design]",
-              "RelativeToolTip": "GUI\\FrmProductManagement.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T06:11:36.441Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "QuanLyShop.dbml",
-              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\DTO\\QuanLyShop.dbml",
-              "RelativeDocumentMoniker": "DTO\\QuanLyShop.dbml",
-              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\DTO\\QuanLyShop.dbml",
-              "RelativeToolTip": "DTO\\QuanLyShop.dbml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001722|",
-              "WhenOpened": "2024-12-10T05:40:09.793Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "FrmDistributeVoucher.Designer.cs",
-              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmDistributeVoucher.Designer.cs",
-              "RelativeDocumentMoniker": "GUI\\FrmDistributeVoucher.Designer.cs",
-              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmDistributeVoucher.Designer.cs",
-              "RelativeToolTip": "GUI\\FrmDistributeVoucher.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T01:14:47.709Z"
+              "WhenOpened": "2024-12-12T08:44:30.954Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 20,
-              "Title": "CustomerData.cs",
-              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\MLIntegration\\Models\\CustomerData.cs",
-              "RelativeDocumentMoniker": "MLIntegration\\Models\\CustomerData.cs",
-              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\MLIntegration\\Models\\CustomerData.cs",
-              "RelativeToolTip": "MLIntegration\\Models\\CustomerData.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAQwBIAAAAAAAAAAAAAAA==",
+              "Title": "RevenueDetailDTO.cs",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\DTO\\RevenueDetailDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\RevenueDetailDTO.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\DTO\\RevenueDetailDTO.cs",
+              "RelativeToolTip": "DTO\\RevenueDetailDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T01:25:40.789Z"
+              "WhenOpened": "2024-12-12T08:38:38.878Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "CustomerPrediction.cs",
-              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\MLIntegration\\Models\\CustomerPrediction.cs",
-              "RelativeDocumentMoniker": "MLIntegration\\Models\\CustomerPrediction.cs",
-              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\MLIntegration\\Models\\CustomerPrediction.cs",
-              "RelativeToolTip": "MLIntegration\\Models\\CustomerPrediction.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T01:47:34.416Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 2,
               "Title": "FrmDistributeVoucher.cs [Design]",
               "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmDistributeVoucher.cs",
               "RelativeDocumentMoniker": "GUI\\FrmDistributeVoucher.cs",
               "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmDistributeVoucher.cs [Design]",
               "RelativeToolTip": "GUI\\FrmDistributeVoucher.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T01:14:48.481Z"
+              "WhenOpened": "2024-12-10T01:14:48.481Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "VoucherBLL.cs",
-              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\BLL\\VoucherBLL.cs",
-              "RelativeDocumentMoniker": "BLL\\VoucherBLL.cs",
-              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\BLL\\VoucherBLL.cs",
-              "RelativeToolTip": "BLL\\VoucherBLL.cs",
-              "ViewState": "AgIAAEYAAAAAAAAAAAAmwF0AAAAQAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "FrmOrderStatusUpdate.Designer.cs",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmOrderStatusUpdate.Designer.cs",
+              "RelativeDocumentMoniker": "GUI\\FrmOrderStatusUpdate.Designer.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmOrderStatusUpdate.Designer.cs",
+              "RelativeToolTip": "GUI\\FrmOrderStatusUpdate.Designer.cs",
+              "ViewState": "AgIAAFMAAAAAAAAAAIAwwI0AAACcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T02:54:20.672Z"
+              "WhenOpened": "2024-12-12T13:40:43.523Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "VoucherDAL.cs",
-              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\DAL\\VoucherDAL.cs",
-              "RelativeDocumentMoniker": "DAL\\VoucherDAL.cs",
-              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\DAL\\VoucherDAL.cs",
-              "RelativeToolTip": "DAL\\VoucherDAL.cs",
-              "ViewState": "AgIAAFcAAAAAAAAAAAAAwHsAAAAQAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "FrmVoucherManagement.cs [Design]",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmVoucherManagement.cs",
+              "RelativeDocumentMoniker": "GUI\\FrmVoucherManagement.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmVoucherManagement.cs [Design]",
+              "RelativeToolTip": "GUI\\FrmVoucherManagement.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T04:06:10.746Z"
+              "WhenOpened": "2024-12-12T08:46:47.576Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "FrmDistributeVoucher.cs",
-              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmDistributeVoucher.cs",
-              "RelativeDocumentMoniker": "GUI\\FrmDistributeVoucher.cs",
-              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmDistributeVoucher.cs",
-              "RelativeToolTip": "GUI\\FrmDistributeVoucher.cs",
-              "ViewState": "AgIAAKkAAAAAAAAAAAAkwLsAAAAVAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "FrmVoucherManagement.cs",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmVoucherManagement.cs",
+              "RelativeDocumentMoniker": "GUI\\FrmVoucherManagement.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmVoucherManagement.cs",
+              "RelativeToolTip": "GUI\\FrmVoucherManagement.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwBIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T01:14:49.781Z"
+              "WhenOpened": "2024-12-10T07:45:16.782Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 17,
-              "Title": "ClusteredCustomerDTO.cs",
-              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\DTO\\ClusteredCustomerDTO.cs",
-              "RelativeDocumentMoniker": "DTO\\ClusteredCustomerDTO.cs",
-              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\DTO\\ClusteredCustomerDTO.cs",
-              "RelativeToolTip": "DTO\\ClusteredCustomerDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Title": "CategoryRevenueDTO.cs",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\DTO\\CategoryRevenueDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\CategoryRevenueDTO.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\DTO\\CategoryRevenueDTO.cs",
+              "RelativeToolTip": "DTO\\CategoryRevenueDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T05:06:22.363Z"
+              "WhenOpened": "2024-12-12T08:45:28.332Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ExcelHelper.cs",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\Ultis\\ExcelHelper.cs",
+              "RelativeDocumentMoniker": "Ultis\\ExcelHelper.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\Ultis\\ExcelHelper.cs",
+              "RelativeToolTip": "Ultis\\ExcelHelper.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAjwCoAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T13:32:57.513Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FrmOrderStatusUpdate.cs [Design]",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmOrderStatusUpdate.cs",
+              "RelativeDocumentMoniker": "GUI\\FrmOrderStatusUpdate.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmOrderStatusUpdate.cs [Design]",
+              "RelativeToolTip": "GUI\\FrmOrderStatusUpdate.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T13:35:04.115Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FrmOrderManagement.cs [Design]",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmOrderManagement.cs",
+              "RelativeDocumentMoniker": "GUI\\FrmOrderManagement.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmOrderManagement.cs [Design]",
+              "RelativeToolTip": "GUI\\FrmOrderManagement.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T13:35:05.245Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FrmOrderStatusUpdate.cs",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmOrderStatusUpdate.cs",
+              "RelativeDocumentMoniker": "GUI\\FrmOrderStatusUpdate.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmOrderStatusUpdate.cs",
+              "RelativeToolTip": "GUI\\FrmOrderStatusUpdate.cs",
+              "ViewState": "AgIAAGkCAAAAAAAAAAApwG4CAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T13:41:11.511Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ReportBLL.cs",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\BLL\\ReportBLL.cs",
+              "RelativeDocumentMoniker": "BLL\\ReportBLL.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\BLL\\ReportBLL.cs",
+              "RelativeToolTip": "BLL\\ReportBLL.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAnwBoAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T08:37:33.372Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "FrmReport.cs [Design]",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmReport.cs",
+              "RelativeDocumentMoniker": "GUI\\FrmReport.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmReport.cs [Design]",
+              "RelativeToolTip": "GUI\\FrmReport.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T08:36:42.661Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "FrmReport.Designer.cs",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmReport.Designer.cs",
+              "RelativeDocumentMoniker": "GUI\\FrmReport.Designer.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmReport.Designer.cs",
+              "RelativeToolTip": "GUI\\FrmReport.Designer.cs",
+              "ViewState": "AgIAAKsAAAAAAAAAAAAswN0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T08:52:17.169Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "FrmReport.cs",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmReport.cs",
+              "RelativeDocumentMoniker": "GUI\\FrmReport.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmReport.cs",
+              "RelativeToolTip": "GUI\\FrmReport.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAcwBYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T08:36:10.453Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -361,7 +377,260 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 7,
+              "Title": "FrmProductManagement.cs [Design]",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmProductManagement.cs",
+              "RelativeDocumentMoniker": "GUI\\FrmProductManagement.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmProductManagement.cs [Design]",
+              "RelativeToolTip": "GUI\\FrmProductManagement.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T06:11:36.441Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "RevenueDetailFullDTO.cs",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\DTO\\RevenueDetailFullDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\RevenueDetailFullDTO.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\DTO\\RevenueDetailFullDTO.cs",
+              "RelativeToolTip": "DTO\\RevenueDetailFullDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T08:45:58.44Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "CustomerDetailDTO.cs",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\DTO\\CustomerDetailDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\CustomerDetailDTO.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\DTO\\CustomerDetailDTO.cs",
+              "RelativeToolTip": "DTO\\CustomerDetailDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T08:38:25.283Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "OrderDAL.cs",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\DAL\\OrderDAL.cs",
+              "RelativeDocumentMoniker": "DAL\\OrderDAL.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\DAL\\OrderDAL.cs",
+              "RelativeToolTip": "DAL\\OrderDAL.cs",
+              "ViewState": "AgIAALgAAAAAAAAAAAAAALgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T07:41:00.963Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ProductDAL.cs",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\DAL\\ProductDAL.cs",
+              "RelativeDocumentMoniker": "DAL\\ProductDAL.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\DAL\\ProductDAL.cs",
+              "RelativeToolTip": "DAL\\ProductDAL.cs",
+              "ViewState": "AgIAALYAAAAAAAAAAAAAALYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T07:05:49.127Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "FrmStockManagement.cs [Design]",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmStockManagement.cs",
+              "RelativeDocumentMoniker": "GUI\\FrmStockManagement.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmStockManagement.cs [Design]",
+              "RelativeToolTip": "GUI\\FrmStockManagement.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T06:48:02.001Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "FrmMain.cs",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmMain.cs",
+              "RelativeDocumentMoniker": "GUI\\FrmMain.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmMain.cs",
+              "RelativeToolTip": "GUI\\FrmMain.cs",
+              "ViewState": "AgIAAH8AAAAAAAAAAAAtwJIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T06:16:31.266Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "FrmMain.cs [Design]",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmMain.cs",
+              "RelativeDocumentMoniker": "GUI\\FrmMain.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmMain.cs [Design]",
+              "RelativeToolTip": "GUI\\FrmMain.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T06:16:28.285Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "FrmProductManagement.Designer.cs",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmProductManagement.Designer.cs",
+              "RelativeDocumentMoniker": "GUI\\FrmProductManagement.Designer.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmProductManagement.Designer.cs",
+              "RelativeToolTip": "GUI\\FrmProductManagement.Designer.cs",
+              "ViewState": "AgIAAGcBAAAAAAAAAAAYwIIBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T06:14:20.839Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "FrmProductManagement.cs",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmProductManagement.cs",
+              "RelativeDocumentMoniker": "GUI\\FrmProductManagement.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmProductManagement.cs",
+              "RelativeToolTip": "GUI\\FrmProductManagement.cs",
+              "ViewState": "AgIAAGEAAAAAAAAAAAAIwGoAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T06:12:50.723Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "FrmStockManagement.cs",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmStockManagement.cs",
+              "RelativeDocumentMoniker": "GUI\\FrmStockManagement.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmStockManagement.cs",
+              "RelativeToolTip": "GUI\\FrmStockManagement.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAwB4AAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T06:48:03.579Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "FrmMain.Designer.cs",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmMain.Designer.cs",
+              "RelativeDocumentMoniker": "GUI\\FrmMain.Designer.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmMain.Designer.cs",
+              "RelativeToolTip": "GUI\\FrmMain.Designer.cs",
+              "ViewState": "AgIAAIYAAAAAAAAAAAAswJIAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T06:17:41.493Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "VoucherDAL.cs",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\DAL\\VoucherDAL.cs",
+              "RelativeDocumentMoniker": "DAL\\VoucherDAL.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\DAL\\VoucherDAL.cs",
+              "RelativeToolTip": "DAL\\VoucherDAL.cs",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAAwHAAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T04:06:10.746Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "ProductBLL.cs",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\BLL\\ProductBLL.cs",
+              "RelativeDocumentMoniker": "BLL\\ProductBLL.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\BLL\\ProductBLL.cs",
+              "RelativeToolTip": "BLL\\ProductBLL.cs",
+              "ViewState": "AgIAAO8AAAAAAAAAAAAAAAMBAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T06:53:06.505Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "QuanLyShop.dbml",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\DTO\\QuanLyShop.dbml",
+              "RelativeDocumentMoniker": "DTO\\QuanLyShop.dbml",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\DTO\\QuanLyShop.dbml",
+              "RelativeToolTip": "DTO\\QuanLyShop.dbml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001722|",
+              "WhenOpened": "2024-12-10T05:40:09.793Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "FrmDistributeVoucher.Designer.cs",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmDistributeVoucher.Designer.cs",
+              "RelativeDocumentMoniker": "GUI\\FrmDistributeVoucher.Designer.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmDistributeVoucher.Designer.cs",
+              "RelativeToolTip": "GUI\\FrmDistributeVoucher.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T01:14:47.709Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "CustomerData.cs",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\MLIntegration\\Models\\CustomerData.cs",
+              "RelativeDocumentMoniker": "MLIntegration\\Models\\CustomerData.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\MLIntegration\\Models\\CustomerData.cs",
+              "RelativeToolTip": "MLIntegration\\Models\\CustomerData.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAQwBIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T01:25:40.789Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "CustomerPrediction.cs",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\MLIntegration\\Models\\CustomerPrediction.cs",
+              "RelativeDocumentMoniker": "MLIntegration\\Models\\CustomerPrediction.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\MLIntegration\\Models\\CustomerPrediction.cs",
+              "RelativeToolTip": "MLIntegration\\Models\\CustomerPrediction.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T01:47:34.416Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "VoucherBLL.cs",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\BLL\\VoucherBLL.cs",
+              "RelativeDocumentMoniker": "BLL\\VoucherBLL.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\BLL\\VoucherBLL.cs",
+              "RelativeToolTip": "BLL\\VoucherBLL.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAmwF0AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T02:54:20.672Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "FrmDistributeVoucher.cs",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmDistributeVoucher.cs",
+              "RelativeDocumentMoniker": "GUI\\FrmDistributeVoucher.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmDistributeVoucher.cs",
+              "RelativeToolTip": "GUI\\FrmDistributeVoucher.cs",
+              "ViewState": "AgIAAKkAAAAAAAAAAAAkwLsAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T01:14:49.781Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "ClusteredCustomerDTO.cs",
+              "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\DTO\\ClusteredCustomerDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\ClusteredCustomerDTO.cs",
+              "ToolTip": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\DTO\\ClusteredCustomerDTO.cs",
+              "RelativeToolTip": "DTO\\ClusteredCustomerDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T05:06:22.363Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
               "Title": "FrmLogin.cs [Design]",
               "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\GUI\\FrmLogin.cs",
               "RelativeDocumentMoniker": "GUI\\FrmLogin.cs",
@@ -372,7 +641,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 36,
               "Title": "ClusteringService.cs",
               "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\MLIntegration\\Services\\ClusteringService.cs",
               "RelativeDocumentMoniker": "MLIntegration\\Services\\ClusteringService.cs",
@@ -384,7 +653,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 40,
               "Title": "FeatureExtractor.cs",
               "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\MLIntegration\\Data\\FeatureExtractor.cs",
               "RelativeDocumentMoniker": "MLIntegration\\Data\\FeatureExtractor.cs",
@@ -396,7 +665,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 39,
               "Title": "ModelPersistenceService.cs",
               "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\MLIntegration\\Services\\ModelPersistenceService.cs",
               "RelativeDocumentMoniker": "MLIntegration\\Services\\ModelPersistenceService.cs",
@@ -408,7 +677,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 41,
               "Title": "NormalizationHelper.cs",
               "DocumentMoniker": "D:\\TEAMWORKING\\TheCIU_Shop_Desktop\\MLIntegration\\Utilities\\NormalizationHelper.cs",
               "RelativeDocumentMoniker": "MLIntegration\\Utilities\\NormalizationHelper.cs",

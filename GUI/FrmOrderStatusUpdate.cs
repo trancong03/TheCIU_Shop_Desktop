@@ -46,6 +46,63 @@ namespace GUI
             LoadStatusOptions();
             LoadOrdersByStatus();
 
+            btnSearchCompletedOrders.Click += BtnSearchCompletedOrders_Click;
+            btnSearchConfirmedOrders.Click += BtnSearchConfirmedOrders_Click;
+            btnSearchPendingOrders.Click += BtnSearchPendingOrders_Click;
+            btnSearchShippingOrders.Click += BtnSearchShippingOrders_Click;
+
+        }
+        private void BtnSearchPendingOrders_Click(object sender, EventArgs e)
+        {
+            string searchText = txtSearchPendingOrders.Text.Trim().ToLower();
+            FilterDataGridView(dataGridViewPendingOrders, searchText);
+        }
+
+        private void BtnSearchConfirmedOrders_Click(object sender, EventArgs e)
+        {
+            string searchText = txtSearchConfirmedOrders.Text.Trim().ToLower();
+            FilterDataGridView(dataGridViewConfirmedOrders, searchText);
+        }
+
+        private void BtnSearchShippingOrders_Click(object sender, EventArgs e)
+        {
+            string searchText = txtSearchShippingOrders.Text.Trim().ToLower();
+            FilterDataGridView(dataGridViewShippingOrders, searchText);
+        }
+
+        private void BtnSearchCompletedOrders_Click(object sender, EventArgs e)
+        {
+            string searchText = txtSearchCompletedOrders.Text.Trim().ToLower();
+            FilterDataGridView(dataGridViewConfirmedOrders, searchText);
+        }
+        private void FilterDataGridView(DataGridView dgv, string searchText)
+        {
+            if (string.IsNullOrEmpty(searchText))
+            {
+                // Hiển thị toàn bộ dữ liệu nếu không nhập từ khóa
+                foreach (DataGridViewRow row in dgv.Rows)
+                {
+                    row.Visible = true;
+                }
+                return;
+            }
+
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                // Lọc dựa trên các cột (bạn có thể tùy chỉnh cột tìm kiếm)
+                bool isMatch = false;
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if (cell.Value != null && cell.Value.ToString().ToLower().Contains(searchText))
+                    {
+                        isMatch = true;
+                        break;
+                    }
+                }
+
+                // Hiển thị hoặc ẩn hàng dựa trên kết quả tìm kiếm
+                row.Visible = isMatch;
+            }
         }
 
         private void ActionControl_SearchClicked(object sender, EventArgs e)
@@ -566,6 +623,5 @@ namespace GUI
 
             dataGridViewOrderDetails.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
-
     }
 }

@@ -21,6 +21,7 @@ namespace GUI
         {
             this.components = new System.ComponentModel.Container();
             this.pnlControls = new System.Windows.Forms.Panel();
+            this.btnLoadDistributeData = new System.Windows.Forms.Button();
             this.lblClusterCustomer = new System.Windows.Forms.Label();
             this.cboClusterCustomer = new System.Windows.Forms.ComboBox();
             this.cboVoucher = new System.Windows.Forms.ComboBox();
@@ -32,7 +33,7 @@ namespace GUI
             this.dgvCustomerClusters = new System.Windows.Forms.DataGridView();
             this.customerPredictionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgvDistributeVoucher = new System.Windows.Forms.DataGridView();
-            this.btnLoadDistributeData = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnlControls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerClusters)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerPredictionBindingSource)).BeginInit();
@@ -41,6 +42,7 @@ namespace GUI
             // 
             // pnlControls
             // 
+            this.pnlControls.Controls.Add(this.label1);
             this.pnlControls.Controls.Add(this.btnLoadDistributeData);
             this.pnlControls.Controls.Add(this.lblClusterCustomer);
             this.pnlControls.Controls.Add(this.cboClusterCustomer);
@@ -54,6 +56,18 @@ namespace GUI
             this.pnlControls.Name = "pnlControls";
             this.pnlControls.Size = new System.Drawing.Size(1498, 120);
             this.pnlControls.TabIndex = 0;
+            // 
+            // btnLoadDistributeData
+            // 
+            this.btnLoadDistributeData.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnLoadDistributeData.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoadDistributeData.Location = new System.Drawing.Point(1286, 30);
+            this.btnLoadDistributeData.Name = "btnLoadDistributeData";
+            this.btnLoadDistributeData.Size = new System.Drawing.Size(200, 31);
+            this.btnLoadDistributeData.TabIndex = 7;
+            this.btnLoadDistributeData.Text = "Load Dữ liệu Khách Hàng";
+            this.btnLoadDistributeData.UseVisualStyleBackColor = true;
+            this.btnLoadDistributeData.Click += new System.EventHandler(this.btnLoadDistributeData_Click);
             // 
             // lblClusterCustomer
             // 
@@ -105,7 +119,7 @@ namespace GUI
             "3",
             "4",
             "5"});
-            this.cboClusterNumber.Location = new System.Drawing.Point(342, 31);
+            this.cboClusterNumber.Location = new System.Drawing.Point(181, 86);
             this.cboClusterNumber.Name = "cboClusterNumber";
             this.cboClusterNumber.Size = new System.Drawing.Size(189, 31);
             this.cboClusterNumber.TabIndex = 3;
@@ -115,7 +129,7 @@ namespace GUI
             this.lblClusterNumber.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblClusterNumber.AutoSize = true;
             this.lblClusterNumber.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClusterNumber.Location = new System.Drawing.Point(186, 34);
+            this.lblClusterNumber.Location = new System.Drawing.Point(25, 89);
             this.lblClusterNumber.Name = "lblClusterNumber";
             this.lblClusterNumber.Size = new System.Drawing.Size(159, 23);
             this.lblClusterNumber.TabIndex = 2;
@@ -137,7 +151,7 @@ namespace GUI
             // 
             this.btnTrainModel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnTrainModel.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTrainModel.Location = new System.Drawing.Point(190, 87);
+            this.btnTrainModel.Location = new System.Drawing.Point(563, 87);
             this.btnTrainModel.Name = "btnTrainModel";
             this.btnTrainModel.Size = new System.Drawing.Size(188, 30);
             this.btnTrainModel.TabIndex = 0;
@@ -148,7 +162,8 @@ namespace GUI
             // dgvCustomerClusters
             // 
             this.dgvCustomerClusters.AllowUserToDeleteRows = false;
-            this.dgvCustomerClusters.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dgvCustomerClusters.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.dgvCustomerClusters.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCustomerClusters.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCustomerClusters.Location = new System.Drawing.Point(12, 126);
@@ -162,7 +177,9 @@ namespace GUI
             // dgvDistributeVoucher
             // 
             this.dgvDistributeVoucher.AllowUserToDeleteRows = false;
-            this.dgvDistributeVoucher.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dgvDistributeVoucher.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDistributeVoucher.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDistributeVoucher.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDistributeVoucher.Location = new System.Drawing.Point(759, 126);
@@ -173,17 +190,15 @@ namespace GUI
             this.dgvDistributeVoucher.Size = new System.Drawing.Size(727, 411);
             this.dgvDistributeVoucher.TabIndex = 2;
             // 
-            // btnLoadDistributeData
+            // label1
             // 
-            this.btnLoadDistributeData.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnLoadDistributeData.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLoadDistributeData.Location = new System.Drawing.Point(1286, 30);
-            this.btnLoadDistributeData.Name = "btnLoadDistributeData";
-            this.btnLoadDistributeData.Size = new System.Drawing.Size(200, 31);
-            this.btnLoadDistributeData.TabIndex = 7;
-            this.btnLoadDistributeData.Text = "Load Dữ liệu Khách Hàng";
-            this.btnLoadDistributeData.UseVisualStyleBackColor = true;
-            this.btnLoadDistributeData.Click += new System.EventHandler(this.btnLoadDistributeData_Click);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(147, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(384, 32);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "PHÂN CỤM KHÁCH HÀNG";
             // 
             // FrmDistributeVoucher
             // 
@@ -219,5 +234,6 @@ namespace GUI
         private System.Windows.Forms.DataGridView dgvDistributeVoucher;
         private System.Windows.Forms.Label lblClusterCustomer;
         private System.Windows.Forms.Button btnLoadDistributeData;
+        private System.Windows.Forms.Label label1;
     }
 }

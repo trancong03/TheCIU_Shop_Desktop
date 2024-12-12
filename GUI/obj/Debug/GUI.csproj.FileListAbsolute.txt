@@ -101,3 +101,7 @@ D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\obj\Debug\GUI.csproj.CoreCompileInputs.ca
 D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\obj\Debug\GUI.csproj.Up2Date
 D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\obj\Debug\GUI.exe
 D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\obj\Debug\GUI.pdb
+D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\bin\Debug\BouncyCastle.Cryptography.dll
+D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\bin\Debug\itextsharp.dll
+D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\bin\Debug\BouncyCastle.Cryptography.xml
+D:\TEAMWORKING\TheCIU_Shop_Desktop\GUI\bin\Debug\itextsharp.xml

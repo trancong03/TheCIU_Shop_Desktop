@@ -3,6 +3,7 @@
 This project is a Windows Forms-based application designed for managing a clothing shop. It utilizes a multi-tier architecture and incorporates various advanced features, including custom controls, validation, and AI-based customer segmentation.
 
 ---
+## Author : Zohanubis
 
 ## Project Structure
 
